@@ -7,6 +7,63 @@
     <link rel="stylesheet" href="/design/register.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="image">
+            <img src="/assets/register.png" alt="">
+        </div>
+        <div class="registerform">
+            <div class="head">
+                <h1>Create an account</h1>
+                <div class="line">
+                    <div class="underline"></div>
+                </div>
+            </div>
+            <form>
+                <label for="firstname">First name:
+                    <input type="text" placeholder="" id="firstname">
+                </label>
+                
+                <label for="lastname">Last name:
+                    <input type="text" placeholder="" id="lastname">
+                </label>
+            </form>
+            
+            <form>
+                   <label for="email">Email:
+                    <input type="email" placeholder="" id="registeremail">
+                </label>
+                
+                <label for="number">Phone no:
+                    <input type="text" placeholder="" id="number">
+                </label>
+            </form>
+            
+            <form>
+
+                <label for="country"> Country:
+                    <input type="text" placeholder="" id="country">
+                </label>
+                
+                <label for="city">City:
+                    <input type="text" placeholder="" id="city">
+                </label>
+            </form>
+            <form>
+                <label for="password">Password:
+                    <input type="password" placeholder="" id="password">
+                </label>
+                
+                <label for="confirmPassword">Re-type Password: 
+                    <input type="password" placeholder="" id="confirmPassword">
+                </label>
+
+            </form>
+            <div class="registerButton">
+                <button id="registerbutton" onclick="register()">Create an account</button>
+            </div>
+            
+        </div>
+    </div>
+    <script src="/script.js"></script>
 </body>
 </html>
