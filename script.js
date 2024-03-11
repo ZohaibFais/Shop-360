@@ -18,35 +18,50 @@ function register() {
         !(confirmPassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/))) {
         alert("Password is not up to the criteria");
     }
-    else if (registerPassword.value != confirmPassword.value) {
+    else if (registerPassword.value !== confirmPassword.value) {
         alert("Password does not match");
     }
     else {
-        var registersuser = JSON.parse(localStorage.getItem('Data')) || [];
+        var registersData = JSON.parse(localStorage.getItem('Data')) || [];
+        if (!Array.isArray(registersData)) {
+            registersData = [];
+        }
 
-        var registerData = {
-            firstname: firstname.value,
-            lastname: lastname.value,
-            registeremail: registeremail.value,
-            number: number.value,
-            country: country.value,
-            city: city.value,
-            registerPassword: registerPassword.value
-        };
+        var alreadylogin = registersData.find(function(user) {
+            return user.registeremail == registeremail.value
+        }); 
+        
+        if(alreadylogin){
+            alert("Email is already register")
+        }
+        else{
+            var registerData = {
+                firstname: firstname.value,
+                lastname: lastname.value,
+                registeremail: registeremail.value,
+                number: number.value,
+                country: country.value,
+                city: city.value,
+                registerPassword: registerPassword.value
+            };
+    
+            registersData.push(registerData);
+    
+            localStorage.setItem('Data', JSON.stringify(registersData));
+    
+            firstname.value = "";
+            lastname.value = "";
+            registeremail.value = "";
+            number.value = "";
+            country.value = "";
+            city.value = "";
+            registerPassword.value = "";
+            confirmPassword.value = "";
+    
+            alert("Your account has been successfully registered");
+            window.location.href = "http://127.0.0.1:5500/login.html"
+        }
+        }
 
-        registersuser.push(registerData);
-
-        localStorage.setItem('Data', JSON.stringify(registersuser));
-
-        firstname.value = "";
-        lastname.value = "";
-        registeremail.value = "";
-        number.value = "";
-        country.value = "";
-        city.value = "";
-        registerPassword.value = "";
-        confirmPassword.value = "";
-
-        alert("Your account has been successfully registered");
-    }
+      
 }

@@ -92,14 +92,33 @@ input{
     cursor: pointer;
 
 }
-
+@media screen and (max-width:780px)  {
+    .image{
+        display: none;
+    }
+    .registerform{
+        width: 100%;
+    }
+    form{
+        width: 100%;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .registerButton{
+        display: flex;
+        justify-content: center;
+    }
+    #registerbutton{
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
+}
 @media screen and (max-width:430px) {
     .container{
         flex-wrap: wrap;
     }
     .image {
-        width: 80%;
-        margin: 7px 10px 0px 44px;
+        display: none;
     }
     .registerform{
         margin-top: 30px;
@@ -113,7 +132,7 @@ input{
     form {
         width: 410px;
         flex-wrap: wrap;
-        padding: 0px 0px 0px 61px;
+        padding: 0px 0px 0px 14px;
         margin-bottom: 0px;
     }
     label{
@@ -125,7 +144,6 @@ input{
     #registerbutton {
         width: 271px;
         margin-top: 10px;
-        margin-left: 61px;
         margin-bottom: 20px;
     }
 
