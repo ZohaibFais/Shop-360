@@ -65,3 +65,36 @@ function register() {
 
       
 }
+
+function login(){
+    var loginemail = document.getElementById('loginemail')
+    var loginpassword = document.getElementById('loginpassword')
+
+
+    var registersData = JSON.parse(localStorage.getItem('Data')) 
+
+    if (!Array.isArray(registersData)) {
+        registersData = [];
+    }
+
+    var loggedinuser = registersData.find(function(user){
+        return user.registeremail == loginemail.value && user.registerPassword == loginpassword.value
+    });
+
+
+    if (loginemail.value == "" & loginpassword.value == ""){
+        alert("Empty form")
+    }
+    else if(loggedinuser){
+        alert("Successfully login")
+        loginemail.value = ""
+        loginpassword.value = ""
+    }
+    else{
+        alert("Invalid email or password")
+    }
+}
+
+function redirect1(){
+    window.location.href = "http://127.0.0.1:5500/register.html"
+}
