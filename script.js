@@ -104,14 +104,13 @@ if (window.location.href.includes("login.html")) {
             alert("Invalid email or password");
         }
     }
-} else {
+}
+else {
     var isLoggedIn = localStorage.getItem('IsLoggedIn');
     if (isLoggedIn) {
         hideButtons();
     }
 }
-
-
 
 function redirect1(){
     window.location.href = "http://127.0.0.1:5500/register.html"
@@ -121,3 +120,28 @@ function redirect1(){
 function redirect2(){
     window.location.href = "http://127.0.0.1:5500/login.html"
 }
+
+
+var dropdownIcon = document.getElementById('dropdownIcon');
+var dropdownContent = document.getElementById('dropdownContent');
+
+dropdownIcon.addEventListener('click', function() {
+    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+});
+
+var options = document.querySelectorAll('.option');
+options.forEach(function(option) {
+    option.addEventListener('click', function() {
+        var value = this.getAttribute('data-value');
+        
+        if (value === 'profile') {
+           
+          
+        } else if (value === 'logout') {
+        
+        }
+        dropdownContent.style.display = 'none';
+    });
+});
+
+
