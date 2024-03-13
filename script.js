@@ -66,35 +66,58 @@ function register() {
       
 }
 
-function login(){
-    var loginemail = document.getElementById('loginemail')
-    var loginpassword = document.getElementById('loginpassword')
-
-
-    var registersData = JSON.parse(localStorage.getItem('Data')) 
-
-    if (!Array.isArray(registersData)) {
-        registersData = [];
+function hideButtons() {
+    var signupButton = document.getElementById('signupButton');
+    var loginButton = document.getElementById('loginButton');
+    if (signupButton) {
+        signupButton.style.display = 'none';
     }
-
-    var loggedinuser = registersData.find(function(user){
-        return user.registeremail == loginemail.value && user.registerPassword == loginpassword.value
-    });
-
-
-    if (loginemail.value == "" & loginpassword.value == ""){
-        alert("Empty form")
-    }
-    else if(loggedinuser){
-        alert("Successfully login")
-        loginemail.value = ""
-        loginpassword.value = ""
-    }
-    else{
-        alert("Invalid email or password")
+    if (loginButton) {
+        loginButton.style.display = 'none';
     }
 }
 
+if (window.location.href.includes("login.html")) {
+    function login() {
+        var loginemail = document.getElementById('loginemail').value;
+        var loginpassword = document.getElementById('loginpassword').value;
+
+        var registersData = JSON.parse(localStorage.getItem('Data')) || [];
+
+        if (!Array.isArray(registersData)) {
+            registersData = [];
+        }
+
+        var loggedinuser = registersData.find(function(user) {
+            return user.registeremail === loginemail && user.registerPassword === loginpassword;
+        });
+
+        if (loginemail === "" || loginpassword === "") {
+            alert("Empty form");
+        } else if (loggedinuser) {
+            alert("Successfully logged in");
+            localStorage.setItem('LoggedInUser', JSON.stringify(loggedinuser));
+            localStorage.setItem('IsLoggedIn', true); 
+
+            window.location.href = "http://127.0.0.1:5500/home.html";
+        } else {
+            alert("Invalid email or password");
+        }
+    }
+} else {
+    var isLoggedIn = localStorage.getItem('IsLoggedIn');
+    if (isLoggedIn) {
+        hideButtons();
+    }
+}
+
+
+
 function redirect1(){
     window.location.href = "http://127.0.0.1:5500/register.html"
+}
+
+
+function redirect2(){
+    window.location.href = "http://127.0.0.1:5500/login.html"
 }
