@@ -8,7 +8,6 @@
 }
 .container{
     /* background: lightblue; */
-    width: 100%;
     height: 2994px;
 }
 
@@ -179,7 +178,7 @@ ul li {
 }
 
 .colorbox {
-    width: 1000px;
+    width: 76%;
     height: 521px;
     margin-top: 22px;
     margin-left: 127px;
@@ -191,35 +190,35 @@ ul li {
     display: flex;
     margin-top: 16px;
     /* background: palegreen; */
-    gap: 30px;
+    gap: 20px;
 }
 .ny{
-    width: 229.84px;
+    width: 15%;
     height: 34px;
     margin-top: 18px;
 }
 .cNBC{
     height: 67px;
-    width: 185px;
+    width: 15%;
 }
 #vogue{
-    width: 119px;
+    width: 15%;
     height: 32px;
     margin-top: 17px;
 }
 #vanity{
-    width: 152px;
+    width: 15%;
     height: 33px;
     margin-top: 17px;
 }
 
 .categories{
-    width: 85%;
+    width: 90%;
     height: 306px;
     margin-top: 100px;
     margin-left: 80px;
     gap: 36px;
-    background: palevioletred;
+    /* background: palevioletred; */
 }
 
 .cateTitle{
@@ -251,4 +250,295 @@ ul li {
     font-weight: 600;
     font-size: 36px;
     margin-top: 10px;
+}
+
+.clothboxes{
+    width: 100%;
+    height: 156px;
+    gap: 32px;
+    display: flex;
+    /* background: lightyellow; */
+    margin-top: 20px;
+    padding-left: 5px;
+}
+
+.cloth{
+    width: 222px;
+    height: 158px;
+    border-radius: 4px;
+    border: 1px solid #0000004D;
+    text-align: center;
+}
+.cloth:hover{
+    background: #E52E06;
+}
+.clothing{
+    margin-top: 23px;
+}
+.clothText{
+    margin-top: 35px;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 16px;
+}
+.products{
+    width: 90%;
+    height: 569px;
+    margin-top: 100px;
+    margin-left: 80px;
+    gap: 36px;
+    /* background: palevioletred; */
+}
+.prodTitle{
+    width: 126px;
+    height: 40px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    
+}
+
+
+.productBoxes{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background: lightyellow; */
+    margin-top: 20px;
+}
+
+.console, .pot, .led, .chair{
+    width: 24%;
+    height: 346px;
+    /* background-color:tomato; */
+}
+.image{
+    width: 99%;
+    height: 250px;
+    border-radius: 4px;
+    background-color: #C4C4C4;
+    display: flex;
+    justify-content: space-around;
+}
+.consoleimg{
+   width: 60%;
+   height: 152px;
+    margin-top: 55px;
+    margin-left: 30px;
+}
+
+.consoledetails{
+    width: 20%;
+    height: fit-content;
+    /* background-color: lightslategray; */
+    margin-top: 12px;
+    text-align: end;
+    margin-left: 0px;
+    margin-right: 10px;
+   
+}
+
+#fav{
+    margin-bottom: 5px;
+}
+
+.text{
+    /* background: palegreen; */
+    margin-top: 10px;
+}
+.main{
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.prname{
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 16px;
+    color: #989898;
+    margin-bottom: 7px;
+}
+
+.price{
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 16px;
+    color: #E52E06;
+}
+
+.potimg {
+    width: 60%;
+    height: 175px;
+    margin-top: 42px;
+    margin-left: 70px;
+}
+.potdetails {
+    margin-left: 17px;
+    width: 20%;
+    height: fit-content;
+    margin-top: 12px;
+    text-align: end;
+    margin-right: 10px;
+}
+
+.ledimg {
+    width: 66%;
+    height: 129px;
+    margin-top: 89px;
+    margin-left: 35px;
+}
+.leddetails {
+    margin-left: 4px;
+    width: 20%;
+    height: fit-content;
+    margin-top: 12px;
+    text-align: end;
+    margin-right: 10px;
+}
+
+.chairimg {
+    width: 64%;
+    height: 173px;
+    margin-top: 63px;
+    margin-left: 43px;
+}
+
+.chairdetails {
+    margin-left: 4px;
+    width: 20%;
+    height: fit-content;
+    margin-top: 12px;
+    text-align: end;
+    margin-right: 10px;
+}
+.viewAll{
+    width: 100%;
+    /* height: 30px; */
+    /* background: palegreen; */
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#viewAll{
+    border-radius: 62px;
+    border: 1px solid #0000001A;
+    background-color: white;
+    padding: 16px 54px 16px 54px;
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.why{
+    width: 98%;
+    /* background: palegreen; */
+}
+.whyHead{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 24px;
+    color: #2A254B;
+}
+.qualities{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.return{
+    width: 20%;
+    /* height: 80px; */
+    /* background: papayawhip; */
+    margin-left: 80px;
+}
+.returnHead{
+    /* background: pink; */
+    margin-bottom: 10px;
+}
+.returnHeadtext{
+    margin-top: 10px;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.returnText{
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 13px;
+    /* background: gray; */
+    color: #2A254B;
+}
+
+footer{
+    width: 100%;
+    height: 419px;
+    margin-top: 200px;
+    background: #EFF2F6;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 45px;
+
+}
+/* .newsletter{
+    background: plum;
+} */
+
+.newsHead{
+    font-family: 'public sans';
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.newsText{
+    margin-top: 20px;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.email-input-container {
+    position: relative;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.email-input {
+    padding: 10px 30px 10px 10px;
+    width: 400px; /* Adjust width as needed */
+    font-size: 16px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.signup-button {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    color: #000000;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-family: 'public sans';
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.lasttext{
+    display: flex;
+    justify-content: space-between;
+}
+.shopHead{
+    font-family: 'public sans';
+    font-weight: 600;
+    font-size: 16px;
 }
