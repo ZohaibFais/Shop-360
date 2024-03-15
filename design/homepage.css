@@ -6,10 +6,7 @@
     padding: 0px;
     box-sizing: border-box;
 }
-.container{
-    background: lightblue;
-    /* height: 2994px; */
-}
+
 
 #header{
     width: 100%;
@@ -151,7 +148,7 @@ ul li {
 
 .frame738{
     width: 100%;
-    height: 784px;
+    /* height: 784px; */
     /* background: lightcoral; */
     margin-top: 90px;
     text-align: center;
@@ -210,7 +207,6 @@ ul li {
 
 .categories{
     width: 90%;
-    height: 306px;
     margin-top: 100px;
     margin-left: 80px;
     gap: 36px;
@@ -492,7 +488,7 @@ footer{
 .newsHead{
     font-family: 'public sans';
     font-weight: 600;
-    font-size: 36px;
+    font-size: 31px;
 }
 
 .newsText{
@@ -587,7 +583,7 @@ footer{
         margin-left: 30px;
     }
     .leddetails{
-        margin-left: 0px;
+        margin-left: 0px;   
         margin-right: 24px;
     }
 
@@ -613,4 +609,93 @@ footer{
     .newsText{
         font-size: 13px;
     }
+}
+
+@media screen and (max-width:430px) {
+    .delivery{
+        display: none;
+    }
+    .button{
+        display: none;
+    }
+    .links{
+        display: none;
+    }
+    .header2{
+        width: 65%;
+    }
+    .colorbox {
+        height: 311px;
+        margin-left: 38px;
+    }
+    .lowerText {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+    .brands {
+        gap: 12px;
+    }
+    .categories{
+        margin-left: 23px;
+        margin-top: 37px;
+    }
+    .clothboxes{
+        flex-wrap: wrap;
+        margin-top: 24px;
+        padding-left: 45px;
+    }
+    .cateName, .proName{
+        width: 100%;
+        font-size: 32px;
+    }
+    .products{
+        margin-top: 812px;
+        margin-left: 23px;
+    }
+    .productBoxes{
+        flex-wrap: wrap;
+    }
+
+    .console, .pot, .led, .chair {
+        width: 46%;
+    }
+    .why{
+        margin-top: 380px;
+    }
+    .qualities{
+        flex-wrap: wrap;
+    }
+    .return {
+        width: 40%;
+        margin-left: 36px;
+        margin-bottom: 32px;
+    }
+    footer{
+        flex-wrap: wrap;
+    }
+    .newsletter{
+        width: 78%;
+    }
+    .email-input-container{
+        width: 100%;
+    }
+    .lasttext{
+        flex-wrap: wrap;
+        width: 72%;
+        margin-top: 50px;
+    }
+    .shop{
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .secondhalf{
+        width: 23%;
+    }
+    .cateName, .proName{
+        width: 100%;
+        font-size: 32px;
+    }
+    
 }

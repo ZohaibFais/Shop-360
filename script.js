@@ -61,9 +61,7 @@ function register() {
             alert("Your account has been successfully registered");
             window.location.href = "http://127.0.0.1:5500/login.html"
         }
-        }
-
-      
+    }
 }
 
 function hideButtons() {
@@ -75,6 +73,13 @@ function hideButtons() {
     if (loginButton) {
         loginButton.style.display = 'none';
     }
+}
+
+function logout() {
+    
+    localStorage.removeItem('IsLoggedIn');
+    localStorage.removeItem('LoggedInUser');
+    window.location.href = "http://127.0.0.1:5500/login.html"; 
 }
 
 if (window.location.href.includes("login.html")) {
@@ -116,11 +121,9 @@ function redirect1(){
     window.location.href = "http://127.0.0.1:5500/register.html"
 }
 
-
 function redirect2(){
     window.location.href = "http://127.0.0.1:5500/login.html"
 }
-
 
 var dropdownIcon = document.getElementById('dropdownIcon');
 var dropdownContent = document.getElementById('dropdownContent');
@@ -135,13 +138,10 @@ options.forEach(function(option) {
         var value = this.getAttribute('data-value');
         
         if (value === 'profile') {
-           
-          
+            // will redirect to profile setting page
         } else if (value === 'logout') {
-        
+            logout(); 
         }
         dropdownContent.style.display = 'none';
     });
 });
-
-
