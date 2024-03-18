@@ -174,7 +174,6 @@ function add() {
 
 }
 
-
 function redirect1(){
     window.location.href = "http://127.0.0.1:5500/register.html"   //register page
 }
@@ -187,4 +186,7 @@ function redirect3(){
 }
 function redirect4(){
     window.location.href = "http://127.0.0.1:5500/addproduct.html" // add product
+}
+function redirect5(){
+    window.location.href = "http://127.0.0.1:5500/myproduct.html" // My product page
 }

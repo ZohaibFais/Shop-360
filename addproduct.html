@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Product</title>
     <link rel="stylesheet" href="/design/addproduct.css">
 </head>
 <body>
@@ -37,7 +37,7 @@
                 <div class="links">
                     <ul>
                         <li onclick="redirect3()">Home</li> 
-                        <li>My Products</li>  <!-- onclick My products-->
+                        <li onclick=" redirect5()">My Products</li> 
                         <li>Contact</li>   <!-- onclick Contact Us-->
                     </ul>
                 </div>
@@ -81,13 +81,18 @@
                     <div class="productName">
                         Product name:
                         <br>
-                        <input type="text">
+                        <input type="text" id="productName">
                     </div>
                     <div class="category">
                         Category:
                         <br>
-                        <select >
+                        <select id="category">
                             <option id="categorySelect">Select</option>
+                            <option id="categorySelect">Clothing</option>
+                            <option id="categorySelect">Electronics</option>
+                            <option id="categorySelect">Home Lifestyle</option>
+                           
+
                         </select>
                     </div>
                 </form>
@@ -105,12 +110,12 @@
                     <div class="quantity">
                         Quantity:
                         <br>
-                        <input type="number" placeholder="00">
+                        <input type="number" placeholder="00" id="quantity">
                     </div>
                     <div class="price">
                         Price:
                         <br>
-                        <input type="text">
+                        <input type="text" id="price">
 
                     </div>
                 </form>
