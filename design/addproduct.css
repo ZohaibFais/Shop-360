@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+   
+}
+.container{
+    width: 100%;
+}
+
+#header{
+    width: 100%;
+    height: 78px;
+    background: #000000;
+    display: flex;
+    justify-content: space-around;
+}
+.first{
+    display: flex;
+}
+.phone{
+    width: 16px;
+    height: 17px;
+    margin-top: 29px;
+    /* margin-left: 50px; */
+}
+.number{
+    width: 120px;
+    height: 21px;
+    margin-top: 26px;
+    /* margin-left: 10px; */
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+
+}
+.button{
+    display: flex;
+}
+
+.delivery{
+    color: #fff;
+    margin-top: 26px;
+    font-family:'public sans' ;
+    font-weight: 500;
+    font-size: 18px;
+    /* margin-left: 100px; */
+    /* margin-right: 100px */
+}
+
+#signupButton{
+    width: 140px;
+    height: 43px;
+    margin-top: 14px;
+    border-radius: 43px;
+    border: 2px solid #FFFFFF;
+    padding: 8px 39px 8px 39px;
+    font-family:'public sans' ;
+    font-weight: 400;
+    font-size: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#loginButton {
+    width: 139px;
+    height: 43px;
+    margin-top: 14px;
+    border-radius: 43px;
+    background: #E52E06;
+    padding: 11px 46px 11px 46px;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: 10px;
+    /* margin-right: 30px; */
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.header2 {
+    width: 100%;
+    display: flex;
+    /* background: greenyellow; */
+    margin-top: 30px;
+    /* margin-left: 50px; */
+    justify-content: space-around;
+}
+.firsthalf {
+    display: flex;
+    justify-content: space-between;
+    width: 46%;
+}
+
+.name{
+    font-family:'public sans' ;
+    font-weight: 700;
+    font-size: 32px;
+    color: #000000;
+}
+.links ul{
+    display: flex;
+    padding-top: 8px;
+    gap: 24px;
+}
+ul li {
+    list-style-type: none;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+}   
+
+.secondhalf{
+    width: 16%;
+    display: flex;
+    gap: 30px;
+}
+
+.fav, .cart, .custom-select {
+    margin-top: 5px;
+    width: 28px;
+    height: 23.99px;
+    cursor: pointer;
+}
+
+#dropdownContainer {
+    position: relative;
+    display: inline-block;
+}
+
+#dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0; 
+    top: 100%;
+}
+
+#dropdownContent .option {
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+#dropdownIcon {
+    cursor: pointer;
+}
+
+.breadcrumb {
+    width: 37%;
+    /* height: 40px; */
+    margin-top: 40px;
+    /* margin-left: 55px; */
+    /* background: rebeccapurple; */
+    text-align: center;
+}
+.color1Text{
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 50%;
+    padding-left: 5px;
+}
+
+.color2Text{
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    /* opacity: 50%; */
+    color: #E52E06;
+    padding-left: 5px;
+}
+.addProduct{
+    width: 100%;
+    /* height: 500px; */
+    /* background: palegoldenrod; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.addForm{
+    width: 70%;
+    margin-bottom: 80px;
+    /* height: 300px; */
+    /* background-color: aquamarine; */
+
+}
+.heading{
+    font-family: 'public sans';
+    font-weight: 600;
+    font-size: 32px;
+    width: 42%;
+    text-align: center;
+}
+.lowerText{
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 16px;
+    width: 34%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color:#00000099;
+    opacity: 60%;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    /* background-color: paleturquoise; */
+    display: flex;
+    justify-content: end;
+    gap: 24px;
+}
+
+
+
+.productName, .category, .quantity, .price{
+    width: 45%;
+    margin-top: 30px;
+    /* background-color: firebrick; */
+    height: fit-content;
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    color: #1F2937;
+
+}
+input, select{
+    width: 100%;
+    padding: 12px 16px 12px 16px;
+    border: 1px solid #D9D9D9;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 16px;
+    color: #9E9E9E;
+    margin: 20px 0px 20px 0px;
+}
+.aboutproduct, .description, .upload{
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    color: #1F2937;
+    width: 93%;
+    /* background: palevioletred; */
+}
+
+#about{
+    padding: 12px 16px 27px 16px;
+}
+
+.wordcount{
+    text-align: end;
+}
+#descriptioninput{
+    height: 123px;
+}
+#fileinput{
+    border: none;
+    /* width: fit-content; */
+    padding: 12px 10px  12px 0px ;
+    color: #E8E8E8;
+}
+
+.addbutton{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+#addproduct{
+    background: #000000;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    padding: 12px 16px 12px 16px;
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+footer{
+    width: 100%;
+    /* height: 419px; */
+    margin-top: 100px;
+    background: #EFF2F6;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 45px;
+    padding-bottom: 80px;
+
+}
+.newsletter{
+    /* background: plum; */
+    margin-top: 7px;
+}
+
+.newsHead{
+    font-family: 'public sans';
+    font-weight: 600;
+    font-size: 31px;
+}
+
+.newsText{
+    margin-top: 20px;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.email-input-container {
+    position: relative;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.email-input {
+    padding: 10px 30px 10px 10px;
+    width: 400px; /* Adjust width as needed */
+    font-size: 16px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.signup-button {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    color: #000000;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-family: 'public sans';
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.lasttext{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+.shopHead{
+    font-family: 'public sans';
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 20px;
+   
+}
+.shopText p{
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    opacity: 50%;
+}
+@media screen and (max-width:780px) {
+
+    .firsthalf {
+        width:60% ;
+    }
+    .breadcrumb {
+        width: 47%;
+    }
+    .heading{
+        width: 60%;
+    }
+    .lowerText{
+        width: 45%;
+    }
+    .newsletter{
+        margin-left: 10px;
+        width: 47%;
+    }
+    .email-input{
+        width: 100%;
+    }
+    .shopText p {
+        font-size: 13px;
+    }
+    .lasttext{
+        width: 48%;
+    }
+    .newsHead{
+        font-size: 23px;
+    }
+    .newsText{
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .delivery{
+        display: none;
+    }
+    .button{
+        display: none;
+    }
+    .links{
+        display: none;
+    }
+    .header2{
+        width: 65%;
+    }
+  
+    .breadcrumb{
+        width: 80%;
+    }
+    .addForm{
+        width: 88%;
+    }
+    .heading{
+        width: 95%;
+    }
+    form{
+        flex-wrap: wrap;
+        gap: 0px;
+    }
+    .productName, .category, .quantity, .price {
+        width: 96%;
+      
+    }
+    .lowerText{
+        width: 72%;
+    }
+    .aboutproduct{
+        width: 97%;
+    }
+    .description{
+        width: 96%;
+    }
+    footer{
+        flex-wrap: wrap;
+    }
+    .newsletter{
+        width: 78%;
+    }
+    .email-input-container{
+        width: 100%;
+    }
+    .lasttext{
+        flex-wrap: wrap;
+        width: 72%;
+        margin-top: 50px;
+    }
+    .shop{
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .secondhalf{
+        width: 23%;
+    }
+    .cateName, .proName{
+        width: 100%;
+        font-size: 32px;
+    }
+    .upload{
+        width: 95%;
+    }
+}

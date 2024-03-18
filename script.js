@@ -76,10 +76,9 @@ function hideButtons() {
 }
 
 function logout() {
-    
     localStorage.removeItem('IsLoggedIn');
     localStorage.removeItem('LoggedInUser');
-    window.location.href = "http://127.0.0.1:5500/login.html"; 
+    window.location.href = "http://127.0.0.1:5500/login.html"; // Redirect to the login page after logout
 }
 
 if (window.location.href.includes("login.html")) {
@@ -117,14 +116,6 @@ else {
     }
 }
 
-function redirect1(){
-    window.location.href = "http://127.0.0.1:5500/register.html"
-}
-
-function redirect2(){
-    window.location.href = "http://127.0.0.1:5500/login.html"
-}
-
 var dropdownIcon = document.getElementById('dropdownIcon');
 var dropdownContent = document.getElementById('dropdownContent');
 
@@ -138,10 +129,62 @@ options.forEach(function(option) {
         var value = this.getAttribute('data-value');
         
         if (value === 'profile') {
-            // will redirect to profile setting page
+          
         } else if (value === 'logout') {
             logout(); 
         }
         dropdownContent.style.display = 'none';
     });
 });
+
+function add() {
+
+    var productName = document.querySelector('.productName input').value.trim();
+    var category = document.querySelector('.category select').value.trim();
+    var aboutProduct = document.getElementById('about').value.trim();
+    var quantity = document.querySelector('.quantity input').value.trim();
+    var price = document.querySelector('.price input').value.trim();
+    var description = document.getElementById('descriptioninput').value.trim();
+    var file = document.getElementById('fileinput').files[0]; 
+
+    if (!productName || !category || !aboutProduct || !quantity || !price || !description || !file) {
+        alert("Please fill in all fields");
+        return;
+    }
+
+    var productData = {
+        productName: productName,
+        category: category,
+        aboutProduct: aboutProduct,
+        quantity: quantity,
+        price: price,
+        description: description
+    };
+
+    localStorage.setItem('productData', JSON.stringify(productData));
+
+   
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        var base64Image = event.target.result;
+        localStorage.setItem('productImage', base64Image);
+    };
+    reader.readAsDataURL(file);
+    alert("Successfully added");
+
+}
+
+
+function redirect1(){
+    window.location.href = "http://127.0.0.1:5500/register.html"   //register page
+}
+
+function redirect2(){
+    window.location.href = "http://127.0.0.1:5500/login.html"  // login page
+}
+function redirect3(){
+    window.location.href = "http://127.0.0.1:5500/home.html"  // home page
+}
+function redirect4(){
+    window.location.href = "http://127.0.0.1:5500/addproduct.html" // add product
+}
