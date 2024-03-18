@@ -268,10 +268,14 @@ ul li {
 }
 .cloth:hover{
     background: #E52E06;
+    color: white;
 }
+
 .clothing{
     margin-top: 23px;
 }
+
+
 .clothText{
     margin-top: 35px;
     font-family: 'public sans';

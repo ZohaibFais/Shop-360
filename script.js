@@ -171,6 +171,7 @@ function add() {
     };
     reader.readAsDataURL(file);
     alert("Successfully added");
+    productName = ""
 
 }
 
