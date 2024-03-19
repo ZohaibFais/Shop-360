@@ -159,20 +159,15 @@ function add() {
         return;
     }
 
-    // Create a unique random ID
-    var id = '_' + Math.random().toString(36).substr(2, 9);
+    var id = '_' + Math.random().toString().substring(2, 10);
 
-    // Get logged-in user's email from local storage
+
     var loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
     var loggedInEmail = loggedInUser.registeremail;
-
-    // Get current timestamp
-    var timestamp = new Date().getTime();
 
     var productData = {
         id: id,
         loggedInEmail: loggedInEmail,
-        timestamp: timestamp,
         productName: productName,
         category: category,
         aboutProduct: aboutProduct,
@@ -181,22 +176,17 @@ function add() {
         description: description
     };
 
-    // Convert the file to base64 string
     var reader = new FileReader();
     reader.onload = function(event) {
         var base64Image = event.target.result;
-        productData.image = base64Image; // Include base64 encoded image in productData object
-
-        // Get existing products array from local storage or create a new one if it doesn't exist
+        productData.image = base64Image; 
         var products = JSON.parse(localStorage.getItem('products')) || [];
 
-        // Push the new product data into the products array
+   
         products.push(productData);
 
-        // Store the updated products array back to local storage
         localStorage.setItem('products', JSON.stringify(products));
 
-        // Reset form fields
         productNameInput.value = "";
         categoryInput.value = "";
         aboutProductInput.value = "";
@@ -207,13 +197,9 @@ function add() {
 
         alert("Successfully added");
     };
-    reader.readAsDataURL(file); // Read the file as data URL
+    reader.readAsDataURL(file);
 }
 
-
-function remove(){
-    alert("Are you sure you want to delete")
-}
 
 function redirect1(){
     window.location.href = "http://127.0.0.1:5500/register.html"   //register page
@@ -233,80 +219,98 @@ function redirect5(){
 }
 
 
+
+function remove(){
+    var confirmation = confirm("Are you sure you want to remove the product?");
+                if (confirmation) {
+                    removeProduct(console,productBox);
+                }
+}
+
+
 document.addEventListener("DOMContentLoaded", function() {
-    // Check if the current page is 'myproduct.html'
+  
     if (window.location.pathname.includes('myproduct.html')) {
-        // Retrieve product data from local storage
+
+        var loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+        var loggedInEmail = loggedInUser.registeremail;
+
         var products = JSON.parse(localStorage.getItem('products')) || [];
 
-        // Get the container where you want to display the products
         var productsContainer = document.querySelector('.products');
 
-        // Clear existing product boxes
         productsContainer.innerHTML = '';
 
-        // Iterate over each product in the products array
-        products.forEach(function(product) {
-            // Create a new product box element
-            var productBox = document.createElement('div');
-            productBox.classList.add('console'); // Apply class to style the product box
+        function removeProduct(product, productBox) {
+            var index = products.indexOf(product);
+            if (index !== -1) {
+                products.splice(index, 1);
+                localStorage.setItem('products', JSON.stringify(products));
+                productBox.remove(); 
+            } else {
+                console.error("Product not found in local storage.");
+            }
+        }
 
-            // Create the image element
+        var userProducts = products.filter(function(product) {
+            return product.loggedInEmail === loggedInEmail;
+        });
+
+        userProducts.forEach(function(product) {
+            var productBox = document.createElement('div');
+            productBox.classList.add('console'); 
             var imageContainer = document.createElement('div');
             imageContainer.classList.add('image');
             var image = document.createElement('img');
-            image.src = product.image; // Set the source of the image
-            image.alt = product.productName; // Set alt attribute for accessibility
-            imageContainer.appendChild(image); // Append the image to its container
+            image.src = product.image; 
+            image.alt = product.productName; 
+            imageContainer.appendChild(image); 
 
-            // Create the detail section (edit and trash buttons)
             var detail = document.createElement('div');
             detail.classList.add('detail');
 
-            // Create the edit button
             var editButton = document.createElement('button');
-            editButton.classList.add('edit'); // Add edit class to edit button
-            editButton.id = 'edit'; // Add id for styling
-            editButton.innerHTML = '<img src="/assets/edit.png" alt="Edit">'; // Set the inner HTML with the edit image
-
-            // Create the trash button
+            editButton.classList.add('edit'); 
+            editButton.id = 'edit'; 
+            editButton.innerHTML = '<img src="/assets/edit.png" alt="Edit">'; 
+        
             var trashButton = document.createElement('button');
-            trashButton.classList.add('trash'); // Add trash class to delete button
-            trashButton.id = 'trash'; // Add id for styling
-            trashButton.innerHTML = '<img src="/assets/trash.png" alt="Trash">'; // Set the inner HTML with the trash image
+            trashButton.classList.add('trash'); 
+            trashButton.id = 'trash'; 
+            trashButton.innerHTML = '<img src="/assets/trash.png" alt="Trash">'; 
 
-            // Add event listener to delete button
             trashButton.addEventListener('click', function() {
-                productBox.remove(); // Remove the product box when delete button is clicked
+                var confirmation = confirm("Are you sure you want to remove the product?");
+                if (confirmation) {
+                    removeProduct(product, productBox);
+                }
             });
 
-            // Append the edit and trash buttons to the detail section
+        
             detail.appendChild(editButton);
             detail.appendChild(trashButton);
 
-            // Append the image and detail section to the product box
             productBox.appendChild(imageContainer);
             productBox.appendChild(detail);
 
-            // Create elements for product details (name, category, price)
             var productName = document.createElement('div');
-            productName.classList.add('prname'); // Add class for styling
-            productName.textContent = product.productName; // Set product name
+            productName.classList.add('prname'); 
+            productName.textContent = product.productName; 
 
             var category = document.createElement('div');
-            category.classList.add('category'); // Add class for styling
-            category.textContent = product.category; // Set category
+            category.classList.add('category'); 
+            category.textContent = product.category; 
 
             var price = document.createElement('div');
-            price.classList.add('price'); // Add class for styling
-            price.textContent = 'Rs. ' + product.price; // Set price
+            price.classList.add('price'); 
+            price.textContent = 'Rs. ' + product.price; 
 
-            // Append product details to the product box
+          
             productBox.appendChild(productName);
             productBox.appendChild(category);
             productBox.appendChild(price);
 
-            // Append the product box to the products container
+            
             productsContainer.appendChild(productBox);
         });
     }
