@@ -263,6 +263,7 @@ input, select{
 }
 #descriptioninput{
     height: 123px;
+    text-align: start;
 }
 #fileinput{
     border: none;

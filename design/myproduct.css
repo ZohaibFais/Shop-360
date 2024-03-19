@@ -1,31 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-.container{
+
+.container {
     /* background: lightblue; */
 }
-#header{
+
+#header {
     width: 100%;
     height: 78px;
     background: #000000;
     display: flex;
     justify-content: space-around;
 }
-.first{
+
+.first {
     display: flex;
 }
-.phone{
+
+.phone {
     width: 16px;
     height: 17px;
     margin-top: 29px;
     /* margin-left: 50px; */
 }
-.number{
+
+.number {
     width: 120px;
     height: 21px;
     margin-top: 26px;
@@ -34,33 +36,33 @@
     font-weight: 400;
     font-size: 18px;
     color: #fff;
-
 }
-.button{
+
+.button {
     display: flex;
 }
 
-.delivery{
+.delivery {
     color: #fff;
     margin-top: 26px;
-    font-family:'public sans' ;
+    font-family: 'public sans';
     font-weight: 500;
     font-size: 18px;
     /* margin-left: 100px; */
     /* margin-right: 100px */
 }
 
-#signupButton{
+#signupButton {
     width: 140px;
     height: 43px;
     margin-top: 14px;
     border-radius: 43px;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #ffffff;
     padding: 8px 39px 8px 39px;
-    font-family:'public sans' ;
+    font-family: 'public sans';
     font-weight: 400;
     font-size: 18px;
-    color: #FFFFFF;
+    color: #ffffff;
     cursor: pointer;
 }
 
@@ -69,16 +71,17 @@
     height: 43px;
     margin-top: 14px;
     border-radius: 43px;
-    background: #E52E06;
+    background: #e52e06;
     padding: 11px 46px 11px 46px;
     font-family: 'public sans';
     font-weight: 400;
     font-size: 18px;
     margin-left: 10px;
     /* margin-right: 30px; */
-    color: #FFFFFF;
+    color: #ffffff;
     cursor: pointer;
 }
+
 .header2 {
     width: 100%;
     display: flex;
@@ -86,39 +89,43 @@
     margin-top: 30px;
     justify-content: space-around;
 }
+
 .firsthalf {
     display: flex;
     justify-content: space-between;
     width: 46%;
 }
 
-.name{
-    font-family:'public sans' ;
+.name {
+    font-family: 'public sans';
     font-weight: 700;
     font-size: 32px;
     color: #000000;
 }
-.links ul{
+
+.links ul {
     display: flex;
     padding-top: 8px;
     gap: 24px;
-
 }
+
 ul li {
     list-style-type: none;
     font-family: 'public sans';
     font-weight: 400;
     font-size: 16px;
     cursor: pointer;
-}   
+}
 
-.secondhalf{
+.secondhalf {
     width: 16%;
     display: flex;
     gap: 30px;
 }
 
-.fav, .cart, .custom-select {
+.fav,
+.cart,
+.custom-select {
     margin-top: 5px;
     width: 28px;
     height: 23.99px;
@@ -135,9 +142,9 @@ ul li {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
-    right: 0; 
+    right: 0;
     top: 100%;
 }
 
@@ -158,7 +165,8 @@ ul li {
     /* background: rebeccapurple; */
     text-align: center;
 }
-.color1Text{
+
+.color1Text {
     font-family: 'public sans';
     font-weight: 400;
     font-size: 14px;
@@ -166,37 +174,38 @@ ul li {
     padding-left: 5px;
 }
 
-.color2Text{
+.color2Text {
     font-family: 'public sans';
     font-weight: 500;
     font-size: 16px;
     /* opacity: 50%; */
-    color: #E52E06;
+    color: #e52e06;
     padding-left: 5px;
 }
 
-.main{
+.main {
     width: 100%;
     /* background: lightgray;   */
     margin-top: 80px;
-
 }
 
-.mainHead{
+.mainHead {
     width: 98%;
     display: flex;
     justify-content: space-around;
 }
-.text{
+
+.text {
     width: 53%;
 }
 
-#heading{
+#heading {
     font-family: 'public sans';
     font-weight: 600;
     font-size: 32px;
 }
-#lowerText{
+
+#lowerText {
     font-family: 'public sans';
     font-weight: 400;
     font-size: 16px;
@@ -204,115 +213,138 @@ ul li {
     opacity: 60%;
 }
 
-#addproduct{
+#addproduct {
     padding: 12px 16px 12px 16px;
     border-radius: 5px;
     background: #000000;
-    color: #FFFFFF;
+    color: #ffffff;
     border: 1px solid #000000;
     cursor: pointer;
 }
 
-
-.products{
+.products {
     width: 100%;
     display: flex;
     margin-top: 80px;
-    justify-content: center;
-    /* background-color: lightblue; */
-}
-
-.productBoxes{
-    width: 90%;
-    display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
-.console{
-    width: 23%;
-    /* background: lightcoral; */
-}
-.image{
-    width: 100%;
-    background: #C4C4C4;
+
+.productBoxes {
+    width: 90%;
     display: flex;
+  
+    justify-content: space-between;
 }
-.consolepic{
-    margin: 35px 0px 20px 20px;
+
+.console {
+    width: 22%; /* Adjusted width for balancing */
+    position: relative;
+    margin-bottom: 20px; /* Add margin bottom for space between cards */
 }
-.consolepic img{
+
+.image {
     width: 100%;
-    height: 160px;
-    
+    background: #c4c4c4;
+    display: flex;
+    position: relative;
+    /* align-items: center; */
+    border-radius: 8px;
+    overflow: hidden;
+    padding-left: 20px;
+    margin-bottom: 20px;
 }
-.detail{
-    /* width: 13%; */
-    padding-right: 13px;
-    text-align: end;
-    margin-top: 10px;
+
+.console .image img {
+    width: 72%;
+    margin: 20px 0px 20px;
 }
-#edit{
+
+.detail {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px; /* Add padding for better alignment */
+}
+
+#edit,
+#trash {
     width: 34px;
-    border: 1px solid #0075FF;
-    border-radius: 50px;
     height: 34px;
-    background: #0075FF;
+    border-radius: 50%;
     margin-bottom: 10px;
     cursor: pointer;
 }
-#trash{
-    width: 34px;
-    border: 1px solid #E22900;
-    border-radius: 50px;
-    height: 34px;
-    background: #E22900;
-    cursor: pointer;
-}
-.consoletext{
-    margin-top: 20px;
+
+#edit {
+    border: 1px solid #0075FF;
+    background: #0075FF;
 }
 
-.textmain{
+#trash {
+    border: 1px solid #E22900;
+    background: #E22900;
+}
+
+
+
+.textmain,
+.prname,
+.price {
     font-family: 'public sans';
+    
+}
+.textmain {
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 7px;
+    margin-left: 5px
 }
-.prname{
-    font-family: 'public sans';
+
+.prname {
     font-weight: 400;
     font-size: 16px;
     color: #989898;
     margin-bottom: 7px;
 }
-.price{
-    font-family: 'public sans';
+.category{
+    margin-bottom: 7px;
+}
+
+.price {
     font-weight: 600;
     font-size: 16px;
-    color: #E52E06;
+    color: #e52e06;
 }
-footer{
+
+
+
+footer {
     width: 100%;
     /* height: 419px; */
     margin-top: 100px;
-    background: #EFF2F6;
+    background: #eff2f6;
     display: flex;
     justify-content: space-around;
     padding-top: 45px;
     padding-bottom: 80px;
-
 }
-.newsletter{
+
+.newsletter {
     /* background: plum; */
     margin-top: 7px;
 }
 
-.newsHead{
+.newsHead {
     font-family: 'public sans';
     font-weight: 600;
     font-size: 31px;
 }
 
-.newsText{
+.newsText {
     margin-top: 20px;
     font-family: 'public sans';
     font-weight: 400;
@@ -327,7 +359,8 @@ footer{
 
 .email-input {
     padding: 10px 30px 10px 10px;
-    width: 400px; /* Adjust width as needed */
+    width: 400px;
+    /* Adjust width as needed */
     font-size: 16px;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -348,19 +381,20 @@ footer{
     font-size: 14px;
 }
 
-.lasttext{
+.lasttext {
     width: 45%;
     display: flex;
     justify-content: space-between;
 }
-.shopHead{
+
+.shopHead {
     font-family: 'public sans';
     font-weight: 600;
     font-size: 16px;
     margin-bottom: 20px;
-   
 }
-.shopText p{
+
+.shopText p {
     font-family: 'public sans';
     font-weight: 500;
     font-size: 16px;
