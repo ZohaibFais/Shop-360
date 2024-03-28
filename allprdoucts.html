@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="/design/allproduct.css">
+</head>
+<body>
+    <div class="container">
+        <header id="header">
+            <div class="first">
+                <div class="phone">
+                    <img src="/assets/call.png" alt="">
+                </div>
+                <div class="number">
+                    +123 456 789
+                </div>
+         
+            </div>
+              
+            <div class="delivery">
+                Free Delivery on order above <span id="price" style="text-decoration: underline;">4000</span> 
+
+            </div>
+            <div class="button">
+                <div id="signupButton" onclick="redirect1()">SignUp</div>
+                <div id="loginButton" onclick="redirect2()">Login</div>
+            </div>
+           
+        </header>
+        <div class="header2">
+            <div class="firsthalf">
+                <div class="name">
+                    Shop360
+                </div>
+                <div class="links">
+                    <ul>
+                        <li onclick="redirect3()">Home</li> 
+                        <li onclick=" redirect5()">My Products</li> 
+                        <li>Contact</li>   <!-- onclick Contact Us-->
+                    </ul>
+                </div>
+            </div>
+            <div class="secondhalf">
+                <div class="fav">
+                    <img src="/assets/fav.png" alt="">
+                </div>
+                <div class="cart">
+                    <img src="/assets/cart.png" alt="">
+                </div>
+                <div class="custom-select">
+                    <div id="dropdownContainer">
+                        <img src="/assets/icon.png" id="dropdownIcon">
+                        <div id="dropdownContent">
+                            <div class="option" data-value="profile">Profile Settings</div>
+                            <div class="option" data-value="logout" style="color: #E8492A;" onclick="redirect2()">Logout</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+                
+        </div>
+        <div class="breadcrumb">
+          <span class="color1Text"> Home</span>
+          <span class="color1Text">/</span>
+          <span class="color2Text">Product</span>
+        </div>
+        <div class="productlist">
+            <div class="filter">
+                <div class="filterHead">
+                    Filters
+                </div>
+                <form id="filterform">
+                 
+                    <input type="search" id="searchbox" placeholder="Search">
+                 
+                    <label id="Categorylabel">Category</label>
+                    <br>
+                    <select id="Categoryselect">
+                            <option>Categories</option>
+                            <option>Clothing</option>
+                            <option> Electronics</option>
+                            <option>Home Lifestyle</option>
+                    </select>
+                    
+                    <label id="Pricelabel">Price</label>
+                    <div class="pricerange">
+                        <input type="number" placeholder="Min" class="priceinput">
+                        <input type="number" placeholder="Max"class="priceinput">
+                    </div>
+                
+                 
+                </form>
+                <button id="filterButton">Apply filters</button>
+            </div>
+            <div class="main">
+                <div class="mainHead">
+                    <div class="text">
+                     <p id="heading">All Products</p>
+                     <p id="lowerText"> Showing 1-4 of 4 Products</p>
+                    </div>
+                
+                </div>
+                <div class="products">
+                    <div class="productBoxes1">
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/controller.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/led.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                       
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/chair.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/pot.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                    </div>
+
+                    <!-- <div class="productBoxes2">
+                        <div class="console">  
+                            <div class="image">
+                                <img src="/assets/controller.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >  
+                                    <img src="/assets/add.png" alt="" id="addToCart">   
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                        <div class="console">  
+                            <div class="image">
+                                <img src="/assets/led.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >  
+                                    <img src="/assets/add.png" alt="" id="addToCart">  
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                       
+                        <div class="console">  
+                            <div class="image">
+                                <img src="/assets/chair.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" > 
+                                    <img src="/assets/add.png" alt="" id="addToCart">  
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                        <div class="console">  
+                            <div class="image">
+                                <img src="/assets/pot.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >  
+                                    <img src="/assets/add.png" alt="" id="addToCart">   
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                    </div> -->
+
+                    <!-- <div class="productBoxes3">
+                        <div class="console">  
+                            <div class="image">
+                                <img src="/assets/controller.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" > 
+                                    <img src="/assets/add.png" alt="" id="addToCart">   
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/led.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                       
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/chair.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/pot.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                    </div>
+
+                    <div class="productBoxes4">
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/controller.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/led.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                       
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/chair.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                        <div class="console">    
+                            <div class="image">
+                                <img src="/assets/pot.png" alt="" class="consoleimg">
+                                <div class="consoledetails">
+                                    <img src="/assets/Fill Heart.png" alt="" id="fav" >    
+                                    <img src="/assets/add.png" alt="" id="addToCart">    
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="main">
+                                    Lorem ipsum dolor
+                                </div>
+                                <div class="prname">
+                                    Electronics
+                                </div>
+                                <div class="price">
+                                    Rs. 120
+                                </div>
+                            </div>
+        
+                        </div>
+                        
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- <div class="move">
+            <div class="box">
+                <img src="/assets/" alt="">
+            </div>
+        </div> -->
+
+        <footer>
+            <div class="newsletter">
+                <div class="newsHead">
+                    <h3>Sign up for our newsletter</h3>
+                </div>
+                <div class="newsText">
+                    Be the first to know about our special offers, new product <br>launches, and events
+                </div>
+                <div class="email-input-container">
+                    <input type="email" class="email-input" placeholder="Email Address">
+                    <div class="signup-button">Sign Up</div>
+                </div>
+            </div>
+            <div class="lasttext">
+                <div class="shop">
+                    <div class="shopHead">
+                        Shop
+                    </div>
+                    <div class="shopText">
+                       <p>Women’s</p> <br>
+                        <p>Men’s</p>  <br>
+                        <p>Kids’</p>  <br>
+                        <p>Shoes</p>  <br>    
+                        <p>Equipment</p><br>    
+                        <p>By Activity</p> <br>  
+                        <p>Gift Cards</p>  <br>  
+                        <p>Sale</p>     
+                    </div>
+
+                </div>
+                
+                <div class="shop">
+                    <div class="shopHead">
+                        Help
+                    </div>
+                    <div class="shopText">
+                      <p>Help Center</p> <br>
+                        <p>Order Status</p><br>
+                        <p>Size Chart</p><br>
+                        <p>Returns & Warranty</p><br>
+                        <p>Contact Us</p>
+                      
+                    </div>
+
+                </div>
+
+                <div class="shop">
+                    <div class="shopHead">
+                        About
+                    </div>
+                    <div class="shopText">
+                        <p>About Us</p> <br>
+                        <p>Responsibility</p><br>
+                        <p>Technology & Innovation</p><br>
+                        <p>Explore our stories</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="/script.js"></script>
+</body>
+</html>

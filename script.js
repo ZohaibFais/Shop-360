@@ -161,13 +161,16 @@ function add() {
 
     var id = '_' + Math.random().toString().substring(2, 10);
 
-
     var loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
     var loggedInEmail = loggedInUser.registeremail;
 
+    // Get current timestamp
+    var timestamp = new Date().getTime();
+
     var productData = {
         id: id,
-        loggedInEmail: loggedInEmail,
+        createdBy: loggedInEmail,
+        createdAt: timestamp,
         productName: productName,
         category: category,
         aboutProduct: aboutProduct,
@@ -182,7 +185,6 @@ function add() {
         productData.image = base64Image; 
         var products = JSON.parse(localStorage.getItem('products')) || [];
 
-   
         products.push(productData);
 
         localStorage.setItem('products', JSON.stringify(products));
@@ -199,6 +201,7 @@ function add() {
     };
     reader.readAsDataURL(file);
 }
+
 
 
 function redirect1(){
@@ -218,10 +221,12 @@ function redirect5(){
     window.location.href = "http://127.0.0.1:5500/myproduct.html" // My product page
 }
 
-
+function redirect6(){
+    window.location.href = "http://127.0.0.1:5500/allprdoucts.html"  // All product
+}
 
 function remove(){
-    var confirmation = confirm("Are you sure you want to remove the product?");
+    var confirmation = confirm("Are you sure you want to delete this product . This action can not be undone?");
                 if (confirmation) {
                     removeProduct(console,productBox);
                 }

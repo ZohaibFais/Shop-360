@@ -9,6 +9,7 @@
 }
 .container{
     width: 100%;
+    /* background: lightblue; */
 }
 
 #header{
@@ -153,187 +154,190 @@ ul li {
     cursor: pointer;
 }
 
-.frame738{
-    width: 100%;
-    /* height: 784px; */
-    /* background: lightcoral; */
-    margin-top: 90px;
+.breadcrumb {
+    width: 37%;
+    /* height: 40px; */
+    margin-top: 40px;
+    /* margin-left: 55px; */
+    /* background: rebeccapurple; */
     text-align: center;
-
 }
-
-.titleText{
-    font-family: 'public sans';
-    font-weight: 600;
-    font-size: 56px;
-    letter-spacing: -2.4px;
-}
-
-.lowerText{
-    margin-top: 6px;
-    color: #979797;
+.color1Text{
     font-family: 'public sans';
     font-weight: 400;
-    font-size: 20px;
-}
-
-.colorbox {
-    width: 76%;
-    height: 521px;
-    margin-top: 22px;
-    margin-left: 127px;
-    
-}
-.colorbox img{
-    width: 100%;
-    height: 520px;
-}
-.brands {
-    height: 67px;
-    margin-left: 10px;
-    display: flex;
-    margin-top: 16px;
-    /* background: palegreen; */
-    gap: 20px;
-}
-.ny, .ny2{
-    width: 15%;
-    height: 34px;
-    margin-top: 18px;
-}
-.cNBC, .cNBC2{
-    height: 67px;
-    width: 15%;
-}
-#vogue{
-    width: 15%;
-    height: 32px;
-    margin-top: 17px;
-}
-#vanity{
-    width: 15%;
-    height: 33px;
-    margin-top: 17px;
-}
-
-.categories{
-    width: 90%;
-    margin-top: 100px;
-    margin-left: 80px;
-    gap: 36px;
-    /* background: palevioletred; */
-}
-
-.cateTitle{
-    width: 126px;
-    height: 40px;
-    display: flex;
-    gap: 16px;
-    align-items: center;
-
-}
-.sidebox{
-    width: 20px;
-    height: 40px;
-    border-radius: 4px;
-    background-color: #E52E06;
-}
-
-.textTitle{
-    font-family: 'public sans';
-    font-weight: 600;
-    font-size: 16px;
-    color: #E52E06;
-}
-
-.cateName, .proName{
-    width: 411px;
-    height: 48px;
-    font-family: 'public sans';
-    font-weight: 600;
-    font-size: 36px;
-    margin-top: 10px;
-}
-
-.clothboxes{
-    width: 100%;
-    height: 156px;
-    gap: 32px;
-    display: flex;
-    /* background: lightyellow; */
-    margin-top: 20px;
+    font-size: 14px;
+    opacity: 50%;
     padding-left: 5px;
 }
 
-.cloth{
-    width: 222px;
-    height: 158px;
-    border-radius: 4px;
-    border: 1px solid #0000004D;
-    text-align: center;
-}
-.cloth:hover{
-    background: #E52E06;
-    color: white;
+.color2Text{
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    /* opacity: 50%; */
+    color: #E52E06;
+    padding-left: 5px;
 }
 
-.clothing{
-    margin-top: 23px;
+.productlist{
+    width: 100%;
+    /* background: lightgray; */
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
 }
 
+.filter{
+    width: 20%;
+    border: 1px solid #D8D8D8;
+    padding: 32px;
+    height: fit-content;
+    margin-left: 5px;
+   
+}
 
-.clothText{
-    margin-top: 35px;
+.filterHead{
+    font-family: 'public sans';
+    font-weight: 600;
+    font-size: 20px;
+}
+
+form{
+    margin-top: 20px;
+    display:flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+#searchbox{
+    margin-bottom: 20px;
+
+}
+
+input{
+    padding: 12px 16px 12px 16px;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 14px;
+}
+
+input::placeholder{
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 14px;
+}
+#Categorylabel{
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+}
+#Categoryselect {
+    padding: 12px 16px 12px 16px;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    color: #9E9E9E;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+option{
+    color: #9E9E9E;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 14px;
+   
+}
+
+#Pricelabel{
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.pricerange{
+    display: flex;
+    justify-content: space-between;
+}
+.priceinput{
+    width: 49%; 
+    color: #9E9E9E;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+#filterButton{
+    width: 100%;
+    padding: 12px 16px 12px 16px;
+    background: #000000;
+    color: #FFFFFF;
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    border: 1px solid #000000;
+    cursor: pointer;;
+}
+
+.main {
+    width: 70%;
+    /* background: lightgray;   */
+}
+
+.mainHead {
+    width: 98%;
+    padding-left: 21px;
+}
+
+.text {
+    width: 53%;
+}
+
+#heading {
+    font-family: 'public sans';
+    font-weight: 600;
+    font-size: 32px;
+}
+
+#lowerText {
     font-family: 'public sans';
     font-weight: 400;
     font-size: 16px;
-}
-.products{
-    width: 90%;
-    height: 569px;
-    margin-top: 100px;
-    margin-left: 80px;
-    gap: 36px;
-    /* background: palevioletred; */
-}
-.prodTitle{
-    width: 126px;
-    height: 40px;
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    
+    color: #00000099;
+    opacity: 60%;
 }
 
+.productBoxes1,.productBoxes2,.productBoxes3,.productBoxes4{
 
-.productBoxes{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     /* background: lightyellow; */
-    margin-top: 20px;
-    
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
-.console, .pot, .led, .chair{
+.console{
     width: 24%;
-    height: 346px;
     /* background-color:tomato; */
 }
 .image{
-    width: 99%;
-    height: 250px;
+    width: 100%;
     border-radius: 4px;
     background-color: #C4C4C4;
     display: flex;
     justify-content: space-around;
 }
 .consoleimg{
-   width: 60%;
+   width: 50%;
    height: 152px;
     margin-top: 55px;
     margin-left: 30px;
     cursor: pointer;
+    padding-bottom: 20px;
 }
 
 .consoledetails{
@@ -353,10 +357,12 @@ ul li {
 }
 
 .text{
+    width: 100%;
     /* background: palegreen; */
     margin-top: 10px;
 }
 .main{
+    width: 100%;
     font-family: 'public sans';
     font-weight: 500;
     font-size: 16px;
@@ -378,145 +384,32 @@ ul li {
     color: #E52E06;
 }
 
-.potimg {
-    width: 60%;
-    height: 175px;
-    margin-top: 42px;
-    margin-left: 70px;
-    cursor: pointer;
-}
-.potdetails {
-    margin-left: 17px;
-    width: 20%;
-    height: fit-content;
-    margin-top: 12px;
-    text-align: end;
-    margin-right: 10px;
-    cursor: pointer;
-}
 
-.ledimg {
-    width: 66%;
-    height: 129px;
-    margin-top: 89px;
-    margin-left: 35px;
-    cursor: pointer;
-}
-.leddetails {
-    margin-left: 4px;
-    width: 20%;
-    height: fit-content;
-    margin-top: 12px;
-    text-align: end;
-    margin-right: 10px;
-    cursor: pointer;
-}
 
-.chairimg {
-    width: 64%;
-    height: 173px;
-    margin-top: 63px;
-    margin-left: 43px;
-    cursor: pointer;
-}
-
-.chairdetails {
-    margin-left: 4px;
-    width: 20%;
-    height: fit-content;
-    margin-top: 12px;
-    text-align: end;
-    margin-right: 10px;
-    cursor: pointer;
-}
-.viewAll{
-    width: 100%;
-    /* height: 30px; */
-    /* background: palegreen; */
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-#viewAll{
-    border-radius: 62px;
-    border: 1px solid #0000001A;
-    background-color: white;
-    padding: 16px 54px 16px 54px;
-    font-family: 'public sans';
-    font-weight: 500;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.why{
-    width: 98%;
-    /* background: palegreen; */
-}
-.whyHead{
-    width: 100%;
-    display:flex;
-    justify-content: center;
-    font-family: 'public sans';
-    font-weight: 500;
-    font-size: 24px;
-    color: #2A254B;
-}
-.qualities{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
-}
-
-.return{
-    width: 20%;
-    /* height: 80px; */
-    /* background: papayawhip; */
-    margin-left: 80px;
-}
-.returnHead{
-    /* background: pink; */
-    margin-bottom: 10px;
-}
-.returnHeadtext{
-    margin-top: 10px;
-    font-family: 'public sans';
-    font-weight: 400;
-    font-size: 20px;
-}
-
-.returnText{
-    font-family: 'public sans';
-    font-weight: 400;
-    font-size: 13px;
-    /* background: gray; */
-    color: #2A254B;
-}
-
-footer{
+footer {
     width: 100%;
     /* height: 419px; */
     margin-top: 100px;
-    background: #EFF2F6;
+    background: #eff2f6;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 45px;
     padding-bottom: 80px;
-
 }
-.newsletter{
+
+.newsletter {
     /* background: plum; */
     margin-top: 7px;
 }
 
-.newsHead{
+.newsHead {
     font-family: 'public sans';
     font-weight: 600;
     font-size: 31px;
 }
 
-.newsText{
+.newsText {
     margin-top: 20px;
     font-family: 'public sans';
     font-weight: 400;
@@ -531,7 +424,8 @@ footer{
 
 .email-input {
     padding: 10px 30px 10px 10px;
-    width: 400px; /* Adjust width as needed */
+    width: 400px;
+    /* Adjust width as needed */
     font-size: 16px;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -539,7 +433,7 @@ footer{
 
 .signup-button {
     position: absolute;
-    top: 10px;
+    top: 13px;
     right: 0;
     width: 60px;
     height: 100%;
@@ -552,65 +446,41 @@ footer{
     font-size: 14px;
 }
 
-.lasttext{
+.lasttext {
     width: 45%;
     display: flex;
     justify-content: space-between;
 }
-.shopHead{
+
+.shopHead {
     font-family: 'public sans';
     font-weight: 600;
     font-size: 16px;
     margin-bottom: 20px;
-   
 }
-.shopText p{
+
+.shopText p {
     font-family: 'public sans';
     font-weight: 500;
     font-size: 16px;
     opacity: 50%;
 }
 
+.move{
+    width: 100%;
+    background: paleturquoise;
+    display: flex;
+}
+.box{
+    width: 20%;
+    border-radius: 50px;
+    border: 1px solid #FFFFFF;
+    
+}
 
 @media screen and (max-width:780px) {
     .firsthalf {
         width:60% ;
-    }
-    .ny2{
-        display: none;
-    }
-    .cNBC2{
-        display: none;
-    }
-    .brands{
-        gap: 27px;
-    }
-    .ny,.cNBC,#vogue,#vanity{
-        width: 22%;
-    }
-
-    .categories{
-        margin-left: 50px;
-    }
-    .products{
-        margin-left: 50px;
-    }
-    .consoleimg {
-        width: 55%;
-        height: 152px;
-        margin-top: 69px;
-        margin-left: 27px;
-    }
-    .potimg{
-        margin-left: 30px;
-    }
-    .leddetails{
-        margin-left: 0px;   
-        margin-right: 24px;
-    }
-
-    .chairimg{
-        margin-left: 20px;
     }
     .newsletter{
         margin-left: 10px;
@@ -631,6 +501,17 @@ footer{
     .newsText{
         font-size: 13px;
     }
+
+    .productBoxes2,.productBoxes4{
+        display: none;
+    }
+    .filter{
+        width: 26%;
+    }
+    .console{
+        width: 42%;
+        margin-bottom: 32px;
+    }
 }
 
 @media screen and (max-width:430px) {
@@ -645,53 +526,6 @@ footer{
     }
     .header2{
         width: 65%;
-    }
-  
-    .colorbox {
-        height: 311px;
-        margin-left: 38px;
-    }
-    .lowerText {
-        margin-top: 20px;
-        font-size: 16px;
-    }
-    .brands {
-        gap: 12px;
-    }
-    .categories{
-        margin-left: 23px;
-        margin-top: 37px;
-    }
-    .clothboxes{
-        flex-wrap: wrap;
-        margin-top: 24px;
-        padding-left: 45px;
-    }
-    .cateName, .proName{
-        width: 100%;
-        font-size: 32px;
-    }
-    .products{
-        margin-top: 812px;
-        margin-left: 23px;
-    }
-    .productBoxes{
-        flex-wrap: wrap;
-    }
-
-    .console, .pot, .led, .chair {
-        width: 46%;
-    }
-    .why{
-        margin-top: 380px;
-    }
-    .qualities{
-        flex-wrap: wrap;
-    }
-    .return {
-        width: 40%;
-        margin-left: 36px;
-        margin-bottom: 32px;
     }
     footer{
         flex-wrap: wrap;
@@ -710,15 +544,10 @@ footer{
     .shop{
         margin-bottom: 20px;
     }
-}
-
-@media screen and (max-width:380px) {
-    .secondhalf{
-        width: 23%;
+    .productlist{
+        flex-wrap: wrap;
     }
-    .cateName, .proName{
-        width: 100%;
-        font-size: 32px;
+    .filter{
+        width: 80%;
     }
-    
 }
