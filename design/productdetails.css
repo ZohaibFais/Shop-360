@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+   
+}
+.container{
+    width: 100%;
+    /* background: lightblue; */
+}
+
+#header{
+    width: 100%;
+    height: 78px;
+    background: #000000;
+    display: flex;
+    justify-content: space-around;
+}
+.first{
+    display: flex;
+}
+.phone{
+    width: 16px;
+    height: 17px;
+    margin-top: 29px;
+    /* margin-left: 50px; */
+}
+.number{
+    width: 120px;
+    height: 21px;
+    margin-top: 26px;
+    /* margin-left: 10px; */
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+
+}
+.button{
+    display: flex;
+}
+
+.delivery{
+    color: #fff;
+    margin-top: 26px;
+    font-family:'public sans' ;
+    font-weight: 500;
+    font-size: 18px;
+    /* margin-left: 100px; */
+    /* margin-right: 100px */
+}
+
+#signupButton{
+    width: 140px;
+    height: 43px;
+    margin-top: 14px;
+    border-radius: 43px;
+    border: 2px solid #FFFFFF;
+    padding: 8px 39px 8px 39px;
+    font-family:'public sans' ;
+    font-weight: 400;
+    font-size: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#loginButton {
+    width: 139px;
+    height: 43px;
+    margin-top: 14px;
+    border-radius: 43px;
+    background: #E52E06;
+    padding: 11px 46px 11px 46px;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: 10px;
+    /* margin-right: 30px; */
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.header2 {
+    width: 100%;
+    display: flex;
+    /* background: greenyellow; */
+    margin-top: 30px;
+    /* margin-left: 50px; */
+    justify-content: space-around;
+}
+.firsthalf {
+    display: flex;
+    justify-content: space-between;
+    width: 46%;
+}
+
+.name{
+    font-family:'public sans' ;
+    font-weight: 700;
+    font-size: 32px;
+    color: #000000;
+}
+.links ul{
+    display: flex;
+    padding-top: 8px;
+    gap: 24px;
+}
+ul li {
+    list-style-type: none;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+}   
+
+.secondhalf{
+    width: 16%;
+    display: flex;
+    gap: 30px;
+}
+
+.fav, .cart, .custom-select {
+    margin-top: 5px;
+    width: 28px;
+    height: 23.99px;
+    cursor: pointer;
+}
+
+#dropdownContainer {
+    position: relative;
+    display: inline-block;
+}
+
+#dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0; 
+    top: 100%;
+}
+
+#dropdownContent .option {
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+#dropdownIcon {
+    cursor: pointer;
+}
+
+.breadcrumb {
+    width: 37%;
+    /* height: 40px; */
+    margin-top: 40px;
+    /* margin-left: 55px; */
+    /* background: rebeccapurple; */
+    text-align: center;
+}
+.color1Text{
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 50%;
+    padding-left: 5px;
+}
+
+.color2Text{
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    /* opacity: 50%; */
+    color: #E52E06;
+    padding-left: 5px;
+}
+
+.main{
+    width: 90%;
+    display: flex;
+    /* background: palevioletred; */
+    margin: 50px 20px 0px 50px ;
+}
+.pic{
+    width: 47%;
+    margin: 50px;
+    margin-left: 80px;
+    height: 600px;
+    display: flex;
+    background: #C4C4C4;
+    align-items: center;
+    justify-content: center;
+}
+#controllerpic{
+    width: 55%;
+    height: 45%;
+    margin-bottom: 40px;
+    /* background-color: peru; */
+}
+.text{
+    width: 47%;
+    /* background: palegreen; */
+    margin: 50px;
+}
+.heading{
+    font-family: 'public sans';
+    font-weight: 600;
+    font-size: 32px;
+    color: #000000;
+    padding-top: 10px;
+}
+.category{
+    color: #00000099;
+    opacity: 60%;
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 3%;
+    padding-top: 10px;
+}
+.price{
+    font-family: 'public sans';
+    font-weight: 600;
+    font-size: 32px;
+    color: #E52E06;
+    letter-spacing: 3%;
+    padding-top: 10px;
+}
+
+.shortDescription{
+    color: #00000099;
+    opacity: 60%;
+    font-family: 'public sans';
+    font-weight: 400;
+    font-size: 15px;  
+    padding-top: 15px;
+}
+.linebreak{
+    border: 1px solid #000000;
+    margin-top: 20px;
+}
+.orders{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: purple; */
+    margin-top: 20px;
+}
+.ordernum{
+    width: 38%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+.minus{
+    border: 1px solid #00000080;
+    opacity: 50%;
+    border-radius: 4px 0px 0px 4px;
+    padding: 5px;
+}
+#ordercount{
+    width: 100%;
+    border: 1px  solid #00000080;
+    border-radius: 1px 0px 1px 0px;
+    text-align: center;
+    padding: 8px;
+    font-family: 'public sans';
+    font-weight: 500;
+    font-size: 20px;  
+    color: #000000;
+}
+
+.plus{
+    border: 1px solid #000000;
+    border-radius: 0px 4px 4px 0px;
+    padding: 5px;
+    background: #000000;
+}
+
+.ordercart{
+    width: 40%;
+    background: lawngreen;
+    /* height: fit-content; */
+    margin-right: 30px;
+    height: fit-content
+}
+#buttoncart{
+    width: 100%;
+    background: #000000;
+    color: #FFFFFF;
+    display: flex;
+    padding: 14px 10px 16px 10px;
+    border: none;
+}
+.favcart{
+  width: 10%;
+  border: 1px solid #00000080;
+  border-radius: 4px 0px 0px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}

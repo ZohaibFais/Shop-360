@@ -202,8 +202,6 @@ function add() {
     reader.readAsDataURL(file);
 }
 
-
-
 function redirect1(){
     window.location.href = "http://127.0.0.1:5500/register.html"   //register page
 }
@@ -224,6 +222,21 @@ function redirect5(){
 function redirect6(){
     window.location.href = "http://127.0.0.1:5500/allprdoucts.html"  // All product
 }
+
+function redirect7(){
+    window.location.href = "http://127.0.0.1:5500/controller.html"  // Controller page
+}
+
+function redirect8(){
+    window.location.href = "http://127.0.0.1:5500/led.html"  // LED page
+}
+function redirect9(){
+    window.location.href = "http://127.0.0.1:5500/chair.html"  // Chair page
+}
+function redirect10(){
+    window.location.href = "http://127.0.0.1:5500/pot.html"  //pot page
+}
+
 
 function remove(){
     var confirmation = confirm("Are you sure you want to delete this product . This action can not be undone?");
@@ -258,7 +271,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         var userProducts = products.filter(function(product) {
-            return product.loggedInEmail === loggedInEmail;
+            return product.createdBy === loggedInEmail;
         });
 
         userProducts.forEach(function(product) {
