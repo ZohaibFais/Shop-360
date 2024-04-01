@@ -3,9 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pot</title>
+    <title>Pot</title>
+    <link rel="stylesheet" href="/design/productdetails.css">
 </head>
 <body>
-    
+    <div class="container">
+        <header id="header">
+            <div class="first">
+                <div class="phone">
+                    <img src="/assets/call.png" alt="">
+                </div>
+                <div class="number">
+                    +123 456 789
+                </div>
+         
+            </div>
+              
+            <div class="delivery">
+                Free Delivery on order above <span id="price" style="text-decoration: underline;">4000</span> 
+
+            </div>
+            <div class="button">
+                <div id="signupButton" onclick="redirect1()">SignUp</div>
+                <div id="loginButton" onclick="redirect2()">Login</div>
+            </div>
+           
+        </header>
+        <div class="header2">
+            <div class="firsthalf">
+                <div class="name">
+                    Shop360
+                </div>
+                <div class="links">
+                    <ul>
+                        <li onclick="redirect3()">Home</li> 
+                        <li onclick=" redirect5()">My Products</li> 
+                        <li>Contact</li>   <!-- onclick Contact Us-->
+                    </ul>
+                </div>
+            </div>
+            <div class="secondhalf">
+                <div class="fav">
+                    <img src="/assets/fav.png" alt="">
+                </div>
+                <div class="cart">
+                    <img src="/assets/cart.png" alt="">
+                </div>
+                <div class="custom-select">
+                    <div id="dropdownContainer">
+                        <img src="/assets/icon.png" id="dropdownIcon">
+                        <div id="dropdownContent">
+                            <div class="option" data-value="profile">Profile Settings</div>
+                            <div class="option" data-value="logout" style="color: #E8492A;" onclick="redirect2()">Logout</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+                
+        </div>
+        <div class="breadcrumb">
+          <span class="color1Text"> Home</span>
+          <span class="color1Text">/</span>
+          <span class="color1Text"> All Products</span>
+          <span class="color1Text">/</span>
+          <span class="color2Text">Product details</span>
+        </div>
+        <div class="main">
+            <div class="pic">
+                <img src="/assets/pot.png" alt="" id="controllerpic">
+            </div>
+            <div class="text">
+                <div class="heading">
+                    Lorem ipsum dolor 
+                </div>
+                <div class="category">
+                    Electronics
+                </div>
+                <div class="price">
+                    Rs. 120
+                </div>
+                <div class="shortDescription">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    <br> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
+                    <br> natoque penati
+                </div>
+                <div class="linebreak"></div>
+                <div class="orders">
+                    <div class="ordernum">
+                        <div class="minus" onclick="decreaseNumber()">
+                            <img src="/assets/icon-minus.png" alt="">
+                        </div>
+                        <div class="num">
+                            <input type="number" name="" id="ordercount" value="0">
+                        </div>
+                        <div class="plus" onclick="increaseNumber()"><img src="/assets/icon-plus.png" alt=""></div>
+                    </div>
+                    <div class="ordercart">
+                        <button id="buttoncart"> Add to Cart</button>
+                    </div>
+                    <div class="favcart">
+                        <img src="/assets/fav.png" alt="" id="favitem">
+                    </div>
+                </div>
+                <div class="facilities">
+                    <div class="shipping">
+                        <div class="shipicon">
+                            <img src="/assets/Delivery.png" alt="">
+                        </div>
+                        <div class="shipText">
+                            Shipping
+                            <p id="shipdecortext">Enter your postal code for Delivery Availability</p>
+                        </div>
+                        <div class="infoicon">
+                            <img src="/assets/info icon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="break">
+
+                    </div>
+                    <div class="askproduct">
+                        <div class="mailicon">
+                            <img src="/assets/mail.png" alt="">
+                        </div>
+                        <div class="askText">
+                            Ask About This Product
+                            <p id="askdecortext">Tell us your queries</p>
+                        </div>
+                        <div class="infoicon">
+                            <img src="/assets/info icon.png" alt="">
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <div class="descripton">
+            <div class="deHead">
+                Description
+                <div class="deunderline"></div>
+            </div>
+            <div class="deText">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, 
+            </div>
+        </div>
+        <footer>
+            <div class="newsletter">
+                <div class="newsHead">
+                    <h3>Sign up for our newsletter</h3>
+                </div>
+                <div class="newsText">
+                    Be the first to know about our special offers, new product <br>launches, and events
+                </div>
+                <div class="email-input-container">
+                    <input type="email" class="email-input" placeholder="Email Address">
+                    <div class="signup-button">Sign Up</div>
+                </div>
+            </div>
+            <div class="lasttext">
+                <div class="shop">
+                    <div class="shopHead">
+                        Shop
+                    </div>
+                    <div class="shopText">
+                       <p>Women’s</p> <br>
+                        <p>Men’s</p>  <br>
+                        <p>Kids’</p>  <br>
+                        <p>Shoes</p>  <br>    
+                        <p>Equipment</p><br>    
+                        <p>By Activity</p> <br>  
+                        <p>Gift Cards</p>  <br>  
+                        <p>Sale</p>     
+                    </div>
+
+                </div>
+                
+                <div class="shop">
+                    <div class="shopHead">
+                        Help
+                    </div>
+                    <div class="shopText">
+                      <p>Help Center</p> <br>
+                        <p>Order Status</p><br>
+                        <p>Size Chart</p><br>
+                        <p>Returns & Warranty</p><br>
+                        <p>Contact Us</p>
+                      
+                    </div>
+
+                </div>
+
+                <div class="shop">
+                    <div class="shopHead">
+                        About
+                    </div>
+                    <div class="shopText">
+                        <p>About Us</p> <br>
+                        <p>Responsibility</p><br>
+                        <p>Technology & Innovation</p><br>
+                        <p>Explore our stories</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
+<script src="/script.js"></script>
 </html>
