@@ -81,7 +81,7 @@ function logout() {
     window.location.href = "http://127.0.0.1:5500/login.html"; // Redirect to the login page after logout
 }
 
-if (window.location.href.includes("login.html")) {
+if (window.location.href.includes("login.html")) {   //login
     function login() {
         var loginemail = document.getElementById('loginemail').value;
         var loginpassword = document.getElementById('loginpassword').value;
@@ -116,7 +116,7 @@ else {
     }
 }
 
-var dropdownIcon = document.getElementById('dropdownIcon');
+var dropdownIcon = document.getElementById('dropdownIcon');     //dropdown
 var dropdownContent = document.getElementById('dropdownContent');
 
 dropdownIcon.addEventListener('click', function() {
@@ -137,7 +137,7 @@ options.forEach(function(option) {
     });
 });
 
-function add() {
+function add() {    
     var productNameInput = document.querySelector('.productName input');
     var categoryInput = document.querySelector('.category select');
     var aboutProductInput = document.getElementById('about');
@@ -202,6 +202,28 @@ function add() {
     reader.readAsDataURL(file);
 }
 
+function remove(productId) {    //remove product
+    var confirmation = confirm("Are you sure you want to delete this product? This action cannot be undone.");
+    if (confirmation) {
+        // Remove the product from Local Storage
+        var products = JSON.parse(localStorage.getItem('products')) || [];
+        var updatedProducts = products.filter(item => item.id !== productId);
+        localStorage.setItem('products', JSON.stringify(updatedProducts));
+
+        // Redirect to myproduct.html
+        window.location.href = "http://127.0.0.1:5500/myproduct.html";
+
+        // Optionally, you can also remove the product from the screen
+        var productBox = document.getElementById(productId);
+        if (productBox) {
+            productBox.remove();
+        } else {
+            console.error('Product box not found.');
+        }
+    }
+}
+
+
 function redirect1(){
     window.location.href = "http://127.0.0.1:5500/register.html"   //register page
 }
@@ -240,26 +262,6 @@ function redirect11(){
     window.location.href = "http://127.0.0.1:5500/editproduct.html"
 }
 
-function remove(productId) {
-    var confirmation = confirm("Are you sure you want to delete this product? This action cannot be undone.");
-    if (confirmation) {
-        // Remove the product from Local Storage
-        var products = JSON.parse(localStorage.getItem('products')) || [];
-        var updatedProducts = products.filter(item => item.id !== productId);
-        localStorage.setItem('products', JSON.stringify(updatedProducts));
-
-        // Redirect to myproduct.html
-        window.location.href = "http://127.0.0.1:5500/myproduct.html";
-
-        // Optionally, you can also remove the product from the screen
-        var productBox = document.getElementById(productId);
-        if (productBox) {
-            productBox.remove();
-        } else {
-            console.error('Product box not found.');
-        }
-    }
-}
 
 
 
@@ -427,168 +429,3 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-
-// Function to handle user registration
-function register() {
-    var firstname = document.getElementById('firstname');
-    var lastname = document.getElementById('lastname');
-    var registeremail = document.getElementById('registeremail');
-    var number = document.getElementById('number');
-    var country = document.getElementById('country');
-    var city = document.getElementById('city');
-    var registerPassword = document.getElementById('password');
-    var confirmPassword = document.getElementById('confirmPassword');
-
-    if (!firstname.value || !lastname.value || !registeremail.value || !number.value || !country.value || !city.value || !registerPassword.value || !confirmPassword.value) {
-        alert("Please fill all the fields");
-    } else if (!registeremail.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-        alert("Please enter a valid email");
-    } else if (!(registerPassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) || !(confirmPassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/))) {
-        alert("Password does not meet the criteria");
-    } else if (registerPassword.value !== confirmPassword.value) {
-        alert("Passwords do not match");
-    } else {
-        var registersData = JSON.parse(localStorage.getItem('Data')) || [];
-
-        var alreadyRegistered = registersData.find(function(user) {
-            return user.registeremail === registeremail.value;
-        });
-
-        if (alreadyRegistered) {
-            alert("Email is already registered");
-        } else {
-            var registerData = {
-                firstname: firstname.value,
-                lastname: lastname.value,
-                registeremail: registeremail.value,
-                number: number.value,
-                country: country.value,
-                city: city.value,
-                registerPassword: registerPassword.value
-            };
-
-            registersData.push(registerData);
-
-            localStorage.setItem('Data', JSON.stringify(registersData));
-
-            firstname.value = "";
-            lastname.value = "";
-            registeremail.value = "";
-            number.value = "";
-            country.value = "";
-            city.value = "";
-            registerPassword.value = "";
-            confirmPassword.value = "";
-
-            alert("Your account has been successfully registered");
-            window.location.href = "http://127.0.0.1:5500/login.html";
-        }
-    }
-}
-
-// Function to hide sign up and login buttons if user is logged in
-function hideButtons() {
-    var signupButton = document.getElementById('signupButton');
-    var loginButton = document.getElementById('loginButton');
-    if (signupButton) {
-        signupButton.style.display = 'none';
-    }
-    if (loginButton) {
-        loginButton.style.display = 'none';
-    }
-}
-
-// Function to handle user logout
-function logout() {
-    localStorage.removeItem('IsLoggedIn');
-    localStorage.removeItem('LoggedInUser');
-    window.location.href = "http://127.0.0.1:5500/login.html";
-}
-
-// Function to handle user login
-function login() {
-    var loginemail = document.getElementById('loginemail').value;
-    var loginpassword = document.getElementById('loginpassword').value;
-
-    var registersData = JSON.parse(localStorage.getItem('Data')) || [];
-    var loggedInUser = registersData.find(function(user) {
-        return user.registeremail === loginemail && user.registerPassword === loginpassword;
-    });
-
-    if (loginemail === "" || loginpassword === "") {
-        alert("Empty form");
-    } else if (loggedInUser) {
-        alert("Successfully logged in");
-        localStorage.setItem('LoggedInUser', JSON.stringify(loggedInUser));
-        localStorage.setItem('IsLoggedIn', true);
-        window.location.href = "http://127.0.0.1:5500/home.html";
-    } else {
-        alert("Invalid email or password");
-    }
-}
-
-// Function to toggle dropdown menu
-function toggleDropdown() {
-    var dropdownContent = document.getElementById('dropdownContent');
-    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-}
-
-// Function to redirect to product details page
-function redirectToProductDetailsPage(productId) {
-    window.location.href = "http://127.0.0.1:5500/myprodescription.html?id=" + productId;
-}
-
-// Function to decrease order count
-function decreaseNumber() {
-    var input = document.getElementById('ordercount');
-    var value = parseInt(input.value);
-    if (value > 0) {
-        input.value = value - 1;
-    } else {
-        input.value = 0;
-    }
-}
-
-// Function to increase order count
-function increaseNumber() {
-    var input = document.getElementById('ordercount');
-    var value = parseInt(input.value);
-    input.value = value + 1;
-}
-
-function loadProductData(){
-
-
-// Function to get product data from Local Storage
-function getProductData(productId) {
-    // Retrieve product data from Local Storage based on productId
-    const productData = JSON.parse(localStorage.getItem(productId));
-    return productData;
-}
-
-// Function to populate input fields with product data
-function populateFields(productData) {
-    document.getElementById('productName').value = productData.name;
-    document.getElementById('category').value = productData.category;
-    document.getElementById('about').value = productData.shortDescription;
-    document.getElementById('quantity').value = productData.quantity;
-    document.getElementById('price').value = productData.price;
-    document.getElementById('descriptioninput').value = productData.description;
-    // You can populate other fields similarly
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Extracting product ID from the URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id');
-
-    // Check if productId is present in the URL
-    if (productId) {
-        // Retrieve product data from Local Storage
-        const productData = getProductData(productId);
-
-        // Populate input fields with product data
-        populateFields(productData);
-    }
-});
-}

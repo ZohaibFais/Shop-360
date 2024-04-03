@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LED</title>
-    <link rel="stylesheet" href="/design/productdetails.css">
+    <title>Profile Setting</title>
+    <link rel="stylesheet" href="/design/profile.css">
 </head>
 <body>
     <div class="container">
@@ -38,7 +38,7 @@
                     <ul>
                         <li onclick="redirect3()">Home</li> 
                         <li onclick=" redirect5()">My Products</li> 
-                        <li>Contact</li>   <!-- onclick Contact Us-->
+                        <li onclick="redirect13()">Contact</li> 
                     </ul>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <div id="dropdownContainer">
                         <img src="/assets/icon.png" id="dropdownIcon">
                         <div id="dropdownContent">
-                            <div class="option" data-value="profile"onclick="redirect12()">Profile Settings</div>
+                            <!-- <div class="option" data-value="profile">Profile Settings</div> -->
                             <div class="option" data-value="logout" style="color: #E8492A;" onclick="redirect2()">Logout</div>
                         </div>
                     </div>
@@ -65,86 +65,75 @@
         <div class="breadcrumb">
           <span class="color1Text"> Home</span>
           <span class="color1Text">/</span>
-          <span class="color1Text"> All Products</span>
-          <span class="color1Text">/</span>
-          <span class="color2Text">Product details</span>
+          <span class="color2Text">Profile Setting</span>
         </div>
-        <div class="main">
-            <div class="pic">
-                <img src="/assets/led.png" alt="" id="controllerpic">
-            </div>
-            <div class="text">
+        <div class="addProduct">
+            <div class="addForm">
                 <div class="heading">
-                    Lorem ipsum dolor 
+                   Profile Setting
                 </div>
-                <div class="category">
-                    Electronics
+                <div class="lowerText">
+                    Edit the details below
                 </div>
-                <div class="price">
-                    Rs. 120
-                </div>
-                <div class="shortDescription">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    <br> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                    <br> natoque penati
-                </div>
-                <div class="linebreak"></div>
-                <div class="orders">
-                    <div class="ordernum">
-                        <div class="minus" onclick="decreaseNumber()">
-                            <img src="/assets/icon-minus.png" alt="">
-                        </div>
-                        <div class="num">
-                            <input type="number" name="" id="ordercount" value="0">
-                        </div>
-                        <div class="plus" onclick="increaseNumber()"><img src="/assets/icon-plus.png" alt=""></div>
+                <form>
+                    <div class="firstName">
+                        First name:
+                        <br>
+                        <input type="text" id="firstName" value="">
                     </div>
-                    <div class="ordercart">
-                        <button id="buttoncart"> Add to Cart</button>
+                    <div class="lastName">
+                        Last name:
+                        <br>
+                        <input type="text" id="lastName" value="">
+                           
+
+                        </select>
                     </div>
-                    <div class="favcart">
-                        <img src="/assets/fav.png" alt="" id="favitem">
+                </form>
+                <form >
+                    <div class="email">
+                        Email:
+                        <br>
+                        <input type="email" id="registerEmail">
                     </div>
-                </div>
-                <div class="facilities">
-                    <div class="shipping">
-                        <div class="shipicon">
-                            <img src="/assets/Delivery.png" alt="">
-                        </div>
-                        <div class="shipText">
-                            Shipping
-                            <p id="shipdecortext">Enter your postal code for Delivery Availability</p>
-                        </div>
-                        <div class="infoicon">
-                            <img src="/assets/info icon.png" alt="">
-                        </div>
+                    <div class="phonenumber">
+                        Phone no:
+                        <br>
+                        <input type="text" placeholder="" id="number">
                     </div>
-                    <div class="break">
+                </form>
+                <form>
+                    <div class="country">
+                        Country:
+                        <br>
+                        <input type="text" value =""  id="country">
+                    </div>
+                    <div class="city">
+                        City:
+                        <br>
+                        <input type="text" id="city">
 
                     </div>
-                    <div class="askproduct">
-                        <div class="mailicon">
-                            <img src="/assets/mail.png" alt="">
-                        </div>
-                        <div class="askText">
-                            Ask About This Product
-                            <p id="askdecortext">Tell us your queries</p>
-                        </div>
-                        <div class="infoicon">
-                            <img src="/assets/info icon.png" alt="">
-                        </div>
+                </form>
+                <form>
+                    <div class="password">
+                        Password:
+                        <br>
+                        <input type="password" value =""  id="password">
                     </div>
+                    <div class="confiirmPassword">
+                        Confiirm Password
+                        <br>
+                        <input type="password" id="confiirmPassword">
+
+                    </div>
+                </form>
+
+                <div class="addbutton">
+                    <!-- Call the `add()` function when the button is clicked -->
+                    <button id="saveproduct">Save</button>
+
                 </div>
-               
-            </div>
-        </div>
-        <div class="descripton">
-            <div class="deHead">
-                Description
-                <div class="deunderline"></div>
-            </div>
-            <div class="deText">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, 
             </div>
         </div>
         <footer>
@@ -208,6 +197,6 @@
             </div>
         </footer>
     </div>
+    <script src="/script.js"></script>
 </body>
-<script src="/script.js"></script>
 </html>

@@ -38,7 +38,7 @@
                     <ul>
                         <li onclick="redirect3()">Home</li> 
                         <li onclick=" redirect5()">My Products</li> 
-                        <li>Contact</li>   <!-- onclick Contact Us-->
+                        <li onclick="redirect13()">Contact</li> 
                     </ul>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <div id="dropdownContainer">
                         <img src="/assets/icon.png" id="dropdownIcon">
                         <div id="dropdownContent">
-                            <div class="option" data-value="profile">Profile Settings</div>
+                            <div class="option" data-value="profile"onclick="redirect12()">Profile Settings</div>
                             <div class="option" data-value="logout" style="color: #E8492A;" onclick="redirect2()">Logout</div>
                         </div>
                     </div>
@@ -81,16 +81,15 @@
                     <div class="productName">
                         Product name:
                         <br>
-                        <input type="text" id="productName">
+                        <input type="text" id="productName" value="">
                     </div>
                     <div class="category">
                         Category:
                         <br>
                         <select id="category">
-                            <option id="categorySelect">Select</option>
-                            <option id="categorySelect">Clothing</option>
-                            <option id="categorySelect">Electronics</option>
-                            <option id="categorySelect">Home Lifestyle</option>
+                            <option id="categorySelect" value="">Select</option>
+                            <option id="categorySelect" value="">Lifestyle</option>
+
                            
 
                         </select>
@@ -100,7 +99,7 @@
                     <div class="aboutproduct">
                         About product (Short discription)
                         <br>
-                        <input type="text" id="about">
+                        <input type="text" id="about" value="">
                         <div class="wordcount">
                             0/200
                         </div>
@@ -110,12 +109,12 @@
                     <div class="quantity">
                         Quantity:
                         <br>
-                        <input type="number" placeholder="00" id="quantity">
+                        <input type="number" placeholder="00" id="quantity" value="">
                     </div>
                     <div class="price">
                         Price:
                         <br>
-                        <input type="text" id="price">
+                        <input type="text" id="price" value="">
 
                     </div>
                 </form>
@@ -123,7 +122,7 @@
                     <div class="description">
                         Description (detail):
                         <br>
-                        <input type="text" id="descriptioninput">
+                        <input type="text" id="descriptioninput" value="">
                     </div>
                 </form>
                 <form >
@@ -134,7 +133,6 @@
                     </div>
                 </form>
                 <div class="addbutton">
-                    <!-- Call the `add()` function when the button is clicked -->
                     <button id="saveproduct">Save</button>
 
                 </div>
