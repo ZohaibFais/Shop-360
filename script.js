@@ -397,30 +397,48 @@ function editProductPage() {
     function loadProductDetails(productId) {
         // Retrieve product details from local storage or any other data source
         const products = JSON.parse(localStorage.getItem('products')) || [];
-
+    
         // Find the product with the matching ID
         const product = products.find(item => item.id === productId);
-
+    
         if (product) {
             // Populate the input fields with the product details
             document.getElementById('productName').value = product.productName;
-            document.getElementById('category').value = product.category;
             document.getElementById('about').value = product.aboutProduct;
             document.getElementById('quantity').value = product.quantity;
-            document.getElementById('price').value = product.price;
+            document.getElementById('price').value = product.price; // Corrected line
             document.getElementById('descriptioninput').value = product.description;
+    
+            // Populate the category select element
+            const categorySelect = document.getElementById('category');
+            categorySelect.innerHTML = ''; // Clear existing options
+            const categoryOption = document.createElement('option');
+            categoryOption.value = product.category;
+            categoryOption.textContent = product.category;
+            categorySelect.appendChild(categoryOption);
+    
+            // If there's an image associated with the product, display it
+            if (product.image) {
+                const imagePreview = document.getElementById('imagePreview');
+                imagePreview.src = product.image;
+                imagePreview.style.display = 'block';
+            }
         } else {
             // Handle case when product with given ID is not found
             console.error('Product with ID ' + productId + ' not found.');
         }
     }
+    
 
-    // Function to save the edited product
-    function saveProduct() {
+    // Call the function to load product details when the page loads
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    loadProductDetails(productId);
+
+    // Set up event listener for the save button
+    document.getElementById('saveproduct').addEventListener('click', function() {
         // Retrieve the edited product details from the form fields
-        const productId = new URLSearchParams(window.location.search).get('id');
         const productName = document.getElementById('productName').value;
-        const category = document.getElementById('category').value;
         const aboutProduct = document.getElementById('about').value;
         const quantity = document.getElementById('quantity').value;
         const price = document.getElementById('price').value;
@@ -431,7 +449,6 @@ function editProductPage() {
         const updatedProducts = products.map(product => {
             if (product.id === productId) {
                 product.productName = productName;
-                product.category = category;
                 product.aboutProduct = aboutProduct;
                 product.quantity = quantity;
                 product.price = price;
@@ -443,15 +460,10 @@ function editProductPage() {
 
         // Redirect to the product details page after saving
         window.location.href = "http://127.0.0.1:5500/myprodescription.html?id=" + productId;
-    }
-
-    // Call the function to load product details when the page loads
-    const productId = new URLSearchParams(window.location.search).get('id');
-    loadProductDetails(productId);
-
-    // Set up event listener for the save button
-    document.getElementById('saveproduct').addEventListener('click', saveProduct);
+    });
 }
+
+
 
 // Call the editProductPage function when the DOM content is loaded
 document.addEventListener("DOMContentLoaded", editProductPage);
@@ -471,8 +483,8 @@ function loadProductDetails() {
         if (product) {
             document.querySelector('.htext').textContent = product.productName;
             document.querySelector('.pic').innerHTML = '<img src="' + product.image + '" alt="">';
-            document.querySelector('.category').innerText = 'Category: ' + product.category;
-            document.querySelector('.price').innerText = 'Price: Rs. ' + product.price;
+            document.querySelector('.category').value =  product.category;
+            document.querySelector('.price').innerHTML = 'Price: Rs. ' + product.price;
             document.querySelector('.shortDescription').innerText = product.aboutProduct;
             document.querySelector('.deText').innerText = product.description;
         } else {
