@@ -137,7 +137,7 @@ options.forEach(function(option) {
     });
 });
 
-function add() {    
+function add() {
     var productNameInput = document.querySelector('.productName input');
     var categoryInput = document.querySelector('.category select');
     var aboutProductInput = document.getElementById('about');
@@ -201,8 +201,10 @@ function add() {
     };
     reader.readAsDataURL(file);
 }
+function remove() {    //remove product 
+    var urlParams = new URLSearchParams(window.location.search);
+    var productId = urlParams.get('id');
 
-function remove(productId) {    //remove product
     var confirmation = confirm("Are you sure you want to delete this product? This action cannot be undone.");
     if (confirmation) {
         // Remove the product from Local Storage
@@ -224,6 +226,7 @@ function remove(productId) {    //remove product
 }
 
 
+
 function redirect1(){
     window.location.href = "http://127.0.0.1:5500/register.html"   //register page
 }
@@ -231,12 +234,15 @@ function redirect1(){
 function redirect2(){
     window.location.href = "http://127.0.0.1:5500/login.html"  // login page
 }
+
 function redirect3(){
     window.location.href = "http://127.0.0.1:5500/home.html"  // home page
 }
+
 function redirect4(){
     window.location.href = "http://127.0.0.1:5500/addproduct.html" // add product
 }
+
 function redirect5(){
     window.location.href = "http://127.0.0.1:5500/myproduct.html" // My product page
 }
@@ -252,18 +258,18 @@ function redirect7(){
 function redirect8(){
     window.location.href = "http://127.0.0.1:5500/led.html"  // LED page
 }
+
 function redirect9(){
     window.location.href = "http://127.0.0.1:5500/chair.html"  // Chair page
 }
+
 function redirect10(){
     window.location.href = "http://127.0.0.1:5500/pot.html"  //pot page
 }
+
 function redirect11(){
     window.location.href = "http://127.0.0.1:5500/editproduct.html"
 }
-
-
-
 
 // myproductshow
 
@@ -385,47 +391,105 @@ function increaseNumber() {
 
     input.value = value + 1;
 }
-function loadProductDetails(productId) {
-    // Retrieve product details from Local Storage based on the product ID
-    var products = JSON.parse(localStorage.getItem('products')) || [];
-    var product = products.find(item => item.id === productId);
 
-    if (product) {
-        // Populate the HTML elements with product details
-        document.querySelector('.htext').innerHTML = product.productName;
-        document.querySelector('.pic').innerHTML = '<img src="' + product.image + '" alt="">';
-        document.querySelector('.category').innerText = product.category;
-        document.querySelector('.price').innerText = 'Rs. ' + product.price;
-        document.querySelector('.shortDescription').innerText = product.aboutProduct;
-        document.querySelector('.deText').innerText = product.description;
+function editProductPage() {
+    // Function to load product details into the form fields
+    function loadProductDetails(productId) {
+        // Retrieve product details from local storage or any other data source
+        const products = JSON.parse(localStorage.getItem('products')) || [];
 
-        // Show the edit and trash buttons
-        document.getElementById('edit').style.display = 'block';
-        document.getElementById('trash').style.display = 'block';
-    } else {
-        console.error('Product not found.');
+        // Find the product with the matching ID
+        const product = products.find(item => item.id === productId);
+
+        if (product) {
+            // Populate the input fields with the product details
+            document.getElementById('productName').value = product.productName;
+            document.getElementById('category').value = product.category;
+            document.getElementById('about').value = product.aboutProduct;
+            document.getElementById('quantity').value = product.quantity;
+            document.getElementById('price').value = product.price;
+            document.getElementById('descriptioninput').value = product.description;
+        } else {
+            // Handle case when product with given ID is not found
+            console.error('Product with ID ' + productId + ' not found.');
+        }
     }
-}
 
-// Retrieve product ID from URL parameter
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('id');
+    // Function to save the edited product
+    function saveProduct() {
+        // Retrieve the edited product details from the form fields
+        const productId = new URLSearchParams(window.location.search).get('id');
+        const productName = document.getElementById('productName').value;
+        const category = document.getElementById('category').value;
+        const aboutProduct = document.getElementById('about').value;
+        const quantity = document.getElementById('quantity').value;
+        const price = document.getElementById('price').value;
+        const description = document.getElementById('descriptioninput').value;
 
-if (productId) {
-    // Load product details based on the product ID
+        // Update the product details in the local storage or any other data source
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+        const updatedProducts = products.map(product => {
+            if (product.id === productId) {
+                product.productName = productName;
+                product.category = category;
+                product.aboutProduct = aboutProduct;
+                product.quantity = quantity;
+                product.price = price;
+                product.description = description;
+            }
+            return product;
+        });
+        localStorage.setItem('products', JSON.stringify(updatedProducts));
+
+        // Redirect to the product details page after saving
+        window.location.href = "http://127.0.0.1:5500/myprodescription.html?id=" + productId;
+    }
+
+    // Call the function to load product details when the page loads
+    const productId = new URLSearchParams(window.location.search).get('id');
     loadProductDetails(productId);
-} else {
-    console.error('Product ID not found in URL parameter.');
+
+    // Set up event listener for the save button
+    document.getElementById('saveproduct').addEventListener('click', saveProduct);
 }
 
-
+// Call the editProductPage function when the DOM content is loaded
+document.addEventListener("DOMContentLoaded", editProductPage);
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Function to retrieve product details from Local Storage based on product ID
-    function getProductDetails(productId) {
-        var products = JSON.parse(localStorage.getItem('products')) || [];
-        return products.find(item => item.id === productId);
-    }
+    loadProductDetails();
 });
 
+function loadProductDetails() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    if (productId) {
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+        const product = products.find(item => item.id === productId);
+
+        if (product) {
+            document.querySelector('.htext').textContent = product.productName;
+            document.querySelector('.pic').innerHTML = '<img src="' + product.image + '" alt="">';
+            document.querySelector('.category').innerText = 'Category: ' + product.category;
+            document.querySelector('.price').innerText = 'Price: Rs. ' + product.price;
+            document.querySelector('.shortDescription').innerText = product.aboutProduct;
+            document.querySelector('.deText').innerText = product.description;
+        } else {
+            console.error('Product not found.');
+        }
+    } else {
+        console.error('Product ID not found in URL parameter.');
+    }
+}
+function editProduct() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    if (productId) {
+        window.location.href = "http://127.0.0.1:5500/editproduct.html?id=" + productId;
+    } else {
+        console.error('Product ID not found in URL parameter.');
+    }
+}
 

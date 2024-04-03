@@ -222,11 +222,13 @@ form {
     gap: 24px;
 }
 
-
+#category{
+    width: 100%;
+}
 
 .productName, .category, .quantity, .price{
     width: 45%;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     /* background-color: firebrick; */
     height: fit-content;
     font-family: 'public sans';
