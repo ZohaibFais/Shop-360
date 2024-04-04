@@ -368,6 +368,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+//////////////////// MY PRODUCT DESCRIPTION PAGE
+
+
 // Function to redirect to the product details page
 function redirectToProductDetailsPage(productId) {
     window.location.href = "http://127.0.0.1:5500/myprodescription.html?id=" + productId;
@@ -392,82 +395,7 @@ function increaseNumber() {
     input.value = value + 1;
 }
 
-function editProductPage() {
-    // Function to load product details into the form fields
-    function loadProductDetails(productId) {
-        // Retrieve product details from local storage or any other data source
-        const products = JSON.parse(localStorage.getItem('products')) || [];
-    
-        // Find the product with the matching ID
-        const product = products.find(item => item.id === productId);
-    
-        if (product) {
-            // Populate the input fields with the product details
-            document.getElementById('productName').value = product.productName;
-            document.getElementById('about').value = product.aboutProduct;
-            document.getElementById('quantity').value = product.quantity;
-            document.getElementById('price').value = product.price; // Corrected line
-            document.getElementById('descriptioninput').value = product.description;
-    
-            // Populate the category select element
-            const categorySelect = document.getElementById('category');
-            categorySelect.innerHTML = ''; // Clear existing options
-            const categoryOption = document.createElement('option');
-            categoryOption.value = product.category;
-            categoryOption.textContent = product.category;
-            categorySelect.appendChild(categoryOption);
-    
-            // If there's an image associated with the product, display it
-            if (product.image) {
-                const imagePreview = document.getElementById('imagePreview');
-                imagePreview.src = product.image;
-                imagePreview.style.display = 'block';
-            }
-        } else {
-            // Handle case when product with given ID is not found
-            console.error('Product with ID ' + productId + ' not found.');
-        }
-    }
-    
-
-    // Call the function to load product details when the page loads
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id');
-    loadProductDetails(productId);
-
-    // Set up event listener for the save button
-    document.getElementById('saveproduct').addEventListener('click', function() {
-        // Retrieve the edited product details from the form fields
-        const productName = document.getElementById('productName').value;
-        const aboutProduct = document.getElementById('about').value;
-        const quantity = document.getElementById('quantity').value;
-        const price = document.getElementById('price').value;
-        const description = document.getElementById('descriptioninput').value;
-
-        // Update the product details in the local storage or any other data source
-        const products = JSON.parse(localStorage.getItem('products')) || [];
-        const updatedProducts = products.map(product => {
-            if (product.id === productId) {
-                product.productName = productName;
-                product.aboutProduct = aboutProduct;
-                product.quantity = quantity;
-                product.price = price;
-                product.description = description;
-            }
-            return product;
-        });
-        localStorage.setItem('products', JSON.stringify(updatedProducts));
-
-        // Redirect to the product details page after saving
-        window.location.href = "http://127.0.0.1:5500/myprodescription.html?id=" + productId;
-    });
-}
-
-
-
-// Call the editProductPage function when the DOM content is loaded
-document.addEventListener("DOMContentLoaded", editProductPage);
-
+// Myproduct description
 document.addEventListener("DOMContentLoaded", function() {
     loadProductDetails();
 });
@@ -494,6 +422,8 @@ function loadProductDetails() {
         console.error('Product ID not found in URL parameter.');
     }
 }
+
+//edit button
 function editProduct() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
@@ -505,3 +435,58 @@ function editProduct() {
     }
 }
 
+///////////////////////////////////////////////////////// END
+
+
+    function loadProductDetailsEditPage(productId) {
+        console.log("loadProductDetailsEditPage function executed."); // Debugging: Log function execution
+
+        // Retrieve product details from local storage or any other data source
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+        console.log("Products:", products); // Debugging: Log product data
+
+        // Find the product with the matching ID
+        const product = products.find(item => item.id === productId);
+        console.log("Product:", product); // Debugging: Log retrieved product
+
+        if (product) {
+            // Populate the input fields with the product details
+            document.getElementById('productName').value = product.productName;
+            document.getElementById('about').value = product.aboutProduct;
+            document.getElementById('quantity').value = product.quantity;
+            document.getElementById('price').value = product.price;
+            document.getElementById('descriptioninput').value = product.description;
+
+            // Populate the category select element
+            const categorySelect = document.getElementById('category');
+            categorySelect.innerHTML = ''; // Clear existing options
+            const categories = [...new Set(products.map(item => item.category))]; // Get unique categories
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                if (category === product.category) {
+                    option.selected = true; // Select the category of the current product
+                }
+                categorySelect.appendChild(option);
+            });
+
+            // If there's an image associated with the product, display it
+            if (product.image) {
+                const imagePreview = document.getElementById('imagePreview');
+                imagePreview.src = product.image;
+                imagePreview.style.display = 'block';
+            }
+        } else {
+            // Handle case when product with given ID is not found
+            console.error('Product with ID ' + productId + ' not found.');
+        }
+    }
+
+// Call the loadProductDetailsEditPage function when the edit page loads
+document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    console.log("Product ID:", productId); // Debugging: Log the productId
+    loadProductDetailsEditPage(productId);
+});
