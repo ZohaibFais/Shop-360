@@ -268,7 +268,10 @@ function redirect10(){
 }
 
 function redirect11(){
-    window.location.href = "http://127.0.0.1:5500/editproduct.html"
+    window.location.href = "http://127.0.0.1:5500/profile.html"   //profile Setting
+}
+function redirect12(){
+    window.location.href = "http://127.0.0.1:5500/contact.html"  //contact page
 }
 
 // myproductshow
@@ -462,24 +465,6 @@ function loadProductDetailsEditPage(productId) {
             categorySelect.appendChild(option);
         });
 
-        if (product.image) {
-            const imagePreview = document.createElement('img');
-            imagePreview.src = 'data:image/png;base64,' + product.image;
-            imagePreview.alt = 'Product Image';
-            imagePreview.style.display = 'block';
-
-            const uploadElement = document.getElementById('fileinput');
-            if (uploadElement) {
-                uploadElement.appendChild(imagePreview);
-            } else {
-                console.error('Element with ID "fileinput" not found.');
-            }
-        }
-
-        // Display the filename if available
-        if (product.filename) {
-            document.getElementById('fileNameDisplay').textContent = product.filename;
-        }
     } else {
         console.error('Product with ID ' + productId + ' not found.');
     }
