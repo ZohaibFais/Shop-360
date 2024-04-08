@@ -1,41 +1,33 @@
-function register() {   //register
-    var firstname = document.getElementById('firstname');
-    var lastname = document.getElementById('lastname');
-    var registeremail = document.getElementById('registeremail');
-    var number = document.getElementById('number');
-    var country = document.getElementById('country');
-    var city = document.getElementById('city');
-    var registerPassword = document.getElementById('password');
-    var confirmPassword = document.getElementById('confirmPassword');
+function register() { //register
+    let firstname = document.getElementById('firstname');
+    let lastname = document.getElementById('lastname');
+    let registeremail = document.getElementById('registeremail');
+    let number = document.getElementById('number');
+    let country = document.getElementById('country');
+    let city = document.getElementById('city');
+    let registerPassword = document.getElementById('password');
+    let confirmPassword = document.getElementById('confirmPassword');
 
     if (!firstname.value || !lastname.value || !registeremail.value || !number.value || !country.value || !city.value || !registerPassword.value || !confirmPassword.value) {
         alert("Please fill all the fields");
-    }
-    else if (!registeremail.value.match((/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/))) {
+    } else if (!registeremail.value.match((/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/))) {
         alert("Please enter a valid email");
-    }
-    else if (!(registerPassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ||
+    } else if (!(registerPassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ||
         !(confirmPassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/))) {
         alert("Password is not up to the criteria");
-    }
-    else if (registerPassword.value !== confirmPassword.value) {
+    } else if (registerPassword.value !== confirmPassword.value) {
         alert("Password does not match");
-    }
-    else {
-        var registersData = JSON.parse(localStorage.getItem('Data')) || [];
-        if (!Array.isArray(registersData)) {
-            registersData = [];
-        }
+    } else {
+        let registersData = JSON.parse(localStorage.getItem('RegisterUser')) || [];
 
-        var alreadylogin = registersData.find(function(user) {
-            return user.registeremail == registeremail.value
-        }); 
-        
-        if(alreadylogin){
-            alert("Email is already register")
-        }
-        else{
-            var registerData = {
+        let alreadyLogin = registersData.find(function(user) {
+            return user.registeremail === registeremail.value;
+        });
+
+        if (alreadyLogin) {
+            alert("Email is already registered");
+        } else {
+            let registerData = {
                 firstname: firstname.value,
                 lastname: lastname.value,
                 registeremail: registeremail.value,
@@ -44,11 +36,11 @@ function register() {   //register
                 city: city.value,
                 registerPassword: registerPassword.value
             };
-    
+
             registersData.push(registerData);
-    
-            localStorage.setItem('Data', JSON.stringify(registersData));
-    
+
+            localStorage.setItem('RegisterUser', JSON.stringify(registersData));
+
             firstname.value = "";
             lastname.value = "";
             registeremail.value = "";
@@ -57,16 +49,16 @@ function register() {   //register
             city.value = "";
             registerPassword.value = "";
             confirmPassword.value = "";
-    
+
             alert("Your account has been successfully registered");
-            window.location.href = "http://127.0.0.1:5500/login.html"
+            window.location.href = "http://127.0.0.1:5500/login.html";
         }
     }
 }
 
 function hideButtons() {   //hide of sign up and login
-    var signupButton = document.getElementById('signupButton');
-    var loginButton = document.getElementById('loginButton');
+    let signupButton = document.getElementById('signupButton');
+    let loginButton = document.getElementById('loginButton');
     if (signupButton) {
         signupButton.style.display = 'none';
     }
@@ -75,24 +67,25 @@ function hideButtons() {   //hide of sign up and login
     }
 }
 
-function logout() {
-    localStorage.removeItem('IsLoggedIn');
-    localStorage.removeItem('LoggedInUser');
-    window.location.href = "http://127.0.0.1:5500/login.html"; // Redirect to the login page after logout
-}
+// function logout() {
+//     localStorage.removeItem('IsLoggedIn');
+//     localStorage.removeItem('LoggedInUser');
+//     window.location.href = "http://127.0.0.1:5500/login.html"; 
+//     localStorage.removeItem('ContactUser');
+// }
 
 if (window.location.href.includes("login.html")) {   //login
     function login() {
-        var loginemail = document.getElementById('loginemail').value;
-        var loginpassword = document.getElementById('loginpassword').value;
+        let loginemail = document.getElementById('loginemail').value;
+        let loginpassword = document.getElementById('loginpassword').value;
 
-        var registersData = JSON.parse(localStorage.getItem('Data')) || [];
+        let registersData = JSON.parse(localStorage.getItem('RegisterUser')) || [];
 
         if (!Array.isArray(registersData)) {
             registersData = [];
         }
 
-        var loggedinuser = registersData.find(function(user) {
+        let loggedinuser = registersData.find(function(user) {
             return user.registeremail === loginemail && user.registerPassword === loginpassword;
         });
 
@@ -110,23 +103,23 @@ if (window.location.href.includes("login.html")) {   //login
     }
 }
 else {
-    var isLoggedIn = localStorage.getItem('IsLoggedIn');
+    let isLoggedIn = localStorage.getItem('IsLoggedIn');
     if (isLoggedIn) {
         hideButtons();
     }
 }
 
-var dropdownIcon = document.getElementById('dropdownIcon');     //dropdown
-var dropdownContent = document.getElementById('dropdownContent');
+let dropdownIcon = document.getElementById('dropdownIcon');     //dropdown
+let dropdownContent = document.getElementById('dropdownContent');
 
 dropdownIcon.addEventListener('click', function() {
     dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
 });
 
-var options = document.querySelectorAll('.option');
+let options = document.querySelectorAll('.option');
 options.forEach(function(option) {
     option.addEventListener('click', function() {
-        var value = this.getAttribute('data-value');
+        let value = this.getAttribute('data-value');
         
         if (value === 'profile') {
           
@@ -138,36 +131,36 @@ options.forEach(function(option) {
 });
 
 function add() {
-    var productNameInput = document.querySelector('.productName input');
-    var categoryInput = document.querySelector('.category select');
-    var aboutProductInput = document.getElementById('about');
-    var quantityInput = document.querySelector('.quantity input');
-    var priceInput = document.querySelector('.price input');
-    var descriptionInput = document.getElementById('descriptioninput');
-    var fileInput = document.getElementById('fileinput');
+    let productNameInput = document.querySelector('.productName input');
+    let categoryInput = document.querySelector('.category select');
+    let aboutProductInput = document.getElementById('about');
+    let quantityInput = document.querySelector('.quantity input');
+    let priceInput = document.querySelector('.price input');
+    let descriptionInput = document.getElementById('descriptioninput');
+    let fileInput = document.getElementById('fileinput');
 
-    var productName = productNameInput.value.trim();
-    var category = categoryInput.value.trim();
-    var aboutProduct = aboutProductInput.value.trim();
-    var quantity = quantityInput.value.trim();
-    var price = priceInput.value.trim();
-    var description = descriptionInput.value.trim();
-    var file = fileInput.files[0]; 
+    let productName = productNameInput.value.trim();
+    let category = categoryInput.value.trim();
+    let aboutProduct = aboutProductInput.value.trim();
+    let quantity = quantityInput.value.trim();
+    let price = priceInput.value.trim();
+    let description = descriptionInput.value.trim();
+    let file = fileInput.files[0]; 
 
     if (!productName || !category || !aboutProduct || !quantity || !price || !description || !file) {
         alert("Please fill in all fields");
         return;
     }
 
-    var id = '_' + Math.random().toString().substring(2, 10);
+    let id = '_' + Math.random().toString().substring(2, 10);
 
-    var loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
-    var loggedInEmail = loggedInUser.registeremail;
+    let loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+    let loggedInEmail = loggedInUser.registeremail;
 
     // Get current timestamp
-    var timestamp = new Date().getTime();
+    let timestamp = new Date().getTime();
 
-    var productData = {
+    let productData = {
         id: id,
         createdBy: loggedInEmail,
         createdAt: timestamp,
@@ -179,11 +172,11 @@ function add() {
         description: description
     };
 
-    var reader = new FileReader();
+    let reader = new FileReader();
     reader.onload = function(event) {
-        var base64Image = event.target.result;
+        let base64Image = event.target.result;
         productData.image = base64Image; 
-        var products = JSON.parse(localStorage.getItem('products')) || [];
+        let products = JSON.parse(localStorage.getItem('products')) || [];
 
         products.push(productData);
 
@@ -202,25 +195,25 @@ function add() {
     reader.readAsDataURL(file);
 }
 function remove() {    //remove product 
-    var urlParams = new URLSearchParams(window.location.search);
-    var productId = urlParams.get('id');
+    let urlParams = new URLSearchParams(window.location.search);
+    let productId = urlParams.get('id');
 
-    var confirmation = confirm("Are you sure you want to delete this product? This action cannot be undone.");
+    let confirmation = confirm("Are you sure you want to delete this product? This action cannot be undone.");
     if (confirmation) {
         // Remove the product from Local Storage
-        var products = JSON.parse(localStorage.getItem('products')) || [];
-        var updatedProducts = products.filter(item => item.id !== productId);
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+        let updatedProducts = products.filter(item => item.id !== productId);
         localStorage.setItem('products', JSON.stringify(updatedProducts));
 
         // Redirect to myproduct.html
         window.location.href = "http://127.0.0.1:5500/myproduct.html";
 
         // Optionally, you can also remove the product from the screen
-        var productBox = document.getElementById(productId);
+        let productBox = document.getElementById(productId);
         if (productBox) {
             productBox.remove();
         } else {
-            console.error('Product box not found.');
+            // console.error('Product box not found.');
         }
     }
 }
@@ -278,21 +271,21 @@ function redirect12(){
 
 document.addEventListener("DOMContentLoaded", function() {
     if (window.location.pathname.includes('myproduct.html')) {
-        var loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
-        var loggedInEmail = loggedInUser.registeremail;
-        var products = JSON.parse(localStorage.getItem('products')) || [];
-        var productsContainer = document.querySelector('.products');
+        let loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+        let loggedInEmail = loggedInUser.registeremail;
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+        let productsContainer = document.querySelector('.products');
 
         productsContainer.innerHTML = '';
 
         function removeProduct(product, productBox) {
-            var index = products.indexOf(product);
+            let index = products.indexOf(product);
             if (index !== -1) {
                 products.splice(index, 1);
                 localStorage.setItem('products', JSON.stringify(products));
                 productBox.remove();
             } else {
-                console.error("Product not found in local storage.");
+                // console.error("Product not found in local storage.");
             }
         }
 
@@ -300,16 +293,16 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "http://127.0.0.1:5500/editproduct.html?id=" + productId;
         }
 
-        var userProducts = products.filter(function(product) {
+        let userProducts = products.filter(function(product) {
             return product.createdBy === loggedInEmail;
         });
 
         userProducts.forEach(function(product) {
-            var productBox = document.createElement('div');
+            let productBox = document.createElement('div');
             productBox.classList.add('console');
-            var imageContainer = document.createElement('div');
+            let imageContainer = document.createElement('div');
             imageContainer.classList.add('image');
-            var image = document.createElement('img');
+            let image = document.createElement('img');
             image.src = product.image;
             image.alt = product.productName;
             imageContainer.appendChild(image);
@@ -319,10 +312,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 redirectToProductDetailsPage(product.id); // Function to redirect
             });
 
-            var detail = document.createElement('div');
+            let detail = document.createElement('div');
             detail.classList.add('detail');
 
-            var editButton = document.createElement('button');
+            let editButton = document.createElement('button');
             editButton.classList.add('edit');
             editButton.id = 'edit';
             editButton.innerHTML = '<img src="/assets/edit.png" alt="Edit">';
@@ -331,13 +324,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 redirectToEditProductPage(product.id); // Function to redirect to editproduct.html
             });
 
-            var trashButton = document.createElement('button');
+            let trashButton = document.createElement('button');
             trashButton.classList.add('trash');
             trashButton.id = 'trash';
             trashButton.innerHTML = '<img src="/assets/trash.png" alt="Trash">';
 
             trashButton.addEventListener('click', function() {
-                var confirmation = confirm("Are you sure you want to remove the product?");
+                let confirmation = confirm("Are you sure you want to remove the product?");
                 if (confirmation) {
                     removeProduct(product, productBox);
                 }
@@ -349,15 +342,15 @@ document.addEventListener("DOMContentLoaded", function() {
             productBox.appendChild(imageContainer);
             productBox.appendChild(detail);
 
-            var productName = document.createElement('div');
+            let productName = document.createElement('div');
             productName.classList.add('prname');
             productName.textContent = product.productName;
 
-            var category = document.createElement('div');
+            let category = document.createElement('div');
             category.classList.add('category');
             category.textContent = product.category;
 
-            var price = document.createElement('div');
+            let price = document.createElement('div');
             price.classList.add('price');
             price.textContent = 'Rs. ' + product.price;
 
@@ -381,8 +374,8 @@ function redirectToProductDetailsPage(productId) {
 
 
 function decreaseNumber() {
-    var input = document.getElementById('ordercount');
-    var value = parseInt(input.value);
+    let input = document.getElementById('ordercount');
+    let value = parseInt(input.value);
 
     if (value > 0) {
         input.value = value - 1;
@@ -392,8 +385,8 @@ function decreaseNumber() {
 }
 
 function increaseNumber() {
-    var input = document.getElementById('ordercount');
-    var value = parseInt(input.value);
+    let input = document.getElementById('ordercount');
+    let value = parseInt(input.value);
 
     input.value = value + 1;
 }
@@ -419,10 +412,10 @@ function loadProductDetails() {
             document.querySelector('.shortDescription').innerText = product.aboutProduct;
             document.querySelector('.deText').innerText = product.description;
         } else {
-            console.error('Product not found.');
+            // console.error('Product not found.');
         }
     } else {
-        console.error('Product ID not found in URL parameter.');
+        // console.error('Product ID not found in URL parameter.');
     }
 }
 
@@ -434,7 +427,7 @@ function editProduct() {
     if (productId) {
         window.location.href = "http://127.0.0.1:5500/editproduct.html?id=" + productId;
     } else {
-        console.error('Product ID not found in URL parameter.');
+        // console.error('Product ID not found in URL parameter.');
     }
 }
 
@@ -466,7 +459,7 @@ function loadProductDetailsEditPage(productId) {
         });
 
     } else {
-        console.error('Product with ID ' + productId + ' not found.');
+        // console.error('Product with ID ' + productId + ' not found.');
     }
 }
 
@@ -478,3 +471,75 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log('Product ID:', productId);
     loadProductDetailsEditPage(productId);
 })
+
+
+////////Contact
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('sendbutton').addEventListener('click', storeContactFormData);
+
+    // Check if the user is logged in on page load
+    const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+    if (loggedInUser) {
+        // Load and display contact data for the logged-in user
+        loadContactData();
+    }
+});
+
+function storeContactFormData() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const number = document.getElementById('number').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Check if any field is empty
+    if (!firstName || !lastName || !email || !number || !message) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    // Create a contact object
+    const contactData = {
+        firstName,
+        lastName,
+        email,
+        number,
+        message,
+    };
+
+    // Get existing contact data
+    const existingContacts = JSON.parse(localStorage.getItem('ContactUser')) || [];
+
+    // Add the new contact data to the array
+    existingContacts.push(contactData);
+
+    // Store the updated contact data in Local Storage
+    localStorage.setItem('ContactUser', JSON.stringify(existingContacts));
+
+    // Optionally clear the form fields after saving
+    document.querySelectorAll('.userform input').forEach(input => input.value = '');
+
+    alert("Your message has been saved!");
+}
+
+function loadContactData() {
+    const contactList = document.getElementById('contactList');
+    const existingContacts = JSON.parse(localStorage.getItem('ContactUser')) || [];
+
+    // Clear the existing contact list
+    contactList.innerHTML = '';
+
+    // Display the contact data
+    existingContacts.forEach(contact => {
+        const contactElement = document.createElement('div');
+        contactElement.textContent = `${contact.firstName} ${contact.lastName}: ${contact.email} - ${contact.number}`;
+        contactList.appendChild(contactElement);
+    });
+}
+
+function logout() {
+    localStorage.removeItem('IsLoggedIn');
+    localStorage.removeItem('LoggedInUser');
+    window.location.href = "http://127.0.0.1:5500/login.html"; // Redirect to the login page after logout
+}
