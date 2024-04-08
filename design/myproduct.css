@@ -222,7 +222,7 @@ ul li {
     display: flex;
     margin-top: 80px;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .productBoxes {
