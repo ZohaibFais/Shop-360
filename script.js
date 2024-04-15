@@ -70,9 +70,7 @@ function hideButtons() {   //hide of sign up and login
 function logout() {
     localStorage.removeItem('IsLoggedIn');
     localStorage.removeItem('LoggedInUser');
-    // localStorage.removeItem('products')
     window.location.href = "http://127.0.0.1:5500/login.html"; 
-    localStorage.removeItem('ContactUser');
 }
 
 if (window.location.href.includes("login.html")) {
@@ -475,3 +473,106 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 
+//Contact
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById('sendbutton').addEventListener('click', storeContactFormData);
+
+//     // Check if the user is logged in on page load
+//     const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+//     if (loggedInUser) {
+//         // Load and display contact data for the logged-in user
+//         loadContactData();
+//     }
+// });
+
+// function storeContactFormData() {
+//     const firstName = document.getElementById('firstName').value.trim();
+//     const lastName = document.getElementById('lastName').value.trim();
+//     const contactEmail = document.getElementById('email').value.trim(); // Email entered in the contact form
+//     const number = document.getElementById('number').value.trim();
+//     const message = document.getElementById('message').value.trim();
+
+//     // Check if any field is empty
+//     if (!firstName || !lastName || !contactEmail || !number || !message) {
+//         alert("Please fill in all fields.");
+//         return;
+//     }
+
+//     // Retrieve the logged-in user's email from local storage
+//     const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+//     let loggedInUserEmail = "";
+//     if (loggedInUser && loggedInUser.registeremail) {
+//         loggedInUserEmail = loggedInUser.registeremail;
+//     }
+
+//     // Create a contact object including both emails
+//     const contactData = {
+//         firstName,
+//         lastName,
+//         contactEmail, // Email entered in the contact form
+//         loggedInEmail: loggedInUserEmail, // Email of the logged-in user
+//         number,
+//         message
+//     };
+
+//     // Get existing contact data
+//     const existingContacts = JSON.parse(localStorage.getItem('ContactUser')) || [];
+
+//     // Add the new contact data to the array
+//     existingContacts.push(contactData);
+
+//     // Store the updated contact data in Local Storage
+//     localStorage.setItem('ContactUser', JSON.stringify(existingContacts));
+
+//     // Optionally clear the form fields after saving
+//     document.querySelectorAll('.userform input').forEach(input => input.value = '');
+
+//     alert("Your message has been saved!");
+// }
+
+// function loadContactData() {
+//     const contactList = document.getElementById('contactList');
+//     const existingContacts = JSON.parse(localStorage.getItem('ContactUser')) || [];
+
+//     // Clear the existing contact list
+//     contactList.innerHTML = '';
+
+//     // Display the contact data
+//     existingContacts.forEach(contact => {
+//         const contactElement = document.createElement('div');
+//         contactElement.textContent = `${contact.firstName} ${contact.lastName}: ${contact.email} - ${contact.number}`;
+//         contactList.appendChild(contactElement);
+//     });
+// }
+
+
+//////////// Load User Data
+
+document.addEventListener('DOMContentLoaded', function() {
+    displayUserData();
+
+    const saveButton = document.getElementById('sendbutton');
+    saveButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        saveUserData();
+    });
+});
+
+function displayUserData() {
+    const userData = JSON.parse(localStorage.getItem('LoggedInUser'));
+    if (userData) {
+        document.getElementById('firstName').value = userData.firstname ;
+        document.getElementById('lastName').value = userData.lastname || '';
+        document.getElementById('registerEmail').value = userData.registeremail || '';
+        document.getElementById('number').value = userData.number || '';
+        document.getElementById('country').value = userData.country || '';
+        document.getElementById('city').value = userData.city || '';
+        document.getElementById('password').value = userData.registerPassword || '';
+        document.getElementById('confiirmPassword').value = userData.registerPassword|| '';
+    }
+}
+
+
+
+/////////

@@ -326,7 +326,6 @@ ul li {
 
 .ordercart{
     width: 40%;
-    background: lawngreen;
 }
 #buttoncart{
     width: 100%;
@@ -522,4 +521,84 @@ footer{
     .detail{
         width: 23%;
     }
+}
+
+
+@media screen and (max-width:780px) {
+    .firsthalf {
+        width:60% ;
+    }
+    
+    .main{
+        width: 96%;
+        margin: 20px 20px 0px 20px;
+    }
+    .pic{
+        margin: 18px;
+    }
+    .favcart{
+        padding: 10px 7px 0px 7px;
+        width: 16%;
+    }
+
+    .newsletter{
+        margin-left: 10px;
+        width: 47%;
+    }
+    .email-input{
+        width: 100%;
+    }
+    .shopText p {
+        font-size: 13px;
+    }
+    .lasttext{
+        width: 48%;
+    }
+    .newsHead{
+        font-size: 23px;
+    }
+    .newsText{
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .delivery{
+        display: none;
+    }
+    .button{
+        display: none;
+    }
+    .links{
+        display: none;
+    }
+    .header2{
+        width: 65%;
+    }
+
+    footer{
+        flex-wrap: wrap;
+    }
+    .newsletter{
+        width: 78%;
+    }
+    .email-input-container{
+        width: 100%;
+    }
+    .lasttext{
+        flex-wrap: wrap;
+        width: 72%;
+        margin-top: 50px;
+    }
+    .shop{
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .secondhalf{
+        width: 23%;
+    }
+
+    
 }
