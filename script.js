@@ -674,43 +674,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // fav display
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if the current page is the 'fav.html' page
     if (window.location.pathname.endsWith('/fav.html')) {
-        // Retrieve favorite products from localStorage
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
         // Get the container where products will be displayed
         const productsContainer = document.querySelector('.products');
 
-        // Clear any existing products in the container
         productsContainer.innerHTML = '';
 
-        // Iterate over each favorite product and create HTML elements to display them
         favorites.forEach(function(product) {
-            // Check if the price already contains 'Rs.'
             const priceText = product.price.includes('Rs.') ? product.price : 'Rs. ' + product.price;
 
-            // Create product box container
             const productBox = document.createElement('div');
             productBox.classList.add('productBoxes');
 
-            // Create console container
             const consoleDiv = document.createElement('div');
             consoleDiv.classList.add('console');
 
-            // Create image container
             const imageDiv = document.createElement('div');
             imageDiv.classList.add('image');
 
-            // Create image element
             const image = document.createElement('img');
-            image.src = product.imageUrl; // Set image source
-            image.alt = product.name; // Set alt text for accessibility
+            image.src = product.imageUrl; 
+            image.alt = product.name; 
 
-            // Add click event listener to the image
             image.addEventListener('click', function() {
                 // Check if the product has an ID
-                if (product.id) { // Assuming 'id' is the property containing the product ID
+                if (product.id) { 
                     // Redirect to myproduct.html
                     window.location.href = 'http://127.0.0.1:5500/myproduct.html';
                 } else {
@@ -719,46 +709,37 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Append image to image container
             imageDiv.appendChild(image);
 
-            // Append image container to console container
             consoleDiv.appendChild(imageDiv);
 
-            // Create detail container
             const detailDiv = document.createElement('div');
             detailDiv.classList.add('consoletext');
 
-            // Create product name element
             const productNameDiv = document.createElement('div');
             productNameDiv.classList.add('textmain');
             productNameDiv.textContent = product.name;
 
-            // Create category element
             const categoryDiv = document.createElement('div');
             categoryDiv.classList.add('prname');
             categoryDiv.textContent = product.category;
 
-            // Create price element
             const priceDiv = document.createElement('div');
             priceDiv.classList.add('price');
-            priceDiv.textContent = priceText; // Set price text
+            priceDiv.textContent = priceText; 
 
-            // Append product name, category, and price to detail container
             detailDiv.appendChild(productNameDiv);
             detailDiv.appendChild(categoryDiv);
             detailDiv.appendChild(priceDiv);
 
-            // Append detail container to console container
             consoleDiv.appendChild(detailDiv);
 
-            // Append console container to product box container
             productBox.appendChild(consoleDiv);
 
-            // Append product box container to products container
             productsContainer.appendChild(productBox);
         });
     }
 });
 
 ///////////FAV
+
