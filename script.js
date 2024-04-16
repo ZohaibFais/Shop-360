@@ -615,23 +615,19 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
     
-        const productName = product.productName;
-    
-        // Retrieve product image from the product object
-        const imageUrl = product.image;
-    
-        const { category, price } = product;
+        const { productName, category, price, image } = product;
     
         const favoriteProduct = {
+            id: productId, // Add product ID to the favorite product object
             name: productName,
             category: category,
             price: price,
-            imageUrl: imageUrl
+            imageUrl: image // Assuming 'image' is the property containing the image URL
         };
     
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     
-        const productIndex = favorites.findIndex(item => item.name === productName);
+        const productIndex = favorites.findIndex(item => item.id === productId);
     
         if (productIndex === -1) {
             favorites.push(favoriteProduct);
@@ -641,6 +637,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('This product is already in your favorites.');
         }
     }
+    
     
     function handleProductWithoutId() {
         const productName = document.getElementById('productname').textContent.trim();
@@ -710,6 +707,18 @@ document.addEventListener('DOMContentLoaded', function() {
             image.src = product.imageUrl; // Set image source
             image.alt = product.name; // Set alt text for accessibility
 
+            // Add click event listener to the image
+            image.addEventListener('click', function() {
+                // Check if the product has an ID
+                if (product.id) { // Assuming 'id' is the property containing the product ID
+                    // Redirect to myproduct.html
+                    window.location.href = 'http://127.0.0.1:5500/myproduct.html';
+                } else {
+                    // Redirect to allproducts.html when there's no 'id'
+                    window.location.href = 'http://127.0.0.1:5500/allprdoucts.html';
+                }
+            });
+
             // Append image to image container
             imageDiv.appendChild(image);
 
@@ -752,4 +761,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-///////////FAV END
+///////////FAV
