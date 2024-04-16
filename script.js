@@ -1,4 +1,4 @@
-function register() { //register
+function register() {
     let firstname = document.getElementById('firstname');
     let lastname = document.getElementById('lastname');
     let registeremail = document.getElementById('registeremail');
@@ -10,15 +10,19 @@ function register() { //register
 
     if (!firstname.value || !lastname.value || !registeremail.value || !number.value || !country.value || !city.value || !registerPassword.value || !confirmPassword.value) {
         alert("Please fill all the fields");
-    } else if (!registeremail.value.match((/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/))) {
+    } else if (!registeremail.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
         alert("Please enter a valid email");
-    } else if (!(registerPassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ||
-        !(confirmPassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/))) {
+    } else if (!(registerPassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) || !(confirmPassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/))) {
         alert("Password is not up to the criteria");
     } else if (registerPassword.value !== confirmPassword.value) {
         alert("Password does not match");
     } else {
         let registersData = JSON.parse(localStorage.getItem('RegisterUser')) || [];
+
+        // Ensure registersData is an array
+        if (!Array.isArray(registersData)) {
+            registersData = [];
+        }
 
         let alreadyLogin = registersData.find(function(user) {
             return user.registeremail === registeremail.value;
@@ -109,12 +113,19 @@ if (window.location.href.includes("login.html")) {
     }
 }
 
-let dropdownIcon = document.getElementById('dropdownIcon');     //dropdown
-let dropdownContent = document.getElementById('dropdownContent');
+// Assuming dropdownIcon and dropdownContent are defined elsewhere in your code
+const dropdownIcon = document.getElementById('dropdownIcon');
+const dropdownContent = document.getElementById('dropdownContent');
 
 dropdownIcon.addEventListener('click', function() {
-    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+    // Toggle the display property of dropdownContent
+    if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+    } else {
+        dropdownContent.style.display = 'block';
+    }
 });
+
 
 let options = document.querySelectorAll('.option');
 options.forEach(function(option) {
@@ -593,30 +604,41 @@ function saveUserData() {
     const city = document.getElementById('city').value;
     const password = document.getElementById('password').value;
 
-    const userData = {
-        firstname: firstName,
-        lastname: lastName,
-        registeremail: registerEmail,
-        number: number,
-        country: country,
-        city: city,
-        registerPassword: password
-    };
+    // Retrieve the existing register users from localStorage
+    let registerUsers = JSON.parse(localStorage.getItem('RegisterUser')) || [];
 
-    // Update RegisterUser in localStorage
-    localStorage.setItem('RegisterUser', JSON.stringify(userData));
+    // Find the index of the logged-in user in the register users array
+    const userIndex = registerUsers.findIndex(user => user.registeremail === registerEmail);
 
-    // Update LoggedInUser in localStorage if the user is logged in
-    const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
-    if (loggedInUser) {
-        localStorage.setItem('LoggedInUser', JSON.stringify(userData));
+    if (userIndex !== -1) {
+        // Update the user data at the found index
+        registerUsers[userIndex] = {
+            firstname: firstName,
+            lastname: lastName,
+            registeremail: registerEmail,
+            number: number,
+            country: country,
+            city: city,
+            registerPassword: password
+        };
+
+        // Update the localStorage entry for register users
+        localStorage.setItem('RegisterUser', JSON.stringify(registerUsers));
+
+        // If there is a logged-in user, update the LoggedInUser entry as well
+        const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+        if (loggedInUser && loggedInUser.registeremail === registerEmail) {
+            localStorage.setItem('LoggedInUser', JSON.stringify(registerUsers[userIndex]));
+        }
+
+        alert('User data updated successfully!');
+    } else {
+        alert('User not found in the register list!');
     }
-
-    alert('User data updated successfully!');
 }
 
 
-///////// END //////
+/////// END //////
 
 
 // code to store products to favorites LS
