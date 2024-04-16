@@ -676,12 +676,13 @@ document.addEventListener('DOMContentLoaded', function() {
             name: productName,
             category: category,
             price: price,
-            imageUrl: image // Assuming 'image' is the property containing the image URL
+            imageUrl: image, // Assuming 'image' is the property containing the image URL
+            userEmail: getUserEmail() // Get login user's email
         };
-    
+
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     
-        const productIndex = favorites.findIndex(item => item.id === productId);
+        const productIndex = favorites.findIndex(item => item.id === productId && item.userEmail === favoriteProduct.userEmail);
     
         if (productIndex === -1) {
             favorites.push(favoriteProduct);
@@ -708,12 +709,13 @@ document.addEventListener('DOMContentLoaded', function() {
             name: productName,
             category: category,
             price: price,
-            imageUrl: imageUrl
+            imageUrl: imageUrl,
+            userEmail: getUserEmail() // Get login user's email
         };
 
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-        const productIndex = favorites.findIndex(item => item.name === productName);
+        const productIndex = favorites.findIndex(item => item.name === productName && item.userEmail === product.userEmail);
 
         if (productIndex === -1) {
             favorites.push(product);
@@ -723,15 +725,30 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('This product is already in your favorites.');
         }
     }
+
+    // Function to get login user's email
+   
 });
+function getUserEmail() {
+    const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+    return loggedInUser ? loggedInUser.registeremail : null;
+}
 
-
-// fav display
 document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname.endsWith('/fav.html')) {
+        const userEmail = getUserEmail();
+
+        if (!userEmail) {
+            alert('Please log in to view favorites.');
+            return;
+        }
+
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-        // Get the container where products will be displayed
+        // Display favorites specific to the logged-in user
+        favorites = favorites.filter(product => product.userEmail === userEmail);
+
+        // Display favorites...
         const productsContainer = document.querySelector('.products');
 
         productsContainer.innerHTML = '';
@@ -753,12 +770,9 @@ document.addEventListener('DOMContentLoaded', function() {
             image.alt = product.name; 
 
             image.addEventListener('click', function() {
-                // Check if the product has an ID
                 if (product.id) { 
-                    // Redirect to myproduct.html
                     window.location.href = 'http://127.0.0.1:5500/myproduct.html';
                 } else {
-                    // Redirect to allproducts.html when there's no 'id'
                     window.location.href = 'http://127.0.0.1:5500/allprdoucts.html';
                 }
             });
@@ -794,6 +808,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
 ///////////FAV
 
