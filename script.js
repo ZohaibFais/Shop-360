@@ -482,76 +482,76 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Contact
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     document.getElementById('sendbutton').addEventListener('click', storeContactFormData);
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('sendbutton').addEventListener('click', storeContactFormData);
 
-//     // Check if the user is logged in on page load
-//     const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
-//     if (loggedInUser) {
-//         // Load and display contact data for the logged-in user
-//         loadContactData();
-//     }
-// });
+    // Check if the user is logged in on page load
+    const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+    if (loggedInUser) {
+        // Load and display contact data for the logged-in user
+        loadContactData();
+    }
+});
 
-// function storeContactFormData() {
-//     const firstName = document.getElementById('firstName').value.trim();
-//     const lastName = document.getElementById('lastName').value.trim();
-//     const contactEmail = document.getElementById('email').value.trim(); // Email entered in the contact form
-//     const number = document.getElementById('number').value.trim();
-//     const message = document.getElementById('message').value.trim();
+function storeContactFormData() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const contactEmail = document.getElementById('email').value.trim(); // Email entered in the contact form
+    const number = document.getElementById('number').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-//     // Check if any field is empty
-//     if (!firstName || !lastName || !contactEmail || !number || !message) {
-//         alert("Please fill in all fields.");
-//         return;
-//     }
+    // Check if any field is empty
+    if (!firstName || !lastName || !contactEmail || !number || !message) {
+        alert("Please fill in all fields.");
+        return;
+    }
 
-//     // Retrieve the logged-in user's email from local storage
-//     const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
-//     let loggedInUserEmail = "";
-//     if (loggedInUser && loggedInUser.registeremail) {
-//         loggedInUserEmail = loggedInUser.registeremail;
-//     }
+    // Retrieve the logged-in user's email from local storage
+    const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+    let loggedInUserEmail = "";
+    if (loggedInUser && loggedInUser.registeremail) {
+        loggedInUserEmail = loggedInUser.registeremail;
+    }
 
-//     // Create a contact object including both emails
-//     const contactData = {
-//         firstName,
-//         lastName,
-//         contactEmail, // Email entered in the contact form
-//         loggedInEmail: loggedInUserEmail, // Email of the logged-in user
-//         number,
-//         message
-//     };
+    // Create a contact object including both emails
+    const contactData = {
+        firstName,
+        lastName,
+        contactEmail, // Email entered in the contact form
+        loggedInEmail: loggedInUserEmail, // Email of the logged-in user
+        number,
+        message
+    };
 
-//     // Get existing contact data
-//     const existingContacts = JSON.parse(localStorage.getItem('ContactUser')) || [];
+    // Get existing contact data
+    const existingContacts = JSON.parse(localStorage.getItem('ContactUser')) || [];
 
-//     // Add the new contact data to the array
-//     existingContacts.push(contactData);
+    // Add the new contact data to the array
+    existingContacts.push(contactData);
 
-//     // Store the updated contact data in Local Storage
-//     localStorage.setItem('ContactUser', JSON.stringify(existingContacts));
+    // Store the updated contact data in Local Storage
+    localStorage.setItem('ContactUser', JSON.stringify(existingContacts));
 
-//     // Optionally clear the form fields after saving
-//     document.querySelectorAll('.userform input').forEach(input => input.value = '');
+    // Optionally clear the form fields after saving
+    document.querySelectorAll('.userform input').forEach(input => input.value = '');
 
-//     alert("Your message has been saved!");
-// }
+    alert("Your message has been saved!");
+}
 
-// function loadContactData() {
-//     const contactList = document.getElementById('contactList');
-//     const existingContacts = JSON.parse(localStorage.getItem('ContactUser')) || [];
+function loadContactData() {
+    const contactList = document.getElementById('contactList');
+    const existingContacts = JSON.parse(localStorage.getItem('ContactUser')) || [];
 
-//     // Clear the existing contact list
-//     contactList.innerHTML = '';
+    // Clear the existing contact list
+    contactList.innerHTML = '';
 
-//     // Display the contact data
-//     existingContacts.forEach(contact => {
-//         const contactElement = document.createElement('div');
-//         contactElement.textContent = `${contact.firstName} ${contact.lastName}: ${contact.email} - ${contact.number}`;
-//         contactList.appendChild(contactElement);
-//     });
-// }
+    // Display the contact data
+    existingContacts.forEach(contact => {
+        const contactElement = document.createElement('div');
+        contactElement.textContent = `${contact.firstName} ${contact.lastName}: ${contact.email} - ${contact.number}`;
+        contactList.appendChild(contactElement);
+    });
+}
 
 
 //////////// Load User Data
