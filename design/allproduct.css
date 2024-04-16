@@ -466,16 +466,18 @@ footer {
     opacity: 50%;
 }
 
-.move{
+.move {
     width: 100%;
-    background: paleturquoise;
+
     display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
+
 .box{
-    width: 20%;
-    border-radius: 50px;
-    border: 1px solid #FFFFFF;
-    
+    width: 73%;
+    display: flex;
+    justify-content: end;
 }
 
 @media screen and (max-width:780px) {
@@ -511,6 +513,15 @@ footer {
     .console{
         width: 42%;
         margin-bottom: 32px;
+    }
+    .box{
+        width: 95%;
+    }
+    #pagemove{
+        width: 70%;
+    }
+    .move{
+        margin-top: 0px;
     }
 }
 
@@ -549,5 +560,8 @@ footer {
     }
     .filter{
         width: 80%;
+    }
+    #pagemove{   
+        width: 100%;
     }
 }
