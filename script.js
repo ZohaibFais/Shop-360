@@ -584,6 +584,38 @@ function displayUserData() {
     }
 }
 
+function saveUserData() {
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const registerEmail = document.getElementById('registerEmail').value;
+    const number = document.getElementById('number').value;
+    const country = document.getElementById('country').value;
+    const city = document.getElementById('city').value;
+    const password = document.getElementById('password').value;
+
+    const userData = {
+        firstname: firstName,
+        lastname: lastName,
+        registeremail: registerEmail,
+        number: number,
+        country: country,
+        city: city,
+        registerPassword: password
+    };
+
+    // Update RegisterUser in localStorage
+    localStorage.setItem('RegisterUser', JSON.stringify(userData));
+
+    // Update LoggedInUser in localStorage if the user is logged in
+    const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+    if (loggedInUser) {
+        localStorage.setItem('LoggedInUser', JSON.stringify(userData));
+    }
+
+    alert('User data updated successfully!');
+}
+
+
 ///////// END //////
 
 
