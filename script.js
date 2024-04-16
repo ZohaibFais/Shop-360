@@ -72,7 +72,7 @@ function logout() {
     localStorage.removeItem('LoggedInUser');
     window.location.href = "http://127.0.0.1:5500/login.html"; 
 }
-
+// login
 if (window.location.href.includes("login.html")) {
     // Only define the login function if on the login page
     function login() {
@@ -588,6 +588,7 @@ function displayUserData() {
 
 
 // code to store products to favorites LS
+
 document.addEventListener('DOMContentLoaded', function() {
     const favItem = document.getElementById('favitem');
 
@@ -597,28 +598,62 @@ document.addEventListener('DOMContentLoaded', function() {
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
 
-        if (!productId) {
-            alert('Product ID not found in URL!');
-            return;
+        if (productId) {
+            handleProductWithId(productId);
+        } else {
+            handleProductWithoutId();
         }
+    });
 
+    function handleProductWithId(productId) {
         // Retrieve product data from localStorage
         let products = JSON.parse(localStorage.getItem('products')) || [];
         const product = products.find(item => item.id === productId);
-
+    
         if (!product) {
             alert('Product not found in localStorage!');
             return;
         }
-
+    
         const productName = product.productName;
-
-        // Retrieve product image from localStorage
-        const imageUrl = localStorage.getItem('productImage_' + productId);
-
+    
+        // Retrieve product image from the product object
+        const imageUrl = product.image;
+    
         const { category, price } = product;
-
+    
         const favoriteProduct = {
+            name: productName,
+            category: category,
+            price: price,
+            imageUrl: imageUrl
+        };
+    
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+        const productIndex = favorites.findIndex(item => item.name === productName);
+    
+        if (productIndex === -1) {
+            favorites.push(favoriteProduct);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            alert('Product added to favorites!');
+        } else {
+            alert('This product is already in your favorites.');
+        }
+    }
+    
+    function handleProductWithoutId() {
+        const productName = document.getElementById('productname').textContent.trim();
+        const category = document.querySelector('.category').textContent.trim();
+        const price = document.querySelector('.price').textContent.trim();
+        const imageUrl = document.querySelector('.pic img').getAttribute('src');
+
+        if (!productName || !category || !price || !imageUrl) {
+            alert('Product information not found!');
+            return;
+        }
+
+        const product = {
             name: productName,
             category: category,
             price: price,
@@ -630,11 +665,91 @@ document.addEventListener('DOMContentLoaded', function() {
         const productIndex = favorites.findIndex(item => item.name === productName);
 
         if (productIndex === -1) {
-            favorites.push(favoriteProduct);
+            favorites.push(product);
             localStorage.setItem('favorites', JSON.stringify(favorites));
             alert('Product added to favorites!');
         } else {
             alert('This product is already in your favorites.');
         }
-    });
+    }
 });
+
+
+// fav display
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if the current page is the 'fav.html' page
+    if (window.location.pathname.endsWith('/fav.html')) {
+        // Retrieve favorite products from localStorage
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        // Get the container where products will be displayed
+        const productsContainer = document.querySelector('.products');
+
+        // Clear any existing products in the container
+        productsContainer.innerHTML = '';
+
+        // Iterate over each favorite product and create HTML elements to display them
+        favorites.forEach(function(product) {
+            // Check if the price already contains 'Rs.'
+            const priceText = product.price.includes('Rs.') ? product.price : 'Rs. ' + product.price;
+
+            // Create product box container
+            const productBox = document.createElement('div');
+            productBox.classList.add('productBoxes');
+
+            // Create console container
+            const consoleDiv = document.createElement('div');
+            consoleDiv.classList.add('console');
+
+            // Create image container
+            const imageDiv = document.createElement('div');
+            imageDiv.classList.add('image');
+
+            // Create image element
+            const image = document.createElement('img');
+            image.src = product.imageUrl; // Set image source
+            image.alt = product.name; // Set alt text for accessibility
+
+            // Append image to image container
+            imageDiv.appendChild(image);
+
+            // Append image container to console container
+            consoleDiv.appendChild(imageDiv);
+
+            // Create detail container
+            const detailDiv = document.createElement('div');
+            detailDiv.classList.add('consoletext');
+
+            // Create product name element
+            const productNameDiv = document.createElement('div');
+            productNameDiv.classList.add('textmain');
+            productNameDiv.textContent = product.name;
+
+            // Create category element
+            const categoryDiv = document.createElement('div');
+            categoryDiv.classList.add('prname');
+            categoryDiv.textContent = product.category;
+
+            // Create price element
+            const priceDiv = document.createElement('div');
+            priceDiv.classList.add('price');
+            priceDiv.textContent = priceText; // Set price text
+
+            // Append product name, category, and price to detail container
+            detailDiv.appendChild(productNameDiv);
+            detailDiv.appendChild(categoryDiv);
+            detailDiv.appendChild(priceDiv);
+
+            // Append detail container to console container
+            consoleDiv.appendChild(detailDiv);
+
+            // Append console container to product box container
+            productBox.appendChild(consoleDiv);
+
+            // Append product box container to products container
+            productsContainer.appendChild(productBox);
+        });
+    }
+});
+
+///////////FAV END

@@ -1,65 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-   
 }
-.container{
+
+.container {
     width: 100%;
 }
 
-#header{
+#header {
     width: 100%;
     height: 78px;
     background: #000000;
     display: flex;
     justify-content: space-around;
 }
-.first{
+
+.first {
     display: flex;
 }
-.phone{
+
+.phone {
     width: 16px;
     height: 17px;
     margin-top: 29px;
-    /* margin-left: 50px; */
 }
-.number{
+
+.number {
     width: 120px;
     height: 21px;
     margin-top: 26px;
-    /* margin-left: 10px; */
     font-family: 'public sans';
     font-weight: 400;
     font-size: 18px;
     color: #fff;
-
 }
-.button{
+
+.button {
     display: flex;
 }
 
-.delivery{
+.delivery {
     color: #fff;
     margin-top: 26px;
-    font-family:'public sans' ;
+    font-family: 'public sans';
     font-weight: 500;
     font-size: 18px;
-    /* margin-left: 100px; */
-    /* margin-right: 100px */
 }
 
-#signupButton{
+#signupButton {
     width: 140px;
     height: 43px;
     margin-top: 14px;
     border-radius: 43px;
     border: 2px solid #FFFFFF;
     padding: 8px 39px 8px 39px;
-    font-family:'public sans' ;
+    font-family: 'public sans';
     font-weight: 400;
     font-size: 18px;
     color: #FFFFFF;
@@ -77,7 +75,6 @@
     font-weight: 400;
     font-size: 18px;
     margin-left: 10px;
-    /* margin-right: 30px; */
     color: #FFFFFF;
     cursor: pointer;
 }
@@ -85,43 +82,46 @@
 .header2 {
     width: 100%;
     display: flex;
-    /* background: greenyellow; */
     margin-top: 30px;
-    /* margin-left: 50px; */
     justify-content: space-around;
 }
+
 .firsthalf {
     display: flex;
     justify-content: space-between;
     width: 46%;
 }
 
-.name{
-    font-family:'public sans' ;
+.name {
+    font-family: 'public sans';
     font-weight: 700;
     font-size: 32px;
     color: #000000;
 }
-.links ul{
+
+.links ul {
     display: flex;
     padding-top: 8px;
     gap: 24px;
 }
+
 ul li {
     list-style-type: none;
     font-family: 'public sans';
     font-weight: 400;
     font-size: 16px;
     cursor: pointer;
-}   
+}
 
-.secondhalf{
+.secondhalf {
     width: 16%;
     display: flex;
     gap: 30px;
 }
 
-.fav, .cart, .custom-select {
+.fav,
+.cart,
+.custom-select {
     margin-top: 5px;
     width: 28px;
     height: 23.99px;
@@ -138,9 +138,9 @@ ul li {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
-    right: 0; 
+    right: 0;
     top: 100%;
 }
 
@@ -152,12 +152,10 @@ ul li {
 #dropdownIcon {
     cursor: pointer;
 }
+
 .breadcrumb {
     width: 37%;
-    /* height: 40px; */
     margin-top: 40px;
-    /* margin-left: 55px; */
-    /* background: rebeccapurple; */
     text-align: center;
 }
 
@@ -173,14 +171,12 @@ ul li {
     font-family: 'public sans';
     font-weight: 500;
     font-size: 16px;
-    /* opacity: 50%; */
     color: #e52e06;
     padding-left: 5px;
 }
 
 .main {
     width: 100%;
-    /* background: lightgray;   */
     margin-top: 80px;
 }
 
@@ -200,41 +196,28 @@ ul li {
     font-size: 32px;
 }
 
-#lowerText {
-    font-family: 'public sans';
-    font-weight: 400;
-    font-size: 16px;
-    color: #00000099;
-    opacity: 60%;
-}
-
-#addproduct {
-    padding: 12px 16px 12px 16px;
-    border-radius: 5px;
-    background: #000000;
-    color: #ffffff;
-    border: 1px solid #000000;
-    cursor: pointer;
-}
-
 .products {
-    width: 100%;
+    width: 95%;
     display: flex;
-    margin-top: 80px;
+    margin: 50px 20px 30px 44px;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
 .productBoxes {
-    width: 90%;
+    width: 26%;
+    /* background-color: palegoldenrod; */
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .console {
-    width: 22%; /* Adjusted width for balancing */
-    position: relative;
-    margin-bottom: 20px; /* Add margin bottom for space between cards */
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .image {
@@ -242,70 +225,38 @@ ul li {
     background: #c4c4c4;
     display: flex;
     position: relative;
-    /* align-items: center; */
     border-radius: 8px;
     overflow: hidden;
     padding-left: 20px;
-    margin-bottom: 20px;
 }
-
 .console .image img {
-    width: 72%;
-    height: 160px;
-    margin: 20px 0px 20px;
+    width: 80%;
+    padding: 20px;
+    height: 266px;
 }
 
-.detail {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 10px; /* Add padding for better alignment */
+.consoletext {
+    margin: 20px 20px 10px 5px;
+    text-align: center;
+    width: 75%;
 }
-
-#edit,
-#trash {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-#edit {
-    border: 1px solid #0075FF;
-    background: #0075FF;
-}
-
-#trash {
-    border: 1px solid #E22900;
-    background: #E22900;
-}
-
-
-
 .textmain,
 .prname,
 .price {
     font-family: 'public sans';
-    
 }
+
 .textmain {
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 7px;
-    margin-left: 5px
+    margin-left: 5px;
 }
 
 .prname {
     font-weight: 400;
     font-size: 16px;
     color: #989898;
-    margin-bottom: 7px;
-}
-.category{
     margin-bottom: 7px;
 }
 
@@ -315,11 +266,8 @@ ul li {
     color: #e52e06;
 }
 
-
-
 footer {
     width: 100%;
-    /* height: 419px; */
     margin-top: 100px;
     background: #eff2f6;
     display: flex;
@@ -329,7 +277,6 @@ footer {
 }
 
 .newsletter {
-    /* background: plum; */
     margin-top: 7px;
 }
 
@@ -355,7 +302,6 @@ footer {
 .email-input {
     padding: 10px 30px 10px 10px;
     width: 400px;
-    /* Adjust width as needed */
     font-size: 16px;
     border: 1px solid #000000;
     box-sizing: border-box;
