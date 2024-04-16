@@ -9,6 +9,7 @@
 }
 .container{
     width: 100%;
+    /* background: lightblue; */
 }
 
 #header{
@@ -140,8 +141,8 @@ ul li {
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-    right: 10; 
-    top: 100%;
+    right: 0; 
+    margin-top: 10px;
 }
 
 #dropdownContent .option {
@@ -389,3 +390,119 @@ footer{
     opacity: 50%;
 }
 
+@media screen and (max-width:780px) {
+
+    .firsthalf {
+        width:60% ;
+    }
+    .breadcrumb {
+        width: 47%;
+    }
+    .heading{
+        width: 60%;
+    }
+    .lowerText{
+        width: 45%;
+    }
+    .newsletter{
+        margin-left: 10px;
+        width: 47%;
+    }
+    .email-input{
+        width: 100%;
+    }
+    .shopText p {
+        font-size: 13px;
+    }
+    .lasttext{
+        width: 48%;
+    }
+    .newsHead{
+        font-size: 23px;
+    }
+    .newsText{
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .delivery{
+        display: none;
+    }
+    .button{
+        display: none;
+    }
+    .links{
+        display: none;
+    }
+    .header2{
+        width: 65%;
+    }
+  
+    .breadcrumb{
+        width: 80%;
+    }
+    .addForm{
+        width: 88%;
+    }
+    .heading{
+        width: 95%;
+    }
+    form{
+        flex-wrap: wrap;
+        gap: 0px;
+    }
+    .productName, .category, .quantity, .price {
+        width: 96%;
+      
+    }
+    .lowerText{
+        width: 72%;
+    }
+    .aboutproduct{
+        width: 97%;
+    }
+    .description{
+        width: 96%;
+    }
+    footer{
+        flex-wrap: wrap;
+    }
+    .newsletter{
+        width: 78%;
+    }
+    .email-input-container{
+        width: 100%;
+    }
+    .lasttext{
+        flex-wrap: wrap;
+        width: 72%;
+        margin-top: 50px;
+    }
+    .shop{
+        margin-bottom: 20px;
+    }
+    .textbox{
+        width: 100%;
+    }
+    .frame113 {
+        margin-top: 10px;
+    }
+    .userform{
+        width: 90%;
+        margin: 16px 10px 10px 21px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .secondhalf{
+        width: 23%;
+    }
+    .cateName, .proName{
+        width: 100%;
+        font-size: 32px;
+    }
+    .upload{
+        width: 95%;
+    }
+}

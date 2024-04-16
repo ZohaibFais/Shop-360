@@ -24,15 +24,13 @@
     width: 100%;
     height: 967px;
 
-}
-.loginform{
-    width: 650px;
-    height: 515.87px;
-    /* background: olive;   */
-    margin-top: 248px;
-    /* width: 374px; */
-}
-.head{
+    }
+    .login{
+        display: flex;
+        align-items: center;
+    }
+
+    .head{
     width: 100%;
     /* background: violet; */
 }
@@ -65,7 +63,7 @@ form{
 }
 label{
     width: 149px;
-    height: 19px;
+    height: 19px;   
     color: #1F2937;
     font-family: 'public sans';
     font-weight: 500;
@@ -154,8 +152,8 @@ input{
 }
 
 @media screen and (max-width:780px)  {
-    .image{
-        display: none;
+    .image img{
+        height: 619px;
     }
     .loginform{
         width: 100%;
@@ -164,6 +162,9 @@ input{
         width: 53%;
         justify-content: center;
         margin-top: 20px;
+    }
+    input{
+        width: 362px;
     }
     .loginButton{
         display: flex;
@@ -197,14 +198,16 @@ input{
 @media screen and (max-width:430px) {
   .container {
     flex-wrap: wrap;
-    height: 100vh;
     align-items: center;
 }
     .image {
         display: none;
     }
+    .login{
+        width: 100%;
+    }
     .loginform{
-        margin-top: 30px;
+        margin-top: 10px;
     }
     .head {
         width: 100%;
@@ -221,10 +224,10 @@ input{
         margin-bottom: 80px;
     }
     input{
-        width: 355px;
+        width: 328px;
     }
     #loginbutton {
-        width: 271px;
+        width: 76%;
         margin-top: 20px;
         margin-bottom: 20px;
     }

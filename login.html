@@ -12,49 +12,52 @@
         <div class="image">
             <img src="/assets/register.png" alt="">
         </div>
-        <div class="loginform">
-            <div class="head">
-                <h1>Login</h1>
-                <div class="line">
-                    <div class="underline"></div>
+        <div class="login">
+            <div class="loginform">
+                <div class="head">
+                    <h1>Login</h1>
+                    <div class="line">
+                        <div class="underline"></div>
+                    </div>
                 </div>
+                
+                <form>
+                       <label for="email">Email:
+                        <input type="email" placeholder="" id="loginemail">
+                       </label>
+                </form>
+                <form>
+                    <label for="password">Password:
+                    <input type="password" placeholder="" id="loginpassword">
+                    <!-- <i class="fa fa-eye" style="font-size:24px"></i> -->
+                    </label>
+                </form>
+                <div class="end">
+                    <input type="checkbox" id="checkbox"> 
+                    <div class="text">
+                        Keep me logged in
+                    </div>
+                    <div class="forgetPassword">
+                        Forget Password?
+                    </div>
+                </div>
+    
+                <div class="loginButton">
+                    <button id="loginbutton" onclick="login()">Login</button>
+                </div>
+                <div class="noaccount">
+                    <div class="text2">
+                        Doesn’t have an account? 
+                    </div>
+                    <div id="link">
+                        <i onclick="redirect1()">Create an account</i>
+                    </div>
+                 
+                </div>
+                
             </div>
-            
-            <form>
-                   <label for="email">Email:
-                    <input type="email" placeholder="" id="loginemail">
-                   </label>
-            </form>
-            <form>
-                <label for="password">Password:
-                <input type="password" placeholder="" id="loginpassword">
-                <!-- <i class="fa fa-eye" style="font-size:24px"></i> -->
-                </label>
-            </form>
-            <div class="end">
-                <input type="checkbox" id="checkbox"> 
-                <div class="text">
-                    Keep me logged in
-                </div>
-                <div class="forgetPassword">
-                    Forget Password?
-                </div>
-            </div>
-
-            <div class="loginButton">
-                <button id="loginbutton" onclick="login()">Login</button>
-            </div>
-            <div class="noaccount">
-                <div class="text2">
-                    Doesn’t have an account? 
-                </div>
-                <div id="link">
-                    <i onclick="redirect1()">Create an account</i>
-                </div>
-             
-            </div>
-            
         </div>
+     
     </div>
 
 </body>
