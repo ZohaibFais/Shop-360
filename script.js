@@ -130,6 +130,59 @@ options.forEach(function(option) {
     });
 });
 
+
+function redirect1(){
+    window.location.href = "http://127.0.0.1:5500/register.html"   //register page
+}
+
+function redirect2(){
+    window.location.href = "http://127.0.0.1:5500/login.html"  // login page
+}
+
+function redirect3(){
+    window.location.href = "http://127.0.0.1:5500/home.html"  // home page
+}
+
+function redirect4(){
+    window.location.href = "http://127.0.0.1:5500/addproduct.html" // add product
+}
+
+function redirect5(){
+    window.location.href = "http://127.0.0.1:5500/myproduct.html" // My product page
+}
+
+function redirect6(){
+    window.location.href = "http://127.0.0.1:5500/allprdoucts.html"  // All product
+}
+
+function redirect7(){
+    window.location.href = "http://127.0.0.1:5500/controller.html"  // Controller page
+}
+
+function redirect8(){
+    window.location.href = "http://127.0.0.1:5500/led.html"  // LED page
+}
+
+function redirect9(){
+    window.location.href = "http://127.0.0.1:5500/chair.html"  // Chair page
+}
+
+function redirect10(){
+    window.location.href = "http://127.0.0.1:5500/pot.html"  //pot page
+}
+
+function redirect11(){
+    window.location.href = "http://127.0.0.1:5500/profile.html"   //profile Setting
+}
+function redirect12(){
+    window.location.href = "http://127.0.0.1:5500/contact.html"  //contact page
+}
+
+function redirect13(){
+    window.location.href = "http://127.0.0.1:5500/fav.html" // favpage
+}
+
+
 function add() {
     let productNameInput = document.querySelector('.productName input');
     let categoryInput = document.querySelector('.category select');
@@ -220,56 +273,6 @@ function remove() {    //remove product
 
 
 
-function redirect1(){
-    window.location.href = "http://127.0.0.1:5500/register.html"   //register page
-}
-
-function redirect2(){
-    window.location.href = "http://127.0.0.1:5500/login.html"  // login page
-}
-
-function redirect3(){
-    window.location.href = "http://127.0.0.1:5500/home.html"  // home page
-}
-
-function redirect4(){
-    window.location.href = "http://127.0.0.1:5500/addproduct.html" // add product
-}
-
-function redirect5(){
-    window.location.href = "http://127.0.0.1:5500/myproduct.html" // My product page
-}
-
-function redirect6(){
-    window.location.href = "http://127.0.0.1:5500/allprdoucts.html"  // All product
-}
-
-function redirect7(){
-    window.location.href = "http://127.0.0.1:5500/controller.html"  // Controller page
-}
-
-function redirect8(){
-    window.location.href = "http://127.0.0.1:5500/led.html"  // LED page
-}
-
-function redirect9(){
-    window.location.href = "http://127.0.0.1:5500/chair.html"  // Chair page
-}
-
-function redirect10(){
-    window.location.href = "http://127.0.0.1:5500/pot.html"  //pot page
-}
-
-function redirect11(){
-    window.location.href = "http://127.0.0.1:5500/profile.html"   //profile Setting
-}
-function redirect12(){
-    window.location.href = "http://127.0.0.1:5500/contact.html"  //contact page
-}
-
-function redirect13(){
-    window.location.href = "http://127.0.0.1:5500/fav.html" // favpage
-}
 
 // myproductshow
 
@@ -411,7 +414,7 @@ function loadProductDetails() {
         if (product) {
             document.querySelector('.htext').textContent = product.productName;
             document.querySelector('.pic').innerHTML = '<img src="' + product.image + '" alt="">';
-            document.querySelector('.category').value =  product.category;
+            document.querySelector('.category').innerHTML = product.category;
             document.querySelector('.price').innerHTML = 'Price: Rs. ' + product.price;
             document.querySelector('.shortDescription').innerText = product.aboutProduct;
             document.querySelector('.deText').innerText = product.description;
@@ -477,7 +480,7 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 
-//Contact
+// Contact
 
 // document.addEventListener('DOMContentLoaded', function() {
 //     document.getElementById('sendbutton').addEventListener('click', storeContactFormData);
@@ -591,12 +594,31 @@ document.addEventListener('DOMContentLoaded', function() {
     favItem.addEventListener('click', function(event) {
         event.preventDefault();
 
-        const productName = document.getElementById('productname').textContent.trim();
-        const category = document.querySelector('.category').textContent.trim();
-        const price = document.querySelector('.price').textContent.trim();
-        const imageUrl = document.getElementById('.productpic').getAttribute('src');
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
 
-        const product = {
+        if (!productId) {
+            alert('Product ID not found in URL!');
+            return;
+        }
+
+        // Retrieve product data from localStorage
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+        const product = products.find(item => item.id === productId);
+
+        if (!product) {
+            alert('Product not found in localStorage!');
+            return;
+        }
+
+        const productName = product.productName;
+
+        // Retrieve product image from localStorage
+        const imageUrl = localStorage.getItem('productImage_' + productId);
+
+        const { category, price } = product;
+
+        const favoriteProduct = {
             name: productName,
             category: category,
             price: price,
@@ -608,86 +630,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const productIndex = favorites.findIndex(item => item.name === productName);
 
         if (productIndex === -1) {
-            favorites.push(product);
+            favorites.push(favoriteProduct);
             localStorage.setItem('favorites', JSON.stringify(favorites));
             alert('Product added to favorites!');
-        } 
-        else {
+        } else {
             alert('This product is already in your favorites.');
         }
     });
 });
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     if (window.location.href = 'http://127.0.0.1:5500/fav.html'){
-//         function displayFavorites() {
-//             const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    
-//             // Get the container where favorite products will be displayed
-//             const productsContainer = document.querySelector('.products');
-    
-//             // Clear previous content
-//             productsContainer.innerHTML = '';
-    
-//             // Iterate through each favorite product
-//             favorites.forEach(product => {
-//                 // Create elements for product display
-//                 const productBox = document.createElement('div');
-//                 productBox.classList.add('productBoxes');
-    
-//                 const consoleElement = document.createElement('div');
-//                 consoleElement.classList.add('console');
-    
-//                 const imageElement = document.createElement('div');
-//                 imageElement.classList.add('image');
-    
-//                 const consolePicElement = document.createElement('div');
-//                 consolePicElement.classList.add('consolepic');
-//                 const productImage = document.createElement('img');
-//                 productImage.setAttribute('src', product.imageUrl);
-//                 productImage.setAttribute('alt', product.name);
-//                 consolePicElement.appendChild(productImage);
-    
-//                 const detailElement = document.createElement('div');
-//                 detailElement.classList.add('detail');
-    
-//                 const consoletextElement = document.createElement('div');
-//                 consoletextElement.classList.add('consoletext');
-    
-//                 const textMainElement = document.createElement('div');
-//                 textMainElement.classList.add('textmain');
-//                 textMainElement.textContent = product.name;
-    
-//                 const prNameElement = document.createElement('div');
-//                 prNameElement.classList.add('prname');
-//                 prNameElement.textContent = product.category;
-    
-//                 const priceElement = document.createElement('div');
-//                 priceElement.classList.add('price');
-//                 priceElement.textContent = product.price;
-    
-//                 // Append elements to the product box
-//                 consoletextElement.appendChild(textMainElement);
-//                 consoletextElement.appendChild(prNameElement);
-//                 consoletextElement.appendChild(priceElement);
-    
-//                 imageElement.appendChild(consolePicElement);
-//                 imageElement.appendChild(detailElement);
-    
-//                 consoleElement.appendChild(imageElement);
-//                 consoleElement.appendChild(consoletextElement);
-    
-//                 productBox.appendChild(consoleElement);
-    
-//                 // Append product box to the container
-//                 productsContainer.appendChild(productBox);
-//             });
-//         }
-//     }
-//     // Function to display favorite products
-    
-
-//     // Call displayFavorites function when the page is loaded
-//     displayFavorites();
-// });

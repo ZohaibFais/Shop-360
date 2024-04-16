@@ -258,7 +258,7 @@ ul li {
     font-family: 'public sans';
     font-weight: 500;
     font-size: 16px;
-    letter-spacing: 3%;
+    /* letter-spacing: 3%; */
     padding-top: 10px;
 }
 .price{
