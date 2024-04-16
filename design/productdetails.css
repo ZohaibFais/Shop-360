@@ -194,12 +194,11 @@ ul li {
     align-items: center;
     justify-content: center;
 }
-#controllerpic{
+/* #productpic{
     width: 55%;
     height: 45%;
     margin-bottom: 40px;
-    /* background-color: peru; */
-}
+} */
 .text{
     width: 47%;
     /* background: palegreen; */

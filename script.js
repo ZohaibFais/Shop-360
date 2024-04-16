@@ -594,7 +594,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const productName = document.getElementById('productname').textContent.trim();
         const category = document.querySelector('.category').textContent.trim();
         const price = document.querySelector('.price').textContent.trim();
-        const imageUrl = document.getElementById('controllerpic').getAttribute('src');
+        const imageUrl = document.getElementById('.productpic').getAttribute('src');
 
         const product = {
             name: productName,
@@ -620,70 +620,73 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // document.addEventListener('DOMContentLoaded', function() {
-//     // Function to display favorite products
-//     function displayFavorites() {
-//         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-//         // Get the container where favorite products will be displayed
-//         const productsContainer = document.querySelector('.products');
-
-//         // Clear previous content
-//         productsContainer.innerHTML = '';
-
-//         // Iterate through each favorite product
-//         favorites.forEach(product => {
-//             // Create elements for product display
-//             const productBox = document.createElement('div');
-//             productBox.classList.add('productBoxes');
-
-//             const consoleElement = document.createElement('div');
-//             consoleElement.classList.add('console');
-
-//             const imageElement = document.createElement('div');
-//             imageElement.classList.add('image');
-
-//             const consolePicElement = document.createElement('div');
-//             consolePicElement.classList.add('consolepic');
-//             const productImage = document.createElement('img');
-//             productImage.setAttribute('src', product.imageUrl);
-//             productImage.setAttribute('alt', product.name);
-//             consolePicElement.appendChild(productImage);
-
-//             const detailElement = document.createElement('div');
-//             detailElement.classList.add('detail');
-
-//             const consoletextElement = document.createElement('div');
-//             consoletextElement.classList.add('consoletext');
-
-//             const textMainElement = document.createElement('div');
-//             textMainElement.classList.add('textmain');
-//             textMainElement.textContent = product.name;
-
-//             const prNameElement = document.createElement('div');
-//             prNameElement.classList.add('prname');
-//             prNameElement.textContent = product.category;
-
-//             const priceElement = document.createElement('div');
-//             priceElement.classList.add('price');
-//             priceElement.textContent = product.price;
-
-//             // Append elements to the product box
-//             consoletextElement.appendChild(textMainElement);
-//             consoletextElement.appendChild(prNameElement);
-//             consoletextElement.appendChild(priceElement);
-
-//             imageElement.appendChild(consolePicElement);
-//             imageElement.appendChild(detailElement);
-
-//             consoleElement.appendChild(imageElement);
-//             consoleElement.appendChild(consoletextElement);
-
-//             productBox.appendChild(consoleElement);
-
-//             // Append product box to the container
-//             productsContainer.appendChild(productBox);
-//         });
+//     if (window.location.href = 'http://127.0.0.1:5500/fav.html'){
+//         function displayFavorites() {
+//             const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+//             // Get the container where favorite products will be displayed
+//             const productsContainer = document.querySelector('.products');
+    
+//             // Clear previous content
+//             productsContainer.innerHTML = '';
+    
+//             // Iterate through each favorite product
+//             favorites.forEach(product => {
+//                 // Create elements for product display
+//                 const productBox = document.createElement('div');
+//                 productBox.classList.add('productBoxes');
+    
+//                 const consoleElement = document.createElement('div');
+//                 consoleElement.classList.add('console');
+    
+//                 const imageElement = document.createElement('div');
+//                 imageElement.classList.add('image');
+    
+//                 const consolePicElement = document.createElement('div');
+//                 consolePicElement.classList.add('consolepic');
+//                 const productImage = document.createElement('img');
+//                 productImage.setAttribute('src', product.imageUrl);
+//                 productImage.setAttribute('alt', product.name);
+//                 consolePicElement.appendChild(productImage);
+    
+//                 const detailElement = document.createElement('div');
+//                 detailElement.classList.add('detail');
+    
+//                 const consoletextElement = document.createElement('div');
+//                 consoletextElement.classList.add('consoletext');
+    
+//                 const textMainElement = document.createElement('div');
+//                 textMainElement.classList.add('textmain');
+//                 textMainElement.textContent = product.name;
+    
+//                 const prNameElement = document.createElement('div');
+//                 prNameElement.classList.add('prname');
+//                 prNameElement.textContent = product.category;
+    
+//                 const priceElement = document.createElement('div');
+//                 priceElement.classList.add('price');
+//                 priceElement.textContent = product.price;
+    
+//                 // Append elements to the product box
+//                 consoletextElement.appendChild(textMainElement);
+//                 consoletextElement.appendChild(prNameElement);
+//                 consoletextElement.appendChild(priceElement);
+    
+//                 imageElement.appendChild(consolePicElement);
+//                 imageElement.appendChild(detailElement);
+    
+//                 consoleElement.appendChild(imageElement);
+//                 consoleElement.appendChild(consoletextElement);
+    
+//                 productBox.appendChild(consoleElement);
+    
+//                 // Append product box to the container
+//                 productsContainer.appendChild(productBox);
+//             });
+//         }
 //     }
+//     // Function to display favorite products
+    
 
 //     // Call displayFavorites function when the page is loaded
 //     displayFavorites();
