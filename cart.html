@@ -4,8 +4,243 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
+    <link rel="stylesheet" href="/design/cart.css">
 </head>
 <body>
-    
+    <div class="container">
+        <header id="header">
+            <div class="first">
+                <div class="phone">
+                    <img src="/assets/call.png" alt="">
+                </div>
+                <div class="number">
+                    +123 456 789
+                </div>
+         
+            </div>
+              
+            <div class="delivery">
+                Free Delivery on order above <span id="price" style="text-decoration: underline;">4000</span> 
+
+            </div>
+            <div class="button">
+                <div id="signupButton" onclick="redirect1()">SignUp</div>
+                <div id="loginButton" onclick="redirect2()">Login</div>
+            </div>
+           
+        </header>
+        <div class="header2">
+            <div class="firsthalf">
+                <div class="name">  
+                    Shop360
+                </div>
+                <div class="links">
+                    <ul>
+                        <li onclick="redirect3()">Home</li> 
+                        <li onclick=" redirect5()">My Products</li> 
+                        <li onclick="redirect12()">Contact</li>   
+                    </ul>
+                </div>
+            </div>
+            <div class="secondhalf">
+                <div class="fav" onclick=" redirect13()">
+                    <img src="/assets/fav.png" alt="">
+                </div>
+                <div class="custom-select">
+                    <div id="dropdownContainer">
+                        <img src="/assets/icon.png" id="dropdownIcon">
+                        <div id="dropdownContent">
+                            <div class="option" data-value="profile"onclick="redirect11()">Profile Settings</div>
+                            <div class="option" data-value="logout" style="color: #E8492A;" onclick="redirect2()">Logout</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+                
+        </div>
+        <div class="breadcrumb">
+            <span class="color1Text"> Home</span>
+            <span class="color1Text">/</span>
+            <span class="color2Text">Cart</span>
+        </div>
+        <div class="main">
+            <div class="mainHead">
+                <div class="text">
+                 <p id="heading">Your cart</p>
+                 <p id="lowerText"> Not ready to checkout ? Continue shopping</p>
+                </div>
+            </div>
+        </div>
+        <div class="main2">
+            <div class="productdetails">
+
+                <div class="orderedproduct">
+                    <div class="imagedisplay" id="orderpic">
+                        <!-- <img src="/assets/controller.png" alt=""> -->
+                    </div>
+                    <div class="orderdetails">
+                        <!-- <p id="ordername">Gaming Console</p> -->
+                       <span id="orderquantity"> Quantity: <p id="ordernum"></p></span>
+                        <span id="perproductprice"> </p>
+                    </div> 
+                    <div class="detail">
+                        <button id="trash"><img src="/assets/trash.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="linebreak"></div>
+                <!-- <div class="orderedproduct">
+                    <div class="imagedisplay" id="orderpic">
+                        <img src="/assets/controller.png" alt="">
+                    </div>
+                    <div class="orderdetails">
+                        <p id="ordername">Gaming Console</p>
+                       <span id="orderquantity"> Quantity: <p id="ordernum">2</p></span>
+                        <span id="perproductprice"> Rs 240</p>
+                    </div> 
+                    <div class="detail">
+                        <button id="trash"><img src="/assets/trash.png" alt=""></button>
+                    </div>
+                </div> -->
+                <!-- <div class="linebreak"></div> -->
+                <!-- <div class="orderedproduct">
+                    <div class="imagedisplay" id="orderpic">
+                        <img src="/assets/controller.png" alt="">
+                    </div>
+                    <div class="orderdetails">
+                        <p id="ordername">Gaming Console</p>
+                       <span id="orderquantity"> Quantity: <p id="ordernum">2</p></span>
+                        <span id="perproductprice"> Rs 240</p>
+                    </div> 
+                    <div class="detail">
+                        <button id="trash"><img src="/assets/trash.png" alt=""></button>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="checkout">
+                <div class="checkhead">
+                    Order Summary
+                </div>
+                <div class="subtotal">
+                    <div class="subtext">
+                        Subtotal:
+                    </div>
+                    <div class="subprice" id="quantitytotalprice">  <!-- Per price * Total Quantity-->
+                       <!-- Rs 240 -->
+                    </div>
+                </div>
+
+                <div class="subtotal">
+                    <div class="subtext">
+                        Shipping charges:
+                    </div>
+                    <div class="subprice" id="shipprice">  <!-- Shipping price 100  Free above 4000-->                                  
+                       <!-- Rs 100 -->
+                    </div>
+                </div>
+                <div class="linebreak"></div>
+
+                <div class="subtotal">
+                    <div class="subtext">
+                        Subtotal:
+                    </div>
+                    <div class="subprice" id="afterDelivery">  <!-- Price after delivery-->
+                       <!-- Rs 240 -->
+                    </div>
+                </div>
+
+                
+                <div class="subtotal">
+                    <div class="subtext">
+                        10% discount on order above Rs. 500 : 
+                    </div>
+                    <div class="subprice" id="discount">  <!-- Price discount 10% of price after ship-->
+                       <!-- Rs 240 -->
+                    </div>
+                </div>
+
+                <div class="subtotal">
+                    <div class="subtext">
+                       Total:
+                    </div>
+                    <div class="subprice" id="totalprice">  <!-- Final price-->
+                       <!-- Rs 240 -->
+                    </div>
+                </div>
+
+                <div class="checkoutbutton">
+                    <button id="checkbutton">Continue to checkout</button>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+
+        <footer>
+            <div class="newsletter">
+                <div class="newsHead">
+                    <h3>Sign up for our newsletter</h3>
+                </div>
+                <div class="newsText">
+                    Be the first to know about our special offers, new product <br>launches, and events
+                </div>
+                <div class="email-input-container">
+                    <input type="email" class="email-input" placeholder="Email Address">
+                    <div class="signup-button">Sign Up</div>
+                </div>
+            </div>
+            <div class="lasttext">
+                <div class="shop">
+                    <div class="shopHead">
+                        Shop
+                    </div>
+                    <div class="shopText">
+                       <p>Women’s</p> <br>
+                        <p>Men’s</p>  <br>
+                        <p>Kids’</p>  <br>
+                        <p>Shoes</p>  <br>    
+                        <p>Equipment</p><br>    
+                        <p>By Activity</p> <br>  
+                        <p>Gift Cards</p>  <br>  
+                        <p>Sale</p>     
+                    </div>
+
+                </div>
+                
+                <div class="shop">
+                    <div class="shopHead">
+                        Help
+                    </div>
+                    <div class="shopText">
+                      <p>Help Center</p> <br>
+                        <p>Order Status</p><br>
+                        <p>Size Chart</p><br>
+                        <p>Returns & Warranty</p><br>
+                        <p>Contact Us</p>
+                      
+                    </div>
+
+                </div>
+
+                <div class="shop">
+                    <div class="shopHead">
+                        About
+                    </div>
+                    <div class="shopText">
+                        <p>About Us</p> <br>
+                        <p>Responsibility</p><br>
+                        <p>Technology & Innovation</p><br>
+                        <p>Explore our stories</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/script.js"></script>
 </body>
 </html>

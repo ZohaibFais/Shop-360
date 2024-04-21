@@ -192,6 +192,9 @@ function redirect12(){
 function redirect13(){
     window.location.href = "http://127.0.0.1:5500/fav.html" // favpage
 }
+function redirect14(){
+    window.location.href = "http://127.0.0.1:5500/cart.html"  //cart page
+}
 
 
 function add() {
@@ -729,10 +732,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to get login user's email
    
 });
+
+//get login email 
 function getUserEmail() {
     const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
     return loggedInUser ? loggedInUser.registeremail : null;
 }
+
+//display fav
 
 document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname.endsWith('/fav.html')) {
@@ -810,5 +817,93 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-///////////FAV
+///////////FAV END 
 
+
+
+/// CART 
+
+function addToCart() {
+    // Get the quantity from the input field
+    const quantityInput = document.getElementById("ordercount").value.trim();
+    const quantity = parseInt(quantityInput);
+
+    // Check if quantity is NaN or less than or equal to 0
+    if (isNaN(quantity) || quantity <= 0) {
+        alert("Quantity must be a valid positive number");
+        return;
+    }
+
+    // Initialize variables for productName, imageUrl, and price
+    let productName = "";
+    let imageUrl = "";
+    let price = 0;
+
+    // Get the current URL
+    const currentURL = window.location.href;
+
+    // Set productName, imageUrl, and price based on the current URL
+    if (currentURL.includes("myprodescription.html")) {
+        // If it's the product description page, get data from local storage
+        const productId = (new URLSearchParams(window.location.search)).get('id');
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+        const product = products.find(item => item.id === productId);
+        
+        // Check if the product is found in local storage
+        if (product) {
+            productName = product.productName;
+            imageUrl = product.image;
+            price = parseFloat(product.price);
+        } else {
+            console.error("Product not found in local storage.");
+            return;
+        }
+    } else if (currentURL.includes("controller")) {
+        // For Controller page
+        productName = document.getElementById("productname").textContent.trim();
+        imageUrl = document.getElementById("productpic").src;
+        price = parseFloat(document.getElementById("productprice").textContent.trim());
+    } else if (currentURL.includes("led")) {
+        // For LED page
+        productName = document.getElementById("productname").textContent.trim();
+        imageUrl = document.getElementById("productpic").src;
+        price = document.getElementById("productprice").innerText
+    } else if (currentURL.includes("chair")) {
+        // For Chair page
+        productName = document.getElementById("productname").textContent.trim();
+        imageUrl = document.getElementById("productpic").src;
+        price = parseFloat(document.getElementById("productprice").textContent.trim());
+    } else if (currentURL.includes("pot")) {
+        // For Pot page
+        productName = document.getElementById("productname").textContent.trim();
+        imageUrl = document.getElementById("productpic").src;
+        price = parseFloat(document.getElementById("productprice").textContent.trim());
+    } else {
+        console.error("Unknown product page.");
+        return;
+    }
+
+    // Debugging: Log the retrieved values
+    console.log("ProductName:", productName);
+    console.log("ImageUrl:", imageUrl);
+    console.log("Price:", price);
+
+    // Retrieve existing cart items from local storage or initialize an empty array
+    const existingCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    // Create a new cart item object
+    const cartItem = {
+        productName: productName,
+        quantity: quantity,
+        price: price,
+        imageUrl: imageUrl
+    };
+
+    // Push the new cart item to the existing cart items array
+    existingCartItems.push(cartItem);
+
+    // Store the updated cart items array back into local storage
+    localStorage.setItem("cartItems", JSON.stringify(existingCartItems));
+
+    alert("Item added to cart successfully!");
+}

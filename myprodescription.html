@@ -46,7 +46,7 @@
                 <div class="fav" onclick=" redirect13()">
                     <img src="/assets/fav.png" alt="">
                 </div>
-                <div class="cart">
+                <div class="cart" onclick=" redirect14()">
                     <img src="/assets/cart.png" alt="">
                 </div>
                 <div class="custom-select">
@@ -90,7 +90,7 @@
                 <div class="category">
                     <!-- Electronics -->
                 </div>
-                <div class="price">
+                <div class="price" id="productprice">
                     <!-- Rs. 120 -->
                 </div>
                 <div class="shortDescription">
@@ -111,7 +111,7 @@
                     </div>
                     
                     <div class="ordercart">
-                        <button id="buttoncart"> Add to Cart</button>
+                        <button id="buttoncart" onclick="addToCart()"> Add to Cart</button>
                     </div>
                     <div class="favcart">
                         <img src="/assets/fav.png" alt="" id="favitem">
