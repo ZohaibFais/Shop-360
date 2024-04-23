@@ -900,3 +900,100 @@ function addToCart() {
 
     alert("Item added to cart successfully!");
 }
+
+// Function to display items from local storage in the cart
+function displayCartItems() {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const productDetailsDiv = document.querySelector(".productdetails");
+
+    // Clear previous contents
+    productDetailsDiv.innerHTML = "";
+
+    // Loop through each item in the cart and display its details
+    cartItems.forEach(item => {
+        const orderedProductDiv = document.createElement("div");
+        orderedProductDiv.classList.add("orderedproduct");
+
+        const imageDisplayDiv = document.createElement("div");
+        imageDisplayDiv.classList.add("imagedisplay");
+        imageDisplayDiv.innerHTML = `<img src="${item.imageUrl}" alt="">`;
+
+        const orderDetailsDiv = document.createElement("div");
+        orderDetailsDiv.classList.add("orderdetails");
+        orderDetailsDiv.innerHTML = `
+            <p>${item.productName}</p>
+            <span>Quantity: <p>${item.quantity}</p></span>
+            <span style="color: #E52E06;">Price: Rs. ${item.price * item.quantity}</span>
+        `;
+
+        const detailDiv = document.createElement("div");
+        detailDiv.classList.add("detail");
+        detailDiv.innerHTML = `<button class="trash" onclick="removeItem('${item.productName}')"><img src="/assets/trash.png" alt=""></button>`;
+
+        orderedProductDiv.appendChild(imageDisplayDiv);
+        orderedProductDiv.appendChild(orderDetailsDiv);
+        orderedProductDiv.appendChild(detailDiv);
+
+        productDetailsDiv.appendChild(orderedProductDiv);
+
+        // Add a line break after each product
+        const linebreakDiv = document.createElement("div");
+        linebreakDiv.classList.add("linebreak");
+        productDetailsDiv.appendChild(linebreakDiv);
+    });
+}
+
+
+// Function to calculate charges in the checkout portion
+function calculateCharges() {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const quantityTotalPrice = document.getElementById("quantitytotalprice");
+    const shipPrice = document.getElementById("shipprice");
+    const afterDelivery = document.getElementById("afterDelivery");
+    const discount = document.getElementById("discount");
+    const totalPrice = document.getElementById("totalprice");
+
+    // Calculate subtotal
+    let subtotal = 0;
+    cartItems.forEach(item => {
+        subtotal += item.quantity * item.price;
+    });
+    quantityTotalPrice.textContent = `Rs. ${subtotal.toFixed(2)}`;
+
+    // Calculate shipping charges
+    const shippingThreshold = 4000;
+    let shippingCharge = subtotal < shippingThreshold ? 100 : 0;
+    shipPrice.textContent = `Rs. ${shippingCharge}`;
+
+    // Calculate price after delivery
+    afterDelivery.textContent = `Rs. ${subtotal + shippingCharge}`;
+
+    // Calculate discount
+    let discountAmount = 0;
+    if (subtotal >= 500) {
+        discountAmount = (subtotal + shippingCharge) * 0.1;
+    }
+    discount.textContent = `Rs. ${discountAmount.toFixed(2)}`;
+
+    // Calculate total price
+    totalPrice.textContent = `Rs. ${(subtotal + shippingCharge - discountAmount).toFixed(2)}`;
+}
+
+// Function to remove an item from the cart
+function removeItem(productName) {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    cartItems = cartItems.filter(item => item.productName !== productName);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    displayCartItems();
+    calculateCharges();
+
+    // Apply styling from cart.css to the trash button
+    const trashButton = document.getElementById("trash");
+    trashButton.classList.add("trash"); // Add the "trash" class
+}
+
+// Call displayCartItems and calculateCharges functions when the page loads
+window.onload = function() {
+    displayCartItems();
+    calculateCharges();
+};
