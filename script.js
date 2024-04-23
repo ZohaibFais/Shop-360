@@ -820,7 +820,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ///////////FAV END 
 
 
-
+    
 /// CART 
 
 function addToCart() {
