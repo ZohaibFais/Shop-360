@@ -429,7 +429,7 @@ function loadProductDetails() {
             document.querySelector('.htext').textContent = product.productName;
             document.querySelector('.pic').innerHTML = '<img src="' + product.image + '" alt="">';
             document.querySelector('.category').innerHTML = product.category;
-            document.querySelector('.price').innerHTML = 'Price: Rs. ' + product.price;
+            document.querySelector('.price').innerHTML = ' Rs. ' + product.price;
             document.querySelector('.shortDescription').innerText = product.aboutProduct;
             document.querySelector('.deText').innerText = product.description;
         } else {
@@ -823,6 +823,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
 /// CART 
 
+//Save items in LS
+
 function addToCart() {
     // Get the quantity from the input field
     const quantityInput = document.getElementById("ordercount").value.trim();
@@ -844,12 +846,11 @@ function addToCart() {
 
     // Set productName, imageUrl, and price based on the current URL
     if (currentURL.includes("myprodescription.html")) {
-        // If it's the product description page, get data from local storage
+      
         const productId = (new URLSearchParams(window.location.search)).get('id');
         const products = JSON.parse(localStorage.getItem('products')) || [];
         const product = products.find(item => item.id === productId);
         
-        // Check if the product is found in local storage
         if (product) {
             productName = product.productName;
             imageUrl = product.image;
@@ -867,7 +868,7 @@ function addToCart() {
         // For LED page
         productName = document.getElementById("productname").textContent.trim();
         imageUrl = document.getElementById("productpic").src;
-        price = document.getElementById("productprice").innerText
+        price = parseFloat(document.getElementById("productprice").textContent.trim());
     } else if (currentURL.includes("chair")) {
         // For Chair page
         productName = document.getElementById("productname").textContent.trim();
@@ -879,19 +880,13 @@ function addToCart() {
         imageUrl = document.getElementById("productpic").src;
         price = parseFloat(document.getElementById("productprice").textContent.trim());
     } else {
-        console.error("Unknown product page.");
+        console.error("Unknown");
         return;
     }
 
-    // Debugging: Log the retrieved values
-    console.log("ProductName:", productName);
-    console.log("ImageUrl:", imageUrl);
-    console.log("Price:", price);
-
-    // Retrieve existing cart items from local storage or initialize an empty array
+    
     const existingCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    // Create a new cart item object
     const cartItem = {
         productName: productName,
         quantity: quantity,
@@ -899,10 +894,8 @@ function addToCart() {
         imageUrl: imageUrl
     };
 
-    // Push the new cart item to the existing cart items array
     existingCartItems.push(cartItem);
 
-    // Store the updated cart items array back into local storage
     localStorage.setItem("cartItems", JSON.stringify(existingCartItems));
 
     alert("Item added to cart successfully!");
