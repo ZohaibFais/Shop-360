@@ -939,20 +939,14 @@ function displayCartItems() {
 }
 
 function getCurrentUserEmail() {
-    // Retrieve the current user's email from your authentication system
-    // For example, if you're using a session or a token-based authentication system,
-    // you would retrieve the user's email from the session or token.
-    // Replace this implementation with your actual method of retrieving the current user's email.
-    // Example using localStorage:
+
     const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
     return loggedInUser ? loggedInUser.registeremail : '';
 }
 
 function calculateCharges() {
-    // Retrieve the current user's email
     const currentUserEmail = getCurrentUserEmail();
 
-    // Retrieve cart items specific to the current user
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     const userCartItems = cartItems.filter(item => item.loginEmail === currentUserEmail);
 
@@ -962,14 +956,12 @@ function calculateCharges() {
     const discount = document.getElementById("discount");
     const totalPrice = document.getElementById("totalprice");
 
-    // Calculate subtotal
     let subtotal = 0;
     userCartItems.forEach(item => {
         subtotal += item.quantity * item.price;
     });
     quantityTotalPrice.textContent = `Rs. ${subtotal.toFixed(2)}`;
 
-    // Calculate shipping charges
     const shippingThreshold = 4000;
     let shippingCharge = subtotal < shippingThreshold ? 100 : 0;
     shipPrice.textContent = `Rs. ${shippingCharge}`;
