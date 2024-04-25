@@ -836,6 +836,10 @@ function addToCart() {
         return;
     }
 
+    // Get the login email from the LoggedInUser array
+    const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+    const loginEmail = loggedInUser ? loggedInUser.registeremail : '';
+
     // Initialize variables for productName, imageUrl, and price
     let productName = "";
     let imageUrl = "";
@@ -846,7 +850,6 @@ function addToCart() {
 
     // Set productName, imageUrl, and price based on the current URL
     if (currentURL.includes("myprodescription.html")) {
-      
         const productId = (new URLSearchParams(window.location.search)).get('id');
         const products = JSON.parse(localStorage.getItem('products')) || [];
         const product = products.find(item => item.id === productId);
@@ -859,23 +862,8 @@ function addToCart() {
             console.error("Product not found in local storage.");
             return;
         }
-    } else if (currentURL.includes("controller")) {
-        // For Controller page
-        productName = document.getElementById("productname").textContent.trim();
-        imageUrl = document.getElementById("productpic").src;
-        price = parseFloat(document.getElementById("productprice").textContent.trim());
-    } else if (currentURL.includes("led")) {
-        // For LED page
-        productName = document.getElementById("productname").textContent.trim();
-        imageUrl = document.getElementById("productpic").src;
-        price = parseFloat(document.getElementById("productprice").textContent.trim());
-    } else if (currentURL.includes("chair")) {
-        // For Chair page
-        productName = document.getElementById("productname").textContent.trim();
-        imageUrl = document.getElementById("productpic").src;
-        price = parseFloat(document.getElementById("productprice").textContent.trim());
-    } else if (currentURL.includes("pot")) {
-        // For Pot page
+    } else if (currentURL.includes("controller") || currentURL.includes("led") || currentURL.includes("chair") || currentURL.includes("pot")) {
+        // For Controller, LED, Chair, and Pot pages
         productName = document.getElementById("productname").textContent.trim();
         imageUrl = document.getElementById("productpic").src;
         price = parseFloat(document.getElementById("productprice").textContent.trim());
@@ -884,14 +872,14 @@ function addToCart() {
         return;
     }
 
-    
     const existingCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
     const cartItem = {
         productName: productName,
         quantity: quantity,
         price: price,
-        imageUrl: imageUrl
+        imageUrl: imageUrl,
+        loginEmail: loginEmail // Add login email to the cart item
     };
 
     existingCartItems.push(cartItem);
@@ -901,16 +889,23 @@ function addToCart() {
     alert("Item added to cart successfully!");
 }
 
+
 // Function to display items from local storage in the cart
 function displayCartItems() {
+    // Get the current user's email from localStorage or any other appropriate source
+    const currentUserEmail = getCurrentUserEmail(); // Implement this function to retrieve the current user's email
+
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     const productDetailsDiv = document.querySelector(".productdetails");
 
     // Clear previous contents
     productDetailsDiv.innerHTML = "";
 
-    // Loop through each item in the cart and display its details
-    cartItems.forEach(item => {
+    // Filter cart items for the current user
+    const currentUserCartItems = cartItems.filter(item => item.loginEmail === currentUserEmail);
+
+    // Loop through each item in the user's cart and display its details
+    currentUserCartItems.forEach(item => {
         const orderedProductDiv = document.createElement("div");
         orderedProductDiv.classList.add("orderedproduct");
 
@@ -943,10 +938,24 @@ function displayCartItems() {
     });
 }
 
+function getCurrentUserEmail() {
+    // Retrieve the current user's email from your authentication system
+    // For example, if you're using a session or a token-based authentication system,
+    // you would retrieve the user's email from the session or token.
+    // Replace this implementation with your actual method of retrieving the current user's email.
+    // Example using localStorage:
+    const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+    return loggedInUser ? loggedInUser.registeremail : '';
+}
 
-// Function to calculate charges in the checkout portion
 function calculateCharges() {
+    // Retrieve the current user's email
+    const currentUserEmail = getCurrentUserEmail();
+
+    // Retrieve cart items specific to the current user
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const userCartItems = cartItems.filter(item => item.loginEmail === currentUserEmail);
+
     const quantityTotalPrice = document.getElementById("quantitytotalprice");
     const shipPrice = document.getElementById("shipprice");
     const afterDelivery = document.getElementById("afterDelivery");
@@ -955,7 +964,7 @@ function calculateCharges() {
 
     // Calculate subtotal
     let subtotal = 0;
-    cartItems.forEach(item => {
+    userCartItems.forEach(item => {
         subtotal += item.quantity * item.price;
     });
     quantityTotalPrice.textContent = `Rs. ${subtotal.toFixed(2)}`;
@@ -978,6 +987,7 @@ function calculateCharges() {
     // Calculate total price
     totalPrice.textContent = `Rs. ${(subtotal + shippingCharge - discountAmount).toFixed(2)}`;
 }
+
 
 // Function to remove an item from the cart
 function removeItem(productName) {
