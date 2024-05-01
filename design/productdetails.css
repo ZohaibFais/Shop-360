@@ -561,6 +561,9 @@ footer{
     .newsText{
         font-size: 13px;
     }
+    .breadcrumb{
+        width: 48%;
+    }
 }
 
 @media screen and (max-width:430px) {
@@ -593,6 +596,33 @@ footer{
     }
     .shop{
         margin-bottom: 20px;
+    }
+  
+    .breadcrumb {
+        width: 76%;
+    }
+    .main{
+        flex-wrap: wrap;
+        width: 90%;
+    }
+    .pic{
+        width: 80%;
+    }
+    #productpic img {
+        width: 100%;
+        padding: 41px;
+    }
+
+    .text {
+        width: 82%;
+        margin: 21px;
+    }
+
+    .deHead {
+        width: 48%;
+    }
+    .deunderline{
+        width: 40%;
     }
 }
 
