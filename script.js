@@ -78,7 +78,6 @@ function logout() {
 }
 // login
 if (window.location.href.includes("login.html")) {
-    // Only define the login function if on the login page
     function login() {
         let loginemail = document.getElementById('loginemail').value;
         let loginpassword = document.getElementById('loginpassword').value;
@@ -113,7 +112,6 @@ if (window.location.href.includes("login.html")) {
     }
 }
 
-// Assuming dropdownIcon and dropdownContent are defined elsewhere in your code
 const dropdownIcon = document.getElementById('dropdownIcon');
 const dropdownContent = document.getElementById('dropdownContent');
 
@@ -224,7 +222,6 @@ function add() {
     let loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
     let loggedInEmail = loggedInUser.registeremail;
 
-    // Get current timestamp
     let timestamp = new Date().getTime();
 
     let productData = {
