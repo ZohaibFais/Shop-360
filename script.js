@@ -978,7 +978,7 @@ function calculateCharges() {
 }
 
 
-// Function to remove an item from the cart
+//  remove item from the cart
 function removeItem(productName) {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     cartItems = cartItems.filter(item => item.productName !== productName);
@@ -991,7 +991,6 @@ function removeItem(productName) {
     trashButton.classList.add("trash"); // Add the "trash" class
 }
 
-// Call displayCartItems and calculateCharges functions when the page loads
 window.onload = function() {
     displayCartItems();
     calculateCharges();
