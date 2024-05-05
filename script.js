@@ -449,7 +449,6 @@ function editProduct() {
     }
 }
 
-///////////////////////////////////////////////////////// END
 
 
 function loadProductDetailsEditPage(productId) {
@@ -490,6 +489,8 @@ document.addEventListener("DOMContentLoaded", function() {
     loadProductDetailsEditPage(productId);
 })
 
+///////////////////////////////////////////////////////// END
+
 
 // Contact
 
@@ -498,10 +499,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Check if the user is logged in on page load
     const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
-    if (loggedInUser) {
-        // Load and display contact data for the logged-in user
-        loadContactData();
-    }
+  
 });
 
 function storeContactFormData() {
@@ -549,20 +547,7 @@ function storeContactFormData() {
     alert("Your message has been saved!");
 }
 
-function loadContactData() {
-    const contactList = document.getElementById('contactList');
-    const existingContacts = JSON.parse(localStorage.getItem('ContactUser')) || [];
 
-    // Clear the existing contact list
-    contactList.innerHTML = '';
-
-    // Display the contact data
-    existingContacts.forEach(contact => {
-        const contactElement = document.createElement('div');
-        contactElement.textContent = `${contact.firstName} ${contact.lastName}: ${contact.email} - ${contact.number}`;
-        contactList.appendChild(contactElement);
-    });
-}
 
 
 //////////// Load User Data
@@ -641,7 +626,7 @@ function saveUserData() {
 /////// END //////
 
 
-// code to store products to favorites LS
+//  store products to favorites LS
 
 document.addEventListener('DOMContentLoaded', function() {
     const favItem = document.getElementById('favitem');
