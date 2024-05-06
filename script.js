@@ -589,7 +589,6 @@ function saveUserData() {
     const city = document.getElementById('city').value;
     const password = document.getElementById('password').value;
 
-    // Retrieve the existing register users from localStorage
     let registerUsers = JSON.parse(localStorage.getItem('RegisterUser')) || [];
 
     // Find the index of the logged-in user in the register users array
@@ -661,7 +660,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: productName,
             category: category,
             price: price,
-            imageUrl: image, // Assuming 'image' is the property containing the image URL
+            imageUrl: image,
             userEmail: getUserEmail() // Get login user's email
         };
 
@@ -844,8 +843,9 @@ function addToCart() {
             console.error("Product not found in local storage.");
             return;
         }
-    } else if (currentURL.includes("controller") || currentURL.includes("led") || currentURL.includes("chair") || currentURL.includes("pot")) {
-        // For Controller, LED, Chair, and Pot pages
+    } 
+    else if (currentURL.includes("controller") || currentURL.includes("led") || currentURL.includes("chair") || currentURL.includes("pot")) {
+       
         productName = document.getElementById("productname").textContent.trim();
         imageUrl = document.getElementById("productpic").src;
         price = parseFloat(document.getElementById("productprice").textContent.trim());
@@ -874,16 +874,14 @@ function addToCart() {
 
 // Function to display items from local storage in the cart
 function displayCartItems() {
-    // Get the current user's email from localStorage or any other appropriate source
+
     const currentUserEmail = getCurrentUserEmail(); // Implement this function to retrieve the current user's email
 
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     const productDetailsDiv = document.querySelector(".productdetails");
 
-    // Clear previous contents
     productDetailsDiv.innerHTML = "";
 
-    // Filter cart items for the current user
     const currentUserCartItems = cartItems.filter(item => item.loginEmail === currentUserEmail);
 
     // Loop through each item in the user's cart and display its details
@@ -948,12 +946,10 @@ function calculateCharges() {
     let shippingCharge = subtotal < shippingThreshold ? 100 : 0;
     shipPrice.textContent = `Rs. ${shippingCharge}`;
 
-    // Calculate price after delivery
     afterDelivery.textContent = `Rs. ${subtotal + shippingCharge}`;
 
-    // Calculate discount
     let discountAmount = 0;
-    if (subtotal >= 500) {
+    if (subtotal > 500) {
         discountAmount = (subtotal + shippingCharge) * 0.1;
     }
     discount.textContent = `Rs. ${discountAmount.toFixed(2)}`;
